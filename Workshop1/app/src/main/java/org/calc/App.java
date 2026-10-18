@@ -3,19 +3,36 @@ package org.calc;
 import java.util.Scanner;
 
 public class App {
+  public static double inputDouble(Scanner s, String msg) {
+    try {
+      return s.nextDouble();
+    } catch (Exception _e) {
+      System.out.println(msg);
+      s.nextLine();
+      return -1;
+    }
+  }
+
+  public static double persistantInputDouble(Scanner s, String msg, String errmsg) {
+    double ret = -1;
+    System.out.print(msg);
+    while (0 > ret) {
+      ret = inputDouble(s, errmsg);
+    }
+    return ret;
+  }
+
   public static void calc1() {
     Scanner term = new Scanner(System.in);
 
     System.out.println("Mortgage Calculator");
 
-    System.out.printf("Principal: ");
-    double p = (double) term.nextInt();
-
-    System.out.printf("Annual Interest Rate: ");
-    double r = term.nextDouble() / 100;
-
-    System.out.printf("Loan Term in Years: ");
-    double y = (double) term.nextInt();
+    double p = persistantInputDouble(term, "Principal: ", "Invalid Principal [non-zero number]");
+    double r =
+        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]") / 100;
+    double y =
+        (int)
+            persistantInputDouble(term, "Loan Term in Years: ", "Invalid Years [non-zero number]");
 
     double n = y * 12.0;
     double i = r / 12.0;
@@ -34,14 +51,11 @@ public class App {
 
     System.out.println("Future Value");
 
-    System.out.printf("Principal: ");
-    double p = (double) term.nextInt();
-
-    System.out.printf("Annual Interest Rate: ");
-    double r = (double) term.nextDouble();
-
-    System.out.printf("Number of Years: ");
-    double t = (double) term.nextInt();
+    double p = persistantInputDouble(term, "Principal: ", "Invalid Principal [non-zero number]");
+    double r =
+        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]") / 100;
+    double t =
+        (int) persistantInputDouble(term, "Number of Years: ", "Invalid Years [non-zero number]");
 
     double d = 365;
 
@@ -59,14 +73,12 @@ public class App {
 
     System.out.println("Future Value");
 
-    System.out.printf("Montly Payout Amount: ");
-    double pmt = term.nextInt();
-
-    System.out.printf("Interest Rate: ");
-    double r = term.nextDouble() / 12;
-
-    System.out.printf("Years Payout: ");
-    double t = term.nextInt();
+    double pmt =
+        persistantInputDouble(term, "Montly Payout: ", "Invalid Montly Payout [non-zero number]");
+    double r =
+        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]") / 100;
+    double t =
+        (int) persistantInputDouble(term, "Number of Years: ", "Invalid Years [non-zero number]");
 
     double n = t * 12;
 
