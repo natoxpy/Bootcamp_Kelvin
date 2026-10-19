@@ -29,7 +29,8 @@ public class App {
 
     double p = persistantInputDouble(term, "Principal: ", "Invalid Principal [non-zero number]");
     double r =
-        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]") / 100;
+        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]")
+            / 100;
     double y =
         (int)
             persistantInputDouble(term, "Loan Term in Years: ", "Invalid Years [non-zero number]");
@@ -53,7 +54,8 @@ public class App {
 
     double p = persistantInputDouble(term, "Principal: ", "Invalid Principal [non-zero number]");
     double r =
-        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]") / 100;
+        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]")
+            / 100;
     double t =
         (int) persistantInputDouble(term, "Number of Years: ", "Invalid Years [non-zero number]");
 
@@ -63,7 +65,7 @@ public class App {
 
     double fv = p * Math.pow(1 + (r / d), n);
 
-    System.out.printf("Interest earned: %.2f%n", fv - p);
+    System.out.printf("Interest earned: $%.2f - $%.2f%n", fv, fv - p);
 
     term.close();
   }
@@ -71,12 +73,14 @@ public class App {
   public static void calc3() {
     Scanner term = new Scanner(System.in);
 
-    System.out.println("Future Value");
+    System.out.println("Present Value");
 
     double pmt =
         persistantInputDouble(term, "Montly Payout: ", "Invalid Montly Payout [non-zero number]");
     double r =
-        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]") / 100;
+        persistantInputDouble(term, "Annual Interest Rate: ", "Invalid Interest Rate [0%-100%]")
+            / 100
+            / 12;
     double t =
         (int) persistantInputDouble(term, "Number of Years: ", "Invalid Years [non-zero number]");
 
@@ -97,7 +101,7 @@ public class App {
     System.out.println("  [f] Future Value");
     System.out.println("  [p] Present Value");
 
-    char option = term.next().charAt(0);
+    char option = term.nextLine().charAt(0);
 
     switch (option) {
       case 'M':
