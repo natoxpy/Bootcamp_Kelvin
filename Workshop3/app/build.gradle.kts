@@ -36,6 +36,15 @@ java {
     }
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDir("app/src/main/resources") 
+        }
+    }
+}
+
+
 application {
     // Define the main class for the application.
     mainClass = "net.ecom.Main"

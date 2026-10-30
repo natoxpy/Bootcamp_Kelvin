@@ -44,6 +44,11 @@ public class ProductDisplayView {
     public void update(Model model) {
         this.content.clearChildren();
 
+        if (model.getCategorySelection() == null) {
+            this.title.updateUi((c) -> c.setContent(""));
+            return;
+        }
+
         this.title.updateUi((c) -> c.setContent("Clothing / Shoes"));
 
         ComponentUpdate<Text> setCenterX = (c)
@@ -142,7 +147,9 @@ public class ProductDisplayView {
 
             Text productTxt = new Text();
             productTxt
-                .updateUi((c) -> c.setContent(product.substring(0, Math.min(product.length(), nameWrap.getW() - 4))))
+                .updateUi((c)
+                              -> c.setContent(product.substring(
+                                  0, Math.min(product.length(), nameWrap.getW() - 4))))
                 .updateUi(UiComponent.SetX(1));
 
             nameWrap.addChildren(productTxt);

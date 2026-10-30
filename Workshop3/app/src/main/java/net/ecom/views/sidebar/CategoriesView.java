@@ -1,5 +1,7 @@
 package net.ecom.views.sidebar;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import net.ecom.Model;
 import net.ecom.components.Text;
 import net.ecom.components.UiComponent;
@@ -24,12 +26,23 @@ public class CategoriesView {
         return this.self;
     }
 
+    public int getSelfW() {
+        return ((Window) this.self).getW();
+    }
+
+    public int getSelfH() {
+        return ((Window) this.self).getH();
+    }
+
     public void update(Model model) {
         this.self.clearChildren();
 
         int top = 0;
+    root:
         for (String key : model.getCategories().keySet()) {
-            String[] categorySet = model.getCategories().get(key);
+            HashSet<String> categorySet = model.getCategories().get(key);
+            String[] categoryArr = new String[categorySet.size()];
+            categoryArr = categorySet.toArray(categoryArr);
 
             Text catTxt = new Text(key);
 
@@ -44,8 +57,11 @@ public class CategoriesView {
 
             catTxt.updateUi(c -> c.setContent(String.format("v %s", c.getContent())));
 
-            for (int i = 0; i < categorySet.length; i++) {
-                String categoryName = categorySet[i];
+            for (int i = 0; i < categorySet.size(); i++) {
+                if (top > this.getSelfH() - 5)
+                    break root;
+
+                String categoryName = categoryArr[i];
 
                 Text txt = new Text(categoryName);
 

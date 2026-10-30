@@ -18,4 +18,10 @@ public class Controller {
     public Model getModel() {
         return model;
     }
+
+    public void handleInput(int c) {
+        if (c == 'n') {
+			this.model.setTitle("Hello");
+        }
+    }
 }

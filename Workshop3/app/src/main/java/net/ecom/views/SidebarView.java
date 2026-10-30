@@ -49,7 +49,7 @@ public class SidebarView {
         this.title.updateUi((c) -> c.setContent(model.getTitle()));
 
         ComponentUpdate<Text> setCenterX = (c)
-            -> c.setX(UiComponent.getCenter(((Window) this.self).getW(), c.getContent().length()));
+            -> c.setX(UiComponent.getCenter(((Window) this.self).getW() - 2, c.getContent().length()));
 
         this.title.updateUi(setCenterX);
     }
