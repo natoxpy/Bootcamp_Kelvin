@@ -1,151 +1,252 @@
 SKU,Product,Category,Price
-ELE-COM-001,Dell XPS 13 Laptop,Electronics-Computers,1569.00
-ELE-COM-002,Apple MacBook Air M3,Electronics-Computers,493.77
-ELE-COM-003,HP Pavilion Desktop,Electronics-Computers,931.30
-ELE-COM-004,Lenovo ThinkPad X1,Electronics-Computers,840.62
-ELE-COM-005,ASUS ROG Gaming Laptop,Electronics-Computers,1738.82
-ELE-PHO-001,Apple iPhone 15,Electronics-Phones,976.70
-ELE-PHO-002,Samsung Galaxy S24,Electronics-Phones,1192.18
-ELE-PHO-003,Google Pixel 8,Electronics-Phones,386.94
-ELE-PHO-004,OnePlus 12,Electronics-Phones,721.92
-ELE-PHO-005,Motorola Edge 50,Electronics-Phones,329.80
-ELE-HPH-001,Sony WH-1000XM5,Electronics-Headphones,106.99
-ELE-HPH-002,Bose QuietComfort 45,Electronics-Headphones,214.51
-ELE-HPH-003,Apple AirPods Pro,Electronics-Headphones,34.95
-ELE-HPH-004,Sennheiser HD 660S,Electronics-Headphones,99.56
-ELE-HPH-005,JBL Tune 760NC,Electronics-Headphones,268.71
-CLO-SHO-001,Nike Air Max 90,Clothing-Shoes,109.47
-CLO-SHO-002,Adidas Ultraboost,Clothing-Shoes,59.17
-CLO-SHO-003,Converse Chuck Taylor All Star,Clothing-Shoes,116.34
-CLO-SHO-004,Vans Old Skool,Clothing-Shoes,150.46
-CLO-SHO-005,New Balance 990,Clothing-Shoes,26.01
-CLO-MEN-001,Levi's 501 Jeans,Clothing-Men's Wear,75.44
-CLO-MEN-002,Champion Hoodie,Clothing-Men's Wear,67.36
-CLO-MEN-003,Nike Dri-FIT T-Shirt,Clothing-Men's Wear,40.52
-CLO-MEN-004,Carhartt Work Jacket,Clothing-Men's Wear,26.66
-CLO-MEN-005,Polo Ralph Lauren Shirt,Clothing-Men's Wear,86.79
-CLO-WMN-001,Lululemon Align Leggings,Clothing-Women's Wear,43.61
-CLO-WMN-002,Zara Wrap Dress,Clothing-Women's Wear,22.88
-CLO-WMN-003,H&M Denim Jacket,Clothing-Women's Wear,23.22
-CLO-WMN-004,Nike Sports Bra,Clothing-Women's Wear,87.04
-CLO-WMN-005,Levi's Trucker Jacket,Clothing-Women's Wear,66.32
-HOM-FUR-001,IKEA MALM Dresser,Home Goods-Furniture,741.85
-HOM-FUR-002,Ashley Recliner Sofa,Home Goods-Furniture,678.38
-HOM-FUR-003,Wayfair Dining Table,Home Goods-Furniture,519.71
-HOM-FUR-004,Sauder Bookcase,Home Goods-Furniture,877.95
-HOM-FUR-005,Zinus Platform Bed Frame,Home Goods-Furniture,390.40
-HOM-KIT-001,Instant Pot Duo 7-in-1,Home Goods-Kitchenware,202.17
-HOM-KIT-002,KitchenAid Stand Mixer,Home Goods-Kitchenware,293.70
-HOM-KIT-003,Ninja Blender,Home Goods-Kitchenware,224.11
-HOM-KIT-004,Cuisinart Coffee Maker,Home Goods-Kitchenware,304.36
-HOM-KIT-005,Lodge Cast Iron Skillet,Home Goods-Kitchenware,210.53
-HOM-DEC-001,Throw Pillow Set,Home Goods-Decor,86.91
-HOM-DEC-002,Wall Clock,Home Goods-Decor,13.13
-HOM-DEC-003,Area Rug 5x7,Home Goods-Decor,33.52
-HOM-DEC-004,LED String Lights,Home Goods-Decor,40.41
-HOM-DEC-005,Framed Canvas Wall Art,Home Goods-Decor,16.94
-GRO-SNK-001,Lay's Classic Potato Chips,Groceries-Snacks,3.40
-GRO-SNK-002,Oreo Cookies,Groceries-Snacks,2.61
-GRO-SNK-003,Nature Valley Granola Bars,Groceries-Snacks,3.67
-GRO-SNK-004,Doritos Nacho Cheese,Groceries-Snacks,5.81
-GRO-SNK-005,Pringles Original,Groceries-Snacks,4.19
-GRO-BEV-001,Coca-Cola 12-Pack,Groceries-Beverages,7.44
-GRO-BEV-002,Gatorade Variety Pack,Groceries-Beverages,5.51
-GRO-BEV-003,Starbucks Ground Coffee,Groceries-Beverages,6.20
-GRO-BEV-004,Lipton Iced Tea,Groceries-Beverages,14.24
-GRO-BEV-005,San Pellegrino Sparkling Water,Groceries-Beverages,10.78
-GRO-BAK-001,Sourdough Bread Loaf,Groceries-Bakery,8.48
-GRO-BAK-002,Chocolate Chip Muffins,Groceries-Bakery,4.54
-GRO-BAK-003,Bagel 6-Pack,Groceries-Bakery,9.56
-GRO-BAK-004,Croissants 4-Pack,Groceries-Bakery,4.47
-GRO-BAK-005,Cinnamon Rolls,Groceries-Bakery,6.42
-SPO-FIT-001,Bowflex Adjustable Dumbbells,Sports & Outdoors-Fitness Equipment,1484.44
-SPO-FIT-002,Yoga Mat,Sports & Outdoors-Fitness Equipment,965.40
-SPO-FIT-003,Resistance Bands Set,Sports & Outdoors-Fitness Equipment,842.07
-SPO-FIT-004,Peloton Bike,Sports & Outdoors-Fitness Equipment,1031.65
-SPO-FIT-005,Treadmill NordicTrack,Sports & Outdoors-Fitness Equipment,1266.64
-SPO-CMP-001,Coleman 4-Person Tent,Sports & Outdoors-Camping,312.64
-SPO-CMP-002,Sleeping Bag,Sports & Outdoors-Camping,99.33
-SPO-CMP-003,Portable Camping Stove,Sports & Outdoors-Camping,22.52
-SPO-CMP-004,YETI Cooler,Sports & Outdoors-Camping,133.03
-SPO-CMP-005,Camping Lantern,Sports & Outdoors-Camping,114.42
-SPO-CYC-001,Trek Mountain Bike,Sports & Outdoors-Cycling,197.77
-SPO-CYC-002,Bell Bike Helmet,Sports & Outdoors-Cycling,849.19
-SPO-CYC-003,Bike Lock,Sports & Outdoors-Cycling,789.97
-SPO-CYC-004,Cycling Gloves,Sports & Outdoors-Cycling,290.06
-SPO-CYC-005,LED Bike Light Set,Sports & Outdoors-Cycling,593.34
-TOY-BRD-001,Monopoly Classic,Toys & Games-Board Games,29.78
-TOY-BRD-002,Catan Settlers Board Game,Toys & Games-Board Games,55.73
-TOY-BRD-003,Scrabble,Toys & Games-Board Games,32.94
-TOY-BRD-004,Risk Strategy Game,Toys & Games-Board Games,23.24
-TOY-BRD-005,Codenames,Toys & Games-Board Games,22.33
-TOY-PUZ-001,1000-Piece Landscape Puzzle,Toys & Games-Puzzles,25.96
-TOY-PUZ-002,3D Wooden Puzzle,Toys & Games-Puzzles,16.41
-TOY-PUZ-003,500-Piece Map Puzzle,Toys & Games-Puzzles,26.71
-TOY-PUZ-004,Rubik's Cube,Toys & Games-Puzzles,36.73
-TOY-PUZ-005,Kids Floor Puzzle,Toys & Games-Puzzles,20.78
-TOY-ACF-001,Marvel Avengers Figure Set,Toys & Games-Action Figures,25.35
-TOY-ACF-002,Star Wars Lightsaber Toy,Toys & Games-Action Figures,79.83
-TOY-ACF-003,Transformers Optimus Prime,Toys & Games-Action Figures,45.67
-TOY-ACF-004,LEGO Star Wars Set,Toys & Games-Action Figures,16.36
-TOY-ACF-005,Hot Wheels Car Pack,Toys & Games-Action Figures,13.30
-BOK-BOO-001,Atomic Habits by James Clear,Books & Media-Books,9.86
-BOK-BOO-002,The Hobbit by J.R.R. Tolkien,Books & Media-Books,18.67
-BOK-BOO-003,Dune by Frank Herbert,Books & Media-Books,21.47
-BOK-BOO-004,1984 by George Orwell,Books & Media-Books,15.18
-BOK-BOO-005,The Alchemist by Paulo Coelho,Books & Media-Books,9.08
-BOK-MOV-001,Blu-ray: Inception,Books & Media-Movies,15.16
-BOK-MOV-002,4K UHD: The Matrix,Books & Media-Movies,29.91
-BOK-MOV-003,DVD: The Godfather,Books & Media-Movies,18.70
-BOK-MOV-004,Blu-ray: Interstellar,Books & Media-Movies,29.31
-BOK-MOV-005,4K UHD: Spider-Man,Books & Media-Movies,26.66
-BOK-MUS-001,Vinyl: Abbey Road - The Beatles,Books & Media-Music,8.31
-BOK-MUS-002,CD: Thriller - Michael Jackson,Books & Media-Music,27.46
-BOK-MUS-003,Vinyl: Dark Side of the Moon,Books & Media-Music,26.41
-BOK-MUS-004,CD: 21 - Adele,Books & Media-Music,22.50
-BOK-MUS-005,Vinyl: Rumours - Fleetwood Mac,Books & Media-Music,15.20
-BEA-SKN-001,CeraVe Moisturizing Cream,Beauty & Personal Care-Skincare,40.61
-BEA-SKN-002,Neutrogena Facial Cleanser,Beauty & Personal Care-Skincare,12.02
-BEA-SKN-003,The Ordinary Niacinamide Serum,Beauty & Personal Care-Skincare,29.48
-BEA-SKN-004,Aveeno Body Lotion,Beauty & Personal Care-Skincare,30.50
-BEA-SKN-005,La Roche-Posay Sunscreen SPF50,Beauty & Personal Care-Skincare,57.51
-BEA-HAI-001,Olaplex No.3 Hair Treatment,Beauty & Personal Care-Haircare,526.13
-BEA-HAI-002,Head & Shoulders Shampoo,Beauty & Personal Care-Haircare,161.72
-BEA-HAI-003,Dyson Airwrap Styler,Beauty & Personal Care-Haircare,302.85
-BEA-HAI-004,TRESemme Conditioner,Beauty & Personal Care-Haircare,111.30
-BEA-HAI-005,Moroccanoil Treatment,Beauty & Personal Care-Haircare,548.01
-BEA-MUP-001,Maybelline Mascara,Beauty & Personal Care-Makeup,44.30
-BEA-MUP-002,Fenty Beauty Foundation,Beauty & Personal Care-Makeup,19.13
-BEA-MUP-003,MAC Lipstick,Beauty & Personal Care-Makeup,34.11
-BEA-MUP-004,Urban Decay Eyeshadow Palette,Beauty & Personal Care-Makeup,32.79
-BEA-MUP-005,NARS Blush,Beauty & Personal Care-Makeup,12.72
-AUT-ACC-001,Weathertech Floor Mats,Automotive-Car Accessories,154.88
-AUT-ACC-002,Phone Mount for Car,Automotive-Car Accessories,112.48
-AUT-ACC-003,Car Seat Covers,Automotive-Car Accessories,157.94
-AUT-ACC-004,Dash Cam,Automotive-Car Accessories,110.77
-AUT-ACC-005,Portable Jump Starter,Automotive-Car Accessories,10.11
-AUT-TLS-001,Craftsman Tool Set,Automotive-Tools,89.15
-AUT-TLS-002,DeWalt Cordless Drill,Automotive-Tools,16.64
-AUT-TLS-003,Socket Wrench Set,Automotive-Tools,233.13
-AUT-TLS-004,Torque Wrench,Automotive-Tools,221.14
-AUT-TLS-005,Tire Pressure Gauge,Automotive-Tools,209.94
-AUT-CAR-001,Chemical Guys Car Wash Soap,Automotive-Car Care,15.76
-AUT-CAR-002,Microfiber Towel Set,Automotive-Car Care,7.03
-AUT-CAR-003,Armor All Protectant,Automotive-Car Care,35.73
-AUT-CAR-004,Car Wax,Automotive-Car Care,38.14
-AUT-CAR-005,Tire Shine Spray,Automotive-Car Care,8.00
-PET-DOG-001,Kong Classic Dog Toy,Pet Supplies-Dog Supplies,62.43
-PET-DOG-002,Blue Buffalo Dog Food,Pet Supplies-Dog Supplies,15.75
-PET-DOG-003,Dog Leash and Collar Set,Pet Supplies-Dog Supplies,93.19
-PET-DOG-004,Dog Crate,Pet Supplies-Dog Supplies,93.77
-PET-DOG-005,Dog Bed,Pet Supplies-Dog Supplies,22.38
-PET-CAT-001,Fresh Step Cat Litter,Pet Supplies-Cat Supplies,50.68
-PET-CAT-002,Cat Scratching Post,Pet Supplies-Cat Supplies,57.68
-PET-CAT-003,Purina Cat Food,Pet Supplies-Cat Supplies,30.92
-PET-CAT-004,Cat Carrier,Pet Supplies-Cat Supplies,88.01
-PET-CAT-005,Interactive Cat Toy,Pet Supplies-Cat Supplies,45.77
-PET-FSH-001,10-Gallon Fish Tank,Pet Supplies-Fish & Aquarium,39.65
-PET-FSH-002,Aquarium Filter,Pet Supplies-Fish & Aquarium,85.50
-PET-FSH-003,Fish Food Flakes,Pet Supplies-Fish & Aquarium,112.19
-PET-FSH-004,LED Aquarium Light,Pet Supplies-Fish & Aquarium,38.16
-PET-FSH-005,Aquarium Gravel Bag,Pet Supplies-Fish & Aquarium,53.64
+ELE-COM-001,Dell XPS 13 Laptop,Electronics-Computers,493.77
+ELE-COM-002,Apple MacBook Air M3,Electronics-Computers,931.30
+ELE-COM-003,HP Pavilion Desktop,Electronics-Computers,840.62
+ELE-COM-004,Lenovo ThinkPad X1,Electronics-Computers,1738.82
+ELE-COM-005,ASUS ROG Gaming Laptop,Electronics-Computers,1634.22
+ELE-COM-006,Acer Aspire 5 Laptop,Computers,2011.31
+ELE-COM-007,Microsoft Surface Laptop 6,Electronics-Computers,602.14
+ELE-PHO-001,Apple iPhone 15,Electronics-Phones,331.78
+ELE-PHO-002,Samsung Galaxy S24,Electronics-Phones,393.70
+ELE-PHO-003,Google Pixel 8,Electronics-Phones,532.66
+ELE-PHO-004,OnePlus 12,Electronics-Phones,902.02
+ELE-PHO-005,Motorola Edge 50,Electronics-Phones,861.25
+ELE-PHO-006,Samsung Galaxy A54,Electronics-Phones,1016.02
+ELE-PHO-007,Apple iPhone SE,Electronics-Phones,1001.32
+ELE-PHO-008,Nothing Phone 2,Electronics-Phones,719.52
+ELE-PHO-009,Phone Case - Clear,Electronics-Phones,749.21
+ELE-PHO-010,25W USB-C Fast Charger,Electronics-Phones,578.19
+ELE-HPH-001,Sony WH-1000XM5,Electronics-Headphones,309.55
+ELE-HPH-002,Bose QuietComfort 45,Electronics-Headphones,84.87
+ELE-HPH-003,Apple AirPods Pro,Electronics-Headphones,183.48
+ELE-HPH-004,Sennheiser HD 660S,Electronics-Headphones,129.20
+ELE-HPH-005,JBL Tune 760NC,Electronics-Headphones,105.74
+ELE-HPH-006,Beats Studio3 Wireless,Electronics-Headphones,311.31
+ELE-HPH-007,Skullcandy Crusher Evo,Electronics-Headphones,63.33
+CLO-SHO-001,Nike Air Max 90,Clothing-Shoes,39.99
+CLO-SHO-002,Adidas Ultraboost,Clothing-Shoes,156.36
+CLO-SHO-003,Converse Chuck Taylor All Star,Clothing-Shoes,118.58
+CLO-SHO-004,Vans Old Skool,Clothing-Shoes,150.10
+CLO-SHO-005,New Balance 990,Clothing-Shoes,138.11
+CLO-SHO-006,Puma RS-X,Clothing-Shoes,108.12
+CLO-SHO-007,Reebok Club C 85,Clothing-Shoes,175.83
+CLO-SHO-008,Under Armour Charged Assert,Clothing-Shoes,83.67
+CLO-SHO-009,Timberland Classic Boot,Clothing-Shoes,110.57
+CLO-SHO-010,Skechers Max Cushioning,Clothing-Shoes,153.56
+CLO-MEN-001,Levi's 501 Jeans,Clothing-Men's Wear,58.30
+CLO-MEN-002,Champion Hoodie,Clothing-Men's Wear,67.84
+CLO-MEN-003,Nike Dri-FIT T-Shirt,Clothing-Men's Wear,18.44
+CLO-MEN-004,Carhartt Work Jacket,Clothing-Men's Wear,32.09
+CLO-MEN-005,Polo Ralph Lauren Shirt,Clothing-Men's Wear,36.70
+CLO-MEN-006,Uniqlo Flannel Shirt,Clothing-Men's Wear,20.98
+CLO-MEN-007,Dockers Chino Pants,Clothing-Men's Wear,32.46
+CLO-MEN-008,Columbia Fleece Jacket,Clothing-Men's Wear,22.58
+CLO-MEN-009,Calvin Klein Boxer Briefs 3-Pack,Clothing-Men's Wear,35.85
+CLO-WMN-001,Lululemon Align Leggings,Clothing-Women's Wear,28.83
+CLO-WMN-002,Zara Wrap Dress,Clothing-Women's Wear,45.20
+CLO-WMN-003,H&M Denim Jacket,Clothing-Women's Wear,71.96
+CLO-WMN-004,Nike Sports Bra,Clothing-Women's Wear,74.65
+CLO-WMN-005,Levi's Trucker Jacket,Clothing-Women's Wear,73.10
+CLO-WMN-006,Athleta Studio Joggers,Clothing-Women's Wear,21.07
+CLO-WMN-007,Gap Cardigan Sweater,Clothing-Women's Wear,68.97
+CLO-WMN-008,Old Navy Maxi Dress,Clothing-Women's Wear,60.40
+CLO-WMN-009,Free People Boho Blouse,Clothing-Women's Wear,35.81
+HOM-FUR-001,IKEA MALM Dresser,Home Goods-Furniture,391.15
+HOM-FUR-002,Ashley Recliner Sofa,Home Goods-Furniture,891.41
+HOM-FUR-003,Wayfair Dining Table,Home Goods-Furniture,604.80
+HOM-FUR-004,Sauder Bookcase,Home Goods-Furniture,536.70
+HOM-FUR-005,Zinus Platform Bed Frame,Home Goods-Furniture,641.38
+HOM-FUR-006,West Elm Accent Chair,Home Goods-Furniture,771.14
+HOM-FUR-007,IKEA POANG Armchair,Home Goods-Furniture,716.32
+HOM-FUR-008,Crate & Barrel Coffee Table,Home Goods-Furniture,267.82
+HOM-FUR-009,Nightstand with Drawers,Home Goods-Furniture,106.32
+HOM-FUR-010,6-Cube Storage Organizer,Home Goods-Furniture,338.67
+HOM-KIT-001,Instant Pot Duo 7-in-1,Home Goods-Kitchenware,41.84
+HOM-KIT-002,KitchenAid Stand Mixer,Home Goods-Kitchenware,321.33
+HOM-KIT-003,Ninja Blender,Home Goods-Kitchenware,207.17
+HOM-KIT-004,Cuisinart Coffee Maker,Home Goods-Kitchenware,256.91
+HOM-KIT-005,Lodge Cast Iron Skillet,Home Goods-Kitchenware,90.17
+HOM-KIT-006,Pyrex Glass Storage Set,Home Goods-Kitchenware,184.75
+HOM-KIT-007,OXO Good Grips Knife Set,Home Goods-Kitchenware,311.95
+HOM-KIT-008,Keurig K-Mini Coffee Maker,Home Goods-Kitchenware,232.14
+HOM-KIT-009,Dutch Oven 6-Quart,Home Goods-Kitchenware,67.15
+HOM-DEC-001,Throw Pillow Set,Home Goods-Decor,35.62
+HOM-DEC-002,Wall Clock,Home Goods-Decor,70.87
+HOM-DEC-003,Area Rug 5x7,Home Goods-Decor,37.43
+HOM-DEC-004,LED String Lights,Home Goods-Decor,73.47
+HOM-DEC-005,Framed Canvas Wall Art,Home Goods-Decor,108.56
+HOM-DEC-006,Scented Soy Candle Set,Home Goods-Decor,52.73
+HOM-DEC-007,Ceramic Vase,Home Goods-Decor,32.56
+HOM-DEC-008,Macrame Wall Hanging,Home Goods-Decor,119.72
+GRO-SNK-001,Lay's Classic Potato Chips,Groceries-Snacks,2.55
+GRO-SNK-002,Oreo Cookies,Groceries-Snacks,2.28
+GRO-SNK-003,Nature Valley Granola Bars,Groceries-Snacks,2.66
+GRO-SNK-004,Doritos Nacho Cheese,Groceries-Snacks,5.76
+GRO-SNK-005,Pringles Original,Groceries-Snacks,6.75
+GRO-SNK-006,Goldfish Crackers,Groceries-Snacks,4.53
+GRO-SNK-007,Clif Bar Variety Pack,Groceries-Snacks,2.38
+GRO-SNK-008,Planters Mixed Nuts,Groceries-Snacks,4.29
+GRO-SNK-009,Cheez-It Original,Groceries-Snacks,7.98
+GRO-SNK-010,Chips Ahoy Cookies,Groceries-Snacks,5.17
+GRO-BEV-001,Coca-Cola 12-Pack,Groceries-Beverages,11.16
+GRO-BEV-002,Gatorade Variety Pack,Groceries-Beverages,4.37
+GRO-BEV-003,Starbucks Ground Coffee,Groceries-Beverages,13.62
+GRO-BEV-004,Lipton Iced Tea,Groceries-Beverages,12.01
+GRO-BEV-005,San Pellegrino Sparkling Water,Groceries-Beverages,12.22
+GRO-BEV-006,Red Bull Energy Drink 4-Pack,Groceries-Beverages,7.08
+GRO-BEV-007,Minute Maid Orange Juice,Groceries-Beverages,6.52
+GRO-BAK-001,Sourdough Bread Loaf,Groceries-Bakery,7.08
+GRO-BAK-002,Chocolate Chip Muffins,Groceries-Bakery,11.58
+GRO-BAK-003,Bagel 6-Pack,Groceries-Bakery,10.88
+GRO-BAK-004,Croissants 4-Pack,Groceries-Bakery,5.37
+GRO-BAK-005,Cinnamon Rolls,Groceries-Bakery,7.51
+GRO-BAK-006,Whole Wheat Bread Loaf,Groceries-Bakery,4.61
+GRO-BAK-007,Blueberry Scones,Groceries-Bakery,11.21
+GRO-BAK-008,Dinner Rolls 12-Pack,Groceries-Bakery,10.83
+SPO-FIT-001,Bowflex Adjustable Dumbbells,Sports & Outdoors-Fitness Equipment,1264.88
+SPO-FIT-002,Yoga Mat,Sports & Outdoors-Fitness Equipment,768.88
+SPO-FIT-003,Resistance Bands Set,Sports & Outdoors-Fitness Equipment,310.38
+SPO-FIT-004,Peloton Bike,Sports & Outdoors-Fitness Equipment,570.26
+SPO-FIT-005,Treadmill NordicTrack,Sports & Outdoors-Fitness Equipment,254.90
+SPO-FIT-006,Adjustable Weight Bench,Sports & Outdoors-Fitness Equipment,1430.95
+SPO-FIT-007,Foam Roller,Sports & Outdoors-Fitness Equipment,1384.81
+SPO-FIT-008,Jump Rope,Sports & Outdoors-Fitness Equipment,1378.96
+SPO-FIT-009,Kettlebell 20lb,Sports & Outdoors-Fitness Equipment,904.43
+SPO-CMP-001,Coleman 4-Person Tent,Sports & Outdoors-Camping,17.60
+SPO-CMP-002,Sleeping Bag,Sports & Outdoors-Camping,372.35
+SPO-CMP-003,Portable Camping Stove,Sports & Outdoors-Camping,352.70
+SPO-CMP-004,YETI Cooler,Sports & Outdoors-Camping,334.35
+SPO-CMP-005,Camping Lantern,Sports & Outdoors-Camping,129.93
+SPO-CMP-006,Camp Folding Chair,Sports & Outdoors-Camping,32.59
+SPO-CMP-007,Hiking Backpack 40L,Sports & Outdoors-Camping,352.42
+SPO-CMP-008,Water Filter Straw,Sports & Outdoors-Camping,379.31
+SPO-CMP-009,Multi-Tool Knife,Sports & Outdoors-Camping,43.40
+SPO-CMP-010,Inflatable Camping Pillow,Sports & Outdoors-Camping,199.54
+SPO-CYC-001,Trek Mountain Bike,Sports & Outdoors-Cycling,880.41
+SPO-CYC-002,Bell Bike Helmet,Sports & Outdoors-Cycling,484.11
+SPO-CYC-003,Bike Lock,Sports & Outdoors-Cycling,121.93
+SPO-CYC-004,Cycling Gloves,Sports & Outdoors-Cycling,597.18
+SPO-CYC-005,LED Bike Light Set,Sports & Outdoors-Cycling,852.70
+SPO-CYC-006,Bike Repair Kit,Sports & Outdoors-Cycling,156.96
+SPO-CYC-007,Water Bottle Cage,Sports & Outdoors-Cycling,479.63
+TOY-BRD-001,Monopoly Classic,Toys & Games-Board Games,58.22
+TOY-BRD-002,Catan Settlers Board Game,Toys & Games-Board Games,56.45
+TOY-BRD-003,Scrabble,Toys & Games-Board Games,47.76
+TOY-BRD-004,Risk Strategy Game,Toys & Games-Board Games,44.49
+TOY-BRD-005,Codenames,Toys & Games-Board Games,45.65
+TOY-BRD-006,Clue Mystery Game,Toys & Games-Board Games,29.95
+TOY-BRD-007,Ticket to Ride,Toys & Games-Board Games,43.58
+TOY-BRD-008,Uno Card Game,Toys & Games-Board Games,28.67
+TOY-BRD-009,Jenga Classic,Toys & Games-Board Games,54.98
+TOY-BRD-010,Connect 4,Toys & Games-Board Games,32.57
+TOY-PUZ-001,1000-Piece Landscape Puzzle,Toys & Games-Puzzles,15.19
+TOY-PUZ-002,3D Wooden Puzzle,Toys & Games-Puzzles,18.82
+TOY-PUZ-003,500-Piece Map Puzzle,Toys & Games-Puzzles,26.83
+TOY-PUZ-004,Rubik's Cube,Toys & Games-Puzzles,15.36
+TOY-PUZ-005,Kids Floor Puzzle,Toys & Games-Puzzles,15.05
+TOY-PUZ-006,Jigsaw Puzzle 2000-Piece,Toys & Games-Puzzles,10.27
+TOY-PUZ-007,Wooden Brain Teaser Set,Toys & Games-Puzzles,28.20
+TOY-PUZ-008,Puzzle Mat with Storage,Toys & Games-Puzzles,15.33
+TOY-ACF-001,Marvel Avengers Figure Set,Toys & Games-Action Figures,70.17
+TOY-ACF-002,Star Wars Lightsaber Toy,Toys & Games-Action Figures,14.96
+TOY-ACF-003,Transformers Optimus Prime,Toys & Games-Action Figures,26.66
+TOY-ACF-004,LEGO Star Wars Set,Toys & Games-Action Figures,56.83
+TOY-ACF-005,Hot Wheels Car Pack,Toys & Games-Action Figures,25.00
+TOY-ACF-006,Funko Pop Figure,Toys & Games-Action Figures,19.26
+TOY-ACF-007,DC Justice League Figure Set,Toys & Games-Action Figures,75.49
+BOK-BOO-001,Atomic Habits by James Clear,Books & Media-Books,12.13
+BOK-BOO-002,The Hobbit by J.R.R. Tolkien,Books & Media-Books,16.04
+BOK-BOO-003,Dune by Frank Herbert,Books & Media-Books,14.92
+BOK-BOO-004,1984 by George Orwell,Books & Media-Books,9.60
+BOK-BOO-005,The Alchemist by Paulo Coelho,Books & Media-Books,19.20
+BOK-BOO-006,Harry Potter Box Set,Books & Media-Books,14.02
+BOK-BOO-007,Sapiens by Yuval Noah Harari,Books & Media-Books,14.99
+BOK-BOO-008,The Great Gatsby,Books & Media-Books,22.69
+BOK-BOO-009,To Kill a Mockingbird,Books & Media-Books,8.92
+BOK-BOO-010,Project Hail Mary by Andy Weir,Books & Media-Books,19.11
+BOK-MOV-001,Blu-ray: Inception,Books & Media-Movies,7.45
+BOK-MOV-002,4K UHD: The Matrix,Books & Media-Movies,23.48
+BOK-MOV-003,DVD: The Godfather,Books & Media-Movies,25.21
+BOK-MOV-004,Blu-ray: Interstellar,Books & Media-Movies,8.62
+BOK-MOV-005,4K UHD: Spider-Man,Books & Media-Movies,10.60
+BOK-MOV-006,DVD: Pulp Fiction,Books & Media-Movies,18.87
+BOK-MOV-007,Blu-ray: The Dark Knight,Books & Media-Movies,9.36
+BOK-MUS-001,Vinyl: Abbey Road - The Beatles,Books & Media-Music,15.52
+BOK-MUS-002,CD: Thriller - Michael Jackson,Books & Media-Music,14.74
+BOK-MUS-003,Vinyl: Dark Side of the Moon,Books & Media-Music,32.93
+BOK-MUS-004,CD: 21 - Adele,Books & Media-Music,19.96
+BOK-MUS-005,Vinyl: Rumours - Fleetwood Mac,Books & Media-Music,31.26
+BOK-MUS-006,CD: Back in Black - AC/DC,Books & Media-Music,22.86
+BOK-MUS-007,Vinyl: Nevermind - Nirvana,Books & Media-Music,9.37
+BOK-MUS-008,CD: Lemonade - Beyonce,Books & Media-Music,34.98
+BEA-SKN-001,CeraVe Moisturizing Cream,Beauty & Personal Care-Skincare,58.33
+BEA-SKN-002,Neutrogena Facial Cleanser,Beauty & Personal Care-Skincare,56.02
+BEA-SKN-003,The Ordinary Niacinamide Serum,Beauty & Personal Care-Skincare,51.83
+BEA-SKN-004,Aveeno Body Lotion,Beauty & Personal Care-Skincare,14.98
+BEA-SKN-005,La Roche-Posay Sunscreen SPF50,Beauty & Personal Care-Skincare,32.22
+BEA-SKN-006,Clinique Moisturizing Gel,Beauty & Personal Care-Skincare,17.54
+BEA-SKN-007,Cetaphil Gentle Cleanser,Beauty & Personal Care-Skincare,27.66
+BEA-HAI-001,Olaplex No.3 Hair Treatment,Beauty & Personal Care-Haircare,102.96
+BEA-HAI-002,Head & Shoulders Shampoo,Beauty & Personal Care-Haircare,6.28
+BEA-HAI-003,Dyson Airwrap Styler,Beauty & Personal Care-Haircare,237.30
+BEA-HAI-004,TRESemme Conditioner,Beauty & Personal Care-Haircare,556.28
+BEA-HAI-005,Moroccanoil Treatment,Beauty & Personal Care-Haircare,472.15
+BEA-HAI-006,Pantene Pro-V Shampoo,Beauty & Personal Care-Haircare,174.72
+BEA-HAI-007,Living Proof Dry Shampoo,Beauty & Personal Care-Haircare,419.47
+BEA-MUP-001,Maybelline Mascara,Beauty & Personal Care-Makeup,12.81
+BEA-MUP-002,Fenty Beauty Foundation,Beauty & Personal Care-Makeup,19.06
+BEA-MUP-003,MAC Lipstick,Beauty & Personal Care-Makeup,48.62
+BEA-MUP-004,Urban Decay Eyeshadow Palette,Beauty & Personal Care-Makeup,31.48
+BEA-MUP-005,NARS Blush,Beauty & Personal Care-Makeup,29.86
+BEA-MUP-006,e.l.f. Concealer,Beauty & Personal Care-Makeup,38.91
+BEA-MUP-007,Rare Beauty Lip Tint,Beauty & Personal Care-Makeup,8.52
+BEA-MUP-008,Charlotte Tilbury Setting Spray,Beauty & Personal Care-Makeup,31.70
+BEA-MUP-009,Milk Makeup Highlighter,Beauty & Personal Care-Makeup,28.13
+BEA-MUP-010,Too Faced Bronzer,Beauty & Personal Care-Makeup,43.52
+AUT-ACC-001,Weathertech Floor Mats,Automotive-Car Accessories,20.81
+AUT-ACC-002,Phone Mount for Car,Automotive-Car Accessories,106.49
+AUT-ACC-003,Car Seat Covers,Automotive-Car Accessories,171.76
+AUT-ACC-004,Dash Cam,Automotive-Car Accessories,23.02
+AUT-ACC-005,Portable Jump Starter,Automotive-Car Accessories,22.91
+AUT-ACC-006,Car Trunk Organizer,Automotive-Car Accessories,173.75
+AUT-ACC-007,Steering Wheel Cover,Automotive-Car Accessories,86.72
+AUT-ACC-008,LED License Plate Frame,Automotive-Car Accessories,188.90
+AUT-TLS-001,Craftsman Tool Set,Automotive-Tools,149.78
+AUT-TLS-002,DeWalt Cordless Drill,Automotive-Tools,21.46
+AUT-TLS-003,Socket Wrench Set,Automotive-Tools,31.51
+AUT-TLS-004,Torque Wrench,Automotive-Tools,168.45
+AUT-TLS-005,Tire Pressure Gauge,Automotive-Tools,146.52
+AUT-TLS-006,Impact Driver Kit,Automotive-Tools,87.30
+AUT-TLS-007,Hydraulic Floor Jack,Automotive-Tools,74.06
+AUT-TLS-008,OBD2 Scanner Tool,Automotive-Tools,171.39
+AUT-CAR-001,Chemical Guys Car Wash Soap,Automotive-Car Care,13.35
+AUT-CAR-002,Microfiber Towel Set,Automotive-Car Care,18.85
+AUT-CAR-003,Armor All Protectant,Automotive-Car Care,28.51
+AUT-CAR-004,Car Wax,Automotive-Car Care,15.50
+AUT-CAR-005,Tire Shine Spray,Automotive-Car Care,16.07
+AUT-CAR-006,Glass Cleaner Spray,Automotive-Car Care,31.32
+AUT-CAR-007,Leather Seat Conditioner,Automotive-Car Care,7.54
+AUT-CAR-008,Ceramic Coating Kit,Automotive-Car Care,21.04
+AUT-CAR-009,Clay Bar Detailing Kit,Automotive-Car Care,39.95
+PET-DOG-001,Kong Classic Dog Toy,Pet Supplies-Dog Supplies,16.21
+PET-DOG-002,Blue Buffalo Dog Food,Pet Supplies-Dog Supplies,31.87
+PET-DOG-003,Dog Leash and Collar Set,Pet Supplies-Dog Supplies,37.70
+PET-DOG-004,Dog Crate,Pet Supplies-Dog Supplies,112.53
+PET-DOG-005,Dog Bed,Pet Supplies-Dog Supplies,106.66
+PET-DOG-006,Dog Chew Treats,Pet Supplies-Dog Supplies,106.48
+PET-DOG-007,Flea and Tick Collar,Pet Supplies-Dog Supplies,49.39
+PET-CAT-001,Fresh Step Cat Litter,Pet Supplies-Cat Supplies,47.19
+PET-CAT-002,Cat Scratching Post,Pet Supplies-Cat Supplies,57.06
+PET-CAT-003,Purina Cat Food,Pet Supplies-Cat Supplies,34.44
+PET-CAT-004,Cat Carrier,Pet Supplies-Cat Supplies,98.48
+PET-CAT-005,Interactive Cat Toy,Pet Supplies-Cat Supplies,81.87
+PET-CAT-006,Cat Litter Box,Pet Supplies-Cat Supplies,55.72
+PET-CAT-007,Cat Tree Tower,Pet Supplies-Cat Supplies,68.78
+PET-CAT-008,Catnip Toy Set,Pet Supplies-Cat Supplies,58.13
+PET-FSH-001,10-Gallon Fish Tank,Pet Supplies-Fish & Aquarium,141.45
+PET-FSH-002,Aquarium Filter,Pet Supplies-Fish & Aquarium,28.80
+PET-FSH-003,Fish Food Flakes,Pet Supplies-Fish & Aquarium,26.16
+PET-FSH-004,LED Aquarium Light,Pet Supplies-Fish & Aquarium,24.99
+PET-FSH-005,Aquarium Gravel Bag,Pet Supplies-Fish & Aquarium,87.45
+PET-FSH-006,Aquarium Heater,Pet Supplies-Fish & Aquarium,48.13
+PET-FSH-007,Betta Fish Tank,Pet Supplies-Fish & Aquarium,94.68

@@ -1,6 +1,5 @@
 package net.ecom.views.sidebar;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import net.ecom.Model;
 import net.ecom.components.Text;
@@ -37,8 +36,22 @@ public class CategoriesView {
     public void update(Model model) {
         this.self.clearChildren();
 
-        int top = 0;
-    root:
+        int selectedIndex = 0, categoryOffset = 0;
+        Object selectedIndexState = model.getFocusState("category.selection.index");
+        Object categoryOffsetState = model.getFocusState("category.offset");
+
+        model.setFocusState("category.area.height", this.getSelfH());
+
+        if (selectedIndexState instanceof Integer)
+            selectedIndex = (int) selectedIndexState;
+        if (categoryOffsetState instanceof Integer)
+            categoryOffset = (int) categoryOffsetState;
+
+        if (!model.getFocusArea().startsWith("sidebar.categories"))
+            selectedIndex = -1;
+
+        int top = 0 - categoryOffset;
+        int total = 0;
         for (String key : model.getCategories().keySet()) {
             HashSet<String> categorySet = model.getCategories().get(key);
             String[] categoryArr = new String[categorySet.size()];
@@ -48,33 +61,64 @@ public class CategoriesView {
 
             catTxt.updateUi(UiComponent.SetPosition(1, top++));
 
-            this.self.addChildren(catTxt);
+            if (top >= 0 && top <= this.getSelfH())
+                this.self.addChildren(catTxt);
+
+            char cursor = '>';
+            if (selectedIndex == top - 1)
+                cursor = '*';
+
+            if (selectedIndex == top - 1) {
+                model.setFocusState("category.selection.index.category", null);
+                model.setFocusState("category.selection.index.category.group", key);
+            }
 
             if (model.isCollapsed(key)) {
-                catTxt.updateUi(c -> c.setContent(String.format("> %s", c.getContent())));
+                catTxt.setContent(String.format("%s %s", cursor, catTxt.getContent()));
                 continue;
             }
 
-            catTxt.updateUi(c -> c.setContent(String.format("v %s", c.getContent())));
+            cursor = 'v';
+            if (selectedIndex == top - 1)
+                cursor = '*';
+
+            catTxt.setContent(String.format("%s %s", cursor, catTxt.getContent()));
 
             for (int i = 0; i < categorySet.size(); i++) {
-                if (top > this.getSelfH() - 5)
-                    break root;
-
                 String categoryName = categoryArr[i];
 
                 Text txt = new Text(categoryName);
 
                 if (categoryName.equals(model.getCategorySelection())) {
-                    txt.updateUi(c -> c.setContent(String.format("[ %s ]", c.getContent())));
+                    cursor = '[';
+                    char cursor2 = ']';
+
+                    if (selectedIndex == top) {
+                        cursor = '|';
+                        cursor2 = '|';
+                    }
+
+                    txt.setContent(String.format("%s %s %s", cursor, txt.getContent(), cursor2));
                 } else {
-                    txt.updateUi(c -> c.setContent(String.format("- %s", c.getContent())));
+                    cursor = '-';
+                    if (selectedIndex == top) {
+                        model.setFocusState("category.selection.index.category", categoryName);
+                        cursor = '*';
+                    }
+
+                    txt.setContent(String.format("%s %s", cursor, txt.getContent()));
                 }
 
                 txt.updateUi(UiComponent.SetPosition(3, top++));
 
-                this.self.addChildren(txt);
+                if (top >= 0 && top <= this.getSelfH())
+                    this.self.addChildren(txt);
             }
+        }
+
+        if (selectedIndex >= top) {
+            model.setFocusState("category.selection.index", top - 1);
+            this.update(model);
         }
     }
 }

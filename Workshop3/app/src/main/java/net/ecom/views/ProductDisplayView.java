@@ -5,6 +5,7 @@ import net.ecom.components.ComponentUpdate;
 import net.ecom.components.Text;
 import net.ecom.components.UiComponent;
 import net.ecom.components.Window;
+import net.ecom.data.Product;
 
 public class ProductDisplayView {
     private UiComponent<Window> parent;
@@ -44,6 +45,11 @@ public class ProductDisplayView {
     public void update(Model model) {
         this.content.clearChildren();
 
+        // if (model.getFocusArea().startsWith("body"))
+        //     this.self.updateUi((c) -> c.setBorder('b'));
+        // else
+        //     this.self.updateUi((c) -> c.setBorder('#'));
+
         if (model.getCategorySelection() == null) {
             this.title.updateUi((c) -> c.setContent(""));
             return;
@@ -65,7 +71,7 @@ public class ProductDisplayView {
 
         //
 
-        Window topRowSkuWrap = new Window(11, topRow.getH());
+        Window topRowSkuWrap = new Window(15, topRow.getH());
         topRowSkuWrap.updateUi(UiComponent.SetPosition(-1, -1))
             .updateUi((c) -> c.setBorder(topRow.getBorder()));
 
@@ -76,7 +82,7 @@ public class ProductDisplayView {
 
         //
 
-        Window topRowPriceWrap = new Window(12, topRow.getH());
+        Window topRowPriceWrap = new Window(13, topRow.getH());
 
         topRowPriceWrap.updateUi((c) -> c.setX(topRowSkuWrap.getW() + topRowSkuWrap.getX() - 1))
             .updateUi((c) -> c.setY(-1))
@@ -110,15 +116,12 @@ public class ProductDisplayView {
         this.content.addChildren(topRow);
 
         int h = 1;
-        for (String product : model.getCategoryProducts(model.getCategorySelection())) {
-            if (h >= 11)
-                break;
-
+        for (Product product : model.getCategoryProducts(model.getCategorySelection())) {
             Window row = new Window(topRow.getW(), topRow.getH());
 
             row.updateUi((c) -> c.setX(topRow.getX()))
                 .updateUi(UiComponent.SetY(topRow.getY() + h++ * 2))
-                .updateUi((c) -> c.setBorder(topRow.getBorder()));
+                .updateUi((c) -> c.setBorder('\\'));
 
             //
 
@@ -127,7 +130,7 @@ public class ProductDisplayView {
                 .updateUi((c) -> c.setY(topRowSkuWrap.getY()))
                 .updateUi((c) -> c.setBorder(row.getBorder()));
 
-            skuWrap.addChildren(new Text("SKDF").updateUi(UiComponent.SetX(1)));
+            skuWrap.addChildren(new Text(product.sku()).updateUi(UiComponent.SetX(1)));
 
             //
 
@@ -136,7 +139,7 @@ public class ProductDisplayView {
                 .updateUi((c) -> c.setY(topRowPriceWrap.getY()))
                 .updateUi((c) -> c.setBorder(row.getBorder()));
 
-            priceWrap.addChildren(new Text("$65.00").updateUi(UiComponent.SetX(1)));
+            priceWrap.addChildren(new Text("$" + product.price()).updateUi(UiComponent.SetX(1)));
 
             //
 
@@ -145,11 +148,13 @@ public class ProductDisplayView {
                 .updateUi((c) -> c.setY(topRowNameWrap.getY()))
                 .updateUi((c) -> c.setBorder(row.getBorder()));
 
+            String productNameStr = product.name();
+
             Text productTxt = new Text();
             productTxt
                 .updateUi((c)
-                              -> c.setContent(product.substring(
-                                  0, Math.min(product.length(), nameWrap.getW() - 4))))
+                              -> c.setContent(productNameStr.substring(
+                                  0, Math.min(productNameStr.length(), nameWrap.getW() - 4))))
                 .updateUi(UiComponent.SetX(1));
 
             nameWrap.addChildren(productTxt);
@@ -160,15 +165,18 @@ public class ProductDisplayView {
             row.addChildren(priceWrap);
             row.addChildren(nameWrap);
 
+            row.updateUi((c) -> c.propagateBorder());
+
             this.content.addChildren(row);
         }
 
-        Text rowsOutOfText = new Text("10 out of 11 - Page 1");
-        rowsOutOfText
-            .updateUi(
-                UiComponent.SetX(topRowNameWrap.getW() - rowsOutOfText.getContent().length() - 1))
-            .updateUi(UiComponent.SetY(topRow.getY() + h++ * 2 - 1));
+        // Text rowsOutOfText = new Text("10 out of 11 - Page 1");
+        // rowsOutOfText
+        //     .updateUi(
+        //         UiComponent.SetX(topRowNameWrap.getW() - rowsOutOfText.getContent().length() -
+        //         1))
+        //     .updateUi(UiComponent.SetY(topRow.getY() + h++ * 2 - 1));
 
-        topRowNameWrap.addChildren(rowsOutOfText);
+        // topRowNameWrap.addChildren(rowsOutOfText);
     }
 }

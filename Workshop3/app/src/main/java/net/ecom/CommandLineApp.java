@@ -56,12 +56,16 @@ public class CommandLineApp {
         }
 
         HashMap<String, HashSet<String>> categories = new HashMap<>();
-        HashMap<String, ArrayList<String>> productshm = new HashMap<>();
-        Model model = new Model(categories, productshm);
+        HashMap<String, ArrayList<Product>> modelProducts = new HashMap<>();
+
+        Model model = new Model(categories, modelProducts);
 
         for (Product p : products) {
             String[] category = p.category().split("-");
             HashSet<String> c = categories.get(category[0]);
+            if (!category[0].equals("Groceries"))
+                model.addCollapse(category[0]);
+
             if (c == null) {
                 c = new HashSet<>();
                 categories.put(category[0], c);
@@ -69,8 +73,14 @@ public class CommandLineApp {
 
             c.add(category[1]);
 
-            if (category[0].contains("e"))
-                model.addCollapse(category[0].toString());
+            ArrayList<Product> b = modelProducts.get(category[1]);
+
+            if (b == null) {
+                b = new ArrayList<>();
+                modelProducts.put(category[1], b);
+            }
+
+            b.add(p);
         }
 
         return model;
@@ -97,17 +107,13 @@ public class CommandLineApp {
         this.terminal.flush();
 
         while (true) {
-            int c;
             try {
-                c = reader.read();
+                int r = this.controller.handleInput(reader);
+                if (r == -1)
+                    break;
             } catch (IOException e) {
                 throw new RuntimeException("Unable to read input");
             }
-
-			this.controller.handleInput(c);
-
-            if (c == 'q')
-                break;
 
             this.update();
 

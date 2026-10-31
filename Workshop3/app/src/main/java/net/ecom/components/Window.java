@@ -1,5 +1,6 @@
 package net.ecom.components;
 
+import java.util.ArrayList;
 import net.ecom.ui.Ui;
 
 public class Window extends UiComponent<Window> {
@@ -47,6 +48,15 @@ public class Window extends UiComponent<Window> {
         this.border = border;
     }
 
+    public void propagateBorder() {
+        for (var children : this.getChildren()) {
+            if (children instanceof Window) {
+				((Window)children).setBorder(this.border);
+				((Window)children).propagateBorder();
+            }
+        }
+    }
+
     public UiComponent<Window> updateUi(ComponentUpdate<Window> f) {
         f.update(this);
         return this;
@@ -55,5 +65,14 @@ public class Window extends UiComponent<Window> {
     public void createUi(Ui ui) {
         Ui parent = ui.window(this.getW(), this.getH(), this.getX(), this.getY(), this.border);
         super.createUi(parent);
+    }
+
+    @Override
+    public void addChildren(UiComponent<? extends UiComponent<?>> c) {
+        if (c instanceof Window) {
+            ((Window) c).setBorder(this.border);
+        }
+
+        super.addChildren(c);
     }
 }
