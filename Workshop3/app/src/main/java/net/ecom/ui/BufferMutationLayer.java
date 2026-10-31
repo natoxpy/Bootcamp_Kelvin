@@ -35,7 +35,7 @@ public class BufferMutationLayer {
     }
 
     // PERF: Optimized Render To not use entire buffer
-    public void drawRect(int width, int height, int x, int y, char outline, char fill) {
+    public void drawRect(int width, int height, int x, int y, char outline, int fill) {
         if (width <= 0 || height <= 0)
             throw new RuntimeException("Width or Height Less than Zero.");
 
@@ -57,7 +57,8 @@ public class BufferMutationLayer {
                 continue;
             }
 
-            this.setBufferAt(fill, xi, yi);
+            if (fill != 0)
+                this.setBufferAt((char) fill, xi, yi);
         }
     }
 

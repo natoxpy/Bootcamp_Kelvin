@@ -48,15 +48,6 @@ public class Window extends UiComponent<Window> {
         this.border = border;
     }
 
-    public void propagateBorder() {
-        for (var children : this.getChildren()) {
-            if (children instanceof Window) {
-				((Window)children).setBorder(this.border);
-				((Window)children).propagateBorder();
-            }
-        }
-    }
-
     public UiComponent<Window> updateUi(ComponentUpdate<Window> f) {
         f.update(this);
         return this;
@@ -69,10 +60,6 @@ public class Window extends UiComponent<Window> {
 
     @Override
     public void addChildren(UiComponent<? extends UiComponent<?>> c) {
-        if (c instanceof Window) {
-            ((Window) c).setBorder(this.border);
-        }
-
         super.addChildren(c);
     }
 }

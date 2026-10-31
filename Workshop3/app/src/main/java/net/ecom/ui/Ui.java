@@ -31,7 +31,7 @@ public class Ui {
         return this.yOffset + y;
     }
 
-    public void drawRect(int width, int height, int x, int y, char outline, char fill) {
+    public void drawRect(int width, int height, int x, int y, char outline, int fill) {
         if (this.parent == null) {
             this.context.drawRect(width, height, this.getX(x), this.getY(y), outline, fill);
             return;
@@ -50,10 +50,14 @@ public class Ui {
     }
 
     public Ui window(int w, int h, int x, int y, char border) {
+        return this.window(w, h, x, y, border, 0);
+    }
+
+    public Ui window(int w, int h, int x, int y, char border, int fill) {
         if (w < 2 || h < 2)
             throw new RuntimeException("Cannot create window smaller than 2 width or 2 height.");
 
-        this.drawRect(w, h, x, y, border, ' ');
+        this.drawRect(w, h, x, y, border, fill);
 
         return new Ui(Size.of(w - 2, h - 2), this, x + 1, y + 1);
     }

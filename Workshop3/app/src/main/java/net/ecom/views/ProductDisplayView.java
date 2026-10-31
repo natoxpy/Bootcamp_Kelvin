@@ -45,11 +45,6 @@ public class ProductDisplayView {
     public void update(Model model) {
         this.content.clearChildren();
 
-        // if (model.getFocusArea().startsWith("body"))
-        //     this.self.updateUi((c) -> c.setBorder('b'));
-        // else
-        //     this.self.updateUi((c) -> c.setBorder('#'));
-
         if (model.getCategorySelection() == null) {
             this.title.updateUi((c) -> c.setContent(""));
             return;
@@ -115,7 +110,19 @@ public class ProductDisplayView {
 
         this.content.addChildren(topRow);
 
+        Object contentIndexS = model.getFocusState("content.index");
+        int contentIndex = 0;
+
+        if (contentIndexS instanceof Integer)
+            contentIndex = (int) contentIndexS;
+
+        if (!model.getFocusArea().startsWith("body"))
+            contentIndex = -1;
+
         int h = 1;
+        int i = 0;
+        Window selectionProof = null;
+
         for (Product product : model.getCategoryProducts(model.getCategorySelection())) {
             Window row = new Window(topRow.getW(), topRow.getH());
 
@@ -123,7 +130,15 @@ public class ProductDisplayView {
                 .updateUi(UiComponent.SetY(topRow.getY() + h++ * 2))
                 .updateUi((c) -> c.setBorder('\\'));
 
-            //
+            if (i == contentIndex) {
+                selectionProof = new Window();
+                selectionProof.setX(row.getX());
+                selectionProof.setY(row.getY());
+                selectionProof.setW(row.getW());
+                selectionProof.setH(row.getH());
+
+                selectionProof.updateUi((c) -> c.setBorder('%'));
+            }
 
             Window skuWrap = new Window(topRowSkuWrap.getW(), topRowSkuWrap.getH());
             skuWrap.updateUi((c) -> c.setX(topRowSkuWrap.getX()))
@@ -165,18 +180,12 @@ public class ProductDisplayView {
             row.addChildren(priceWrap);
             row.addChildren(nameWrap);
 
-            row.updateUi((c) -> c.propagateBorder());
-
             this.content.addChildren(row);
+
+            i++;
         }
 
-        // Text rowsOutOfText = new Text("10 out of 11 - Page 1");
-        // rowsOutOfText
-        //     .updateUi(
-        //         UiComponent.SetX(topRowNameWrap.getW() - rowsOutOfText.getContent().length() -
-        //         1))
-        //     .updateUi(UiComponent.SetY(topRow.getY() + h++ * 2 - 1));
-
-        // topRowNameWrap.addChildren(rowsOutOfText);
+        if (selectionProof != null)
+            this.content.addChildren(selectionProof);
     }
 }

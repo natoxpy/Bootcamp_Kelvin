@@ -151,10 +151,15 @@ public class Controller {
 
                 if (b == InteractionType.Enter) {
                     Object indexCategory = model.getFocusState("category.selection.index.category");
+                    model.setFocusState("content.index", null);
 
                     if (indexCategory instanceof String) {
                         String category = (String) indexCategory;
-                        model.setCategorySelection(category);
+                        if (model.getCategorySelection() != category) {
+                            model.setCategorySelection(category);
+                        } else {
+                            pickSiblingInt.behavior(InteractionType.Next, this.activeTree);
+                        }
                         model.setFocusState("category.selection.index.category.group", null);
                     }
 
@@ -178,10 +183,27 @@ public class Controller {
             .addBehaviors("[Enter]", "View Category");
 
         this.rootTree.createRightTree()
-            .setBehavior((b, t) -> { pickSiblingInt.behavior(b, t); })
+            .setBehavior((b, t) -> {
+                pickSiblingInt.behavior(b, t);
+
+                Object contentIndexS = model.getFocusState("content.index");
+                int contentIndex = 0;
+
+                if (contentIndexS != null)
+                    contentIndex = (int) contentIndexS;
+
+                if (b == InteractionType.UpArrow && contentIndex > 0) {
+                    model.setFocusState("content.index", contentIndex - 1);
+                }
+
+                if (b == InteractionType.DownArrow) {
+                    model.setFocusState("content.index", contentIndex + 1);
+                }
+            })
             .setId("body")
             .addBehaviors("[←|→] or [Tab]", "Navigate")
             .addBehaviors("[↑|↓]", "Browse Products")
+            .addBehaviors("c", "Go To Check Out")
             .addBehaviors("[Enter]", "Add To Cart");
 
         this.activeTree = this.rootTree.getFocus();

@@ -51,7 +51,6 @@ public class CategoriesView {
             selectedIndex = -1;
 
         int top = 0 - categoryOffset;
-        int total = 0;
         for (String key : model.getCategories().keySet()) {
             HashSet<String> categorySet = model.getCategories().get(key);
             String[] categoryArr = new String[categorySet.size()];
