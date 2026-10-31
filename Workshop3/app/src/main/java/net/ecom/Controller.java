@@ -203,7 +203,6 @@ public class Controller {
             .setId("body")
             .addBehaviors("[←|→] or [Tab]", "Navigate")
             .addBehaviors("[↑|↓]", "Browse Products")
-            .addBehaviors("c", "Go To Check Out")
             .addBehaviors("[Enter]", "Add To Cart");
 
         this.activeTree = this.rootTree.getFocus();
