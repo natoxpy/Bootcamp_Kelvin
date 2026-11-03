@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "rosu"
-include("core", "demo", "generic-user-interface")
+include("core", "demo", "generic-user-interface", "renderer")

@@ -1,3 +1,3 @@
 package net.gui.primitives;
 
-public record FlexChild(int nodeId, int grow) {}
+public record FlexChild(int nodeId, int grow, JustifySelf justify) {}

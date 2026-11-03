@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     implementation(project(":generic-user-interface"))
+    implementation(project(":renderer"))
 }
 
 application {
