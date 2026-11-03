@@ -39,6 +39,10 @@ public final record Flex(Direction axis, int gap, List<FlexChild> children) impl
         return isRow ? new Size(mainTotal, crossMax) : new Size(crossMax, mainTotal);
     }
 
+    public boolean isFillAxis(Direction direction) {
+        return true;
+    }
+
     public void draw(
         Context ctx, int x, int y, int avalWidth, int avalHeight, List<DrawCommand> cmds) {
         boolean isRow = this.axis() == Direction.Row;
@@ -77,12 +81,21 @@ public final record Flex(Direction axis, int gap, List<FlexChild> children) impl
             }
 
             // Alignment
-            Size internalSize = childNode.measure(ctx, cw, ch);
+            Size internalSize = null;
+            boolean widthFill = childNode.isFillAxis(Direction.Row);
+            boolean heightFill = childNode.isFillAxis(Direction.Column);
+
+            if (widthFill && heightFill) {
+                Size unbounded = childNode.measure(ctx, Integer.MAX_VALUE, Integer.MAX_VALUE);
+                internalSize = new Size(
+                    widthFill ? cw : unbounded.width(), heightFill ? ch : unbounded.height());
+            } else if (widthFill || heightFill) {
+                internalSize = new Size(cw, ch);
+            } else
+                internalSize = childNode.measure(ctx, Integer.MAX_VALUE, Integer.MAX_VALUE);
 
             int jcx = cx;
             int jcy = cy;
-            int jcw = cw;
-            int jch = ch;
 
             double leftOver = (isRow ? cw - internalSize.width() : ch - internalSize.height());
 
@@ -100,7 +113,7 @@ public final record Flex(Direction axis, int gap, List<FlexChild> children) impl
                     jcy += leftOver;
             }
 
-            childNode.draw(ctx, jcx, jcy, jcw, jch, cmds);
+            childNode.draw(ctx, jcx, jcy, cw, ch, cmds);
         }
     }
 }

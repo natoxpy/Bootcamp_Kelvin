@@ -7,7 +7,11 @@ import net.gui.commands.Size;
 
 public record Viewport(int offsetX, int offsetY, Integer child) implements Node {
     public Size measure(Context ctx, int avalWidth, int avalHeight) {
-        return null;
+        return new Size(avalWidth, avalHeight);
+    }
+
+    public boolean isFillAxis(Direction direction) {
+        return true;
     }
 
     public void draw(

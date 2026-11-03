@@ -42,31 +42,24 @@ public record Demo() {
         render.write(new OutputStreamWriter(System.out));
     }
 
+    public static int insertFlex(Context ctx, Direction dir, FlexChild... childs) {
+        return ctx.insert(new Flex(dir, 5, List.of(childs)));
+    }
+
     public static void main(String[] args) {
-        Renderer renderer = new Renderer(200, 20);
+        Renderer renderer = new Renderer(232, 20);
         Context ctx = new Context();
 
         int textId = ctx.insert(new Text("Lorem Ipsum", WrapMode.NoWrap));
-		int boxId = ctx.insert(new Box(textId, new LayoutConstraint(new Fixed(5), new Fixed(5))));
+        int boxId = ctx.insert(new Box(textId, new LayoutConstraint(new Fill(), new Fill())));
 
-        int hl = ctx.insert(
-            new Flex(Direction.Column, 0, List.of(new FlexChild(boxId, 0, JustifySelf.Center))));
+        var h1 = insertFlex(ctx, Direction.Column, new FlexChild(boxId, 0, JustifySelf.End),
+            new FlexChild(boxId, 0, JustifySelf.End));
 
-        // int vl = ctx.insert(
-        //     new Flex(Direction.Column, 0, List.of(new FlexChild(hl, 0, JustifySelf.Center))));
+        var v1 = insertFlex(ctx, Direction.Row, new FlexChild(h1, 0, JustifySelf.End),
+            new FlexChild(h1, 0, JustifySelf.End));
 
-        // int box1Id = ctx.insert(new Box(textId, new LayoutConstraint(new Auto(), new Fixed(4))));
-        // int box2Id = ctx.insert(new Box(textId, new LayoutConstraint(new Fill(), new Fixed(5))));
-
-        // int flex1Id = ctx.insert(new Flex(Direction.Column, 0,
-        //     List.of(new FlexChild(box1Id, 1, JustifySelf.Center),
-        //         new FlexChild(box2Id, 1, JustifySelf.Start))));
-
-        // int flex2Id = ctx.insert(new Flex(Direction.Row, 0,
-        //     List.of(new FlexChild(flex1Id, 1, JustifySelf.Center),
-        //         new FlexChild(flex1Id, 1, JustifySelf.Start))));
-
-        int root = hl;
+        int root = v1;
 
         Demo.render(ctx, renderer, root, renderer.width(), renderer.height());
 

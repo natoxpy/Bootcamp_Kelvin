@@ -5,6 +5,7 @@ import net.gui.Context;
 import net.gui.commands.DrawBoxCommand;
 import net.gui.commands.DrawCommand;
 import net.gui.commands.Size;
+import net.gui.primitives.dimension.Fill;
 
 public final record Box(Integer child, LayoutConstraint constraints) implements Node {
     public Size measure(Context ctx, int avalWidth, int avalHeight) {
@@ -17,6 +18,14 @@ public final record Box(Integer child, LayoutConstraint constraints) implements 
             () -> child != null ? child.measure(ctx, avalWidth, avalHeight).height() : 0);
 
         return new Size(width, height);
+    }
+
+    public boolean isFillAxis(Direction direction) {
+        if (direction == Direction.Row) {
+            return this.constraints().width() instanceof Fill;
+        } else {
+            return this.constraints().height() instanceof Fill;
+        }
     }
 
     public void draw(

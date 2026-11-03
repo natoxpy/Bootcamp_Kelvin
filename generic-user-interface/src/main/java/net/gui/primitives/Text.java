@@ -11,6 +11,10 @@ public final record Text(String content, WrapMode wrap) implements Node {
         return new Size(this.content().length(), 1);
     }
 
+    public boolean isFillAxis(Direction direction) {
+        return false;
+    }
+
     public void draw(
         Context ctx, int x, int y, int avalWidth, int avalHeight, List<DrawCommand> cmds) {
         cmds.add(new DrawTextCommand(x, y, this.content()));
