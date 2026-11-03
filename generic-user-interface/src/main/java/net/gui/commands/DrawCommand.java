@@ -5,4 +5,5 @@ import net.gui.primitives.Rect;
 
 public sealed interface DrawCommand permits DrawTextCommand, DrawBoxCommand {
     public abstract void clip(Rect bounds, List<DrawCommand> out);
+    public abstract void offset(int x, int y, List<DrawCommand> out);
 }

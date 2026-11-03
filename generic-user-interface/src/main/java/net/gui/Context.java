@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import net.gui.primitives.Box;
+import net.gui.primitives.DrawtimeContext;
 import net.gui.primitives.Flex;
 import net.gui.primitives.FlexChild;
 import net.gui.primitives.LayoutConstraint;
 import net.gui.primitives.Node;
+import net.gui.primitives.Rect;
 import net.gui.primitives.Text;
 import net.gui.primitives.Viewport;
 import net.gui.primitives.dimension.Auto;
@@ -20,6 +22,7 @@ public class Context {
     private int nextId = 0;
     private final Map<Integer, Node> nodes = new HashMap<>();
     private final Map<Integer, ContextState> states = new HashMap<>();
+	public final DrawtimeContext drawtime = new DrawtimeContext();
 
     public int insert(Node node) {
         int id = this.nextId++;

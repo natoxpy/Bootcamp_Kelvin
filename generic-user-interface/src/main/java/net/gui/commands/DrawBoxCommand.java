@@ -12,4 +12,8 @@ public record DrawBoxCommand(int x, int y, int width, int height) implements Dra
             out.add(new DrawBoxCommand(x1, y1, x2 - x1, y2 - y1));
         }
     }
+
+    public void offset(int x, int y, List<DrawCommand> out) {
+        out.add(new DrawBoxCommand(this.x() - x, this.y() - y, this.width(), this.height()));
+    }
 }

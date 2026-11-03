@@ -43,8 +43,8 @@ public final record Flex(Direction axis, int gap, List<FlexChild> children) impl
         return true;
     }
 
-    public void draw(Context ctx, int x, int y, int avalWidth, int avalHeight, Rect bounds,
-        List<DrawCommand> cmds) {
+    public void draw(Context ctx, int flexId, int x, int y, int avalWidth, int avalHeight,
+        Rect bounds, List<DrawCommand> cmds) {
         boolean isRow = this.axis() == Direction.Row;
         int mainAvaialable = (isRow ? avalWidth : avalHeight) - this.gap() * this.children().size();
 
@@ -113,7 +113,8 @@ public final record Flex(Direction axis, int gap, List<FlexChild> children) impl
                     jcy += leftOver;
             }
 
-            childNode.draw(ctx, jcx, jcy, cw, ch, new Rect(jcx, jcy, new Size(cw, ch)), cmds);
+            childNode.draw(ctx, flexChild.nodeId(), jcx, jcy, cw, ch,
+                new Rect(jcx, jcy, new Size(cw, ch)), cmds);
         }
     }
 }

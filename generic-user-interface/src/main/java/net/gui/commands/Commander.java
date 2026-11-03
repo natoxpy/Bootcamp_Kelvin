@@ -260,7 +260,7 @@ public class Commander {
 
     private static void compileCommands(Context ctx, int id, int x, int y, int availableWidth,
         int availableHeight, Rect bounds, List<DrawCommand> commandList) {
-        ctx.get(id).draw(ctx, x, y, availableWidth, availableHeight, bounds, commandList);
+        ctx.get(id).draw(ctx, id, x, y, availableWidth, availableHeight, bounds, commandList);
 
         // if (availableWidth < 0 || availableHeight < 0)
         //     return;

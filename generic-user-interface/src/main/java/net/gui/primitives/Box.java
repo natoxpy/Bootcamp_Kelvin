@@ -30,26 +30,22 @@ public final record Box(Integer child, Overflow overflow, LayoutConstraint const
         }
     }
 
-    // public void hideOverflow(Context ctx, int absX, int absY, Size size,
-    //     List<DrawCommand> childCmds, List<DrawCommand> cmds) {
-    //     for (int i = 0; i < childCmds.size(); i++) {
-    //         childCmds.get(i).clip(absX, absY, size, cmds);
-    //     }
-    // }
-
-    public void draw(Context ctx, int absX, int absY, int avalWidth, int avalHeight, Rect bounds,
-        List<DrawCommand> cmds) {
+    public void draw(Context ctx, int id, int absX, int absY, int avalWidth, int avalHeight,
+        Rect bounds, List<DrawCommand> cmds) {
         Node child = ctx.get(this.child() == null ? -1 : this.child());
 
         Size size = this.measure(ctx, avalWidth, avalHeight);
 
         cmds.add(new DrawBoxCommand(absX, absY, size.width(), size.height()));
+
+        ctx.drawtime.updateRect(id, new Rect(absX, absY, size));
+
         if (child == null)
             return;
 
         List<DrawCommand> childCmds = new ArrayList<>();
-        child.draw(
-            ctx, absX, absY, size.width(), size.height(), new Rect(absX, absY, size), childCmds);
+        child.draw(ctx, this.child(), absX, absY, size.width(), size.height(),
+            new Rect(absX, absY, size), childCmds);
 
         if (this.overflow == Overflow.Hidden)
             childCmds.forEach((c) -> c.clip(new Rect(absX, absY, size), cmds));

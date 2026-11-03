@@ -8,6 +8,6 @@ import net.gui.commands.Size;
 public sealed interface Node permits Text, Box, Flex, Viewport {
     public abstract Size measure(Context ctx, int avalWidth, int avalHeight);
     public abstract boolean isFillAxis(Direction direction);
-    public abstract void draw(Context ctx, int absX, int absY, int avalWidth, int avalHeight,
+    public abstract void draw(Context ctx, int id, int absX, int absY, int avalWidth, int avalHeight,
         Rect bounds, List<DrawCommand> cmds);
 }

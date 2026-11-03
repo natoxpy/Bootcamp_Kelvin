@@ -1,8 +1,6 @@
 package net.example.demo;
 
-import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import net.gui.Context;
@@ -14,15 +12,14 @@ import net.gui.primitives.Box;
 import net.gui.primitives.Direction;
 import net.gui.primitives.Flex;
 import net.gui.primitives.FlexChild;
-import net.gui.primitives.JustifySelf;
 import net.gui.primitives.LayoutConstraint;
 import net.gui.primitives.Overflow;
 import net.gui.primitives.Text;
 import net.gui.primitives.WrapMode;
-import net.gui.primitives.dimension.Auto;
 import net.gui.primitives.dimension.Dimension;
 import net.gui.primitives.dimension.Fill;
 import net.gui.primitives.dimension.Fixed;
+import net.gui.witgets.Scroll;
 import net.renderer.text.Renderer;
 
 public record Demo() {
@@ -54,24 +51,21 @@ public record Demo() {
     }
 
     public static void main(String[] args) {
-        Renderer renderer = new Renderer(150, 20);
+        Renderer renderer = new Renderer(50, 10);
         Context ctx = new Context();
 
         int textId = ctx.insert(new Text("Lorem Ipsum", WrapMode.NoWrap));
 
-        int boxChild = insertBox(ctx, textId, Overflow.Hidden, new Fixed(10), new Fixed(10));
-        int boxParent = insertBox(ctx, boxChild, Overflow.Hidden, new Fixed(30), new Fixed(5));
+        int boxChild = insertBox(ctx, textId, Overflow.Hidden, new Fixed(8), new Fixed(8));
+        int boxParent = insertBox(ctx, boxChild, Overflow.Hidden, new Fill(), new Fixed(13));
 
         int box = boxParent;
+        int scroll = Scroll.create(ctx, box);
 
-        int flex = insertFlex(ctx, 30, Direction.Row, new FlexChild(box, JustifySelf.Start),
-            new FlexChild(box, JustifySelf.Start));
+        Scroll.handleScroll(ctx, scroll, Direction.Column, 1);
+        Demo.render(ctx, renderer, scroll, renderer.width(), renderer.height());
 
-        int root = flex;
-
-        Demo.render(ctx, renderer, root, renderer.width(), renderer.height());
-
-        System.out.println();
+		System.out.println();
 
         for (int i = 0; i < renderer.width(); i++) {
             if (i % 5 != 0)
