@@ -1,3 +1,8 @@
 package net.gui.commands;
 
-public sealed interface DrawCommand permits DrawBoxCommand, DrawTextCommand {}
+import java.util.List;
+import net.gui.primitives.Rect;
+
+public sealed interface DrawCommand permits DrawTextCommand, DrawBoxCommand {
+    public abstract void clip(Rect bounds, List<DrawCommand> out);
+}

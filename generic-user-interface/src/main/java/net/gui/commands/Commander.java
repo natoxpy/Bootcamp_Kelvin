@@ -9,6 +9,7 @@ import net.gui.primitives.Flex;
 import net.gui.primitives.FlexChild;
 import net.gui.primitives.JustifySelf;
 import net.gui.primitives.Node;
+import net.gui.primitives.Rect;
 import net.gui.primitives.Text;
 import net.gui.primitives.Viewport;
 import net.gui.primitives.WrapMode;
@@ -258,8 +259,8 @@ public class Commander {
         int availableHeight, List<DrawCommand> commandList) {}
 
     private static void compileCommands(Context ctx, int id, int x, int y, int availableWidth,
-        int availableHeight, List<DrawCommand> commandList) {
-        ctx.get(id).draw(ctx, x, y, availableWidth, availableHeight, commandList);
+        int availableHeight, Rect bounds, List<DrawCommand> commandList) {
+        ctx.get(id).draw(ctx, x, y, availableWidth, availableHeight, bounds, commandList);
 
         // if (availableWidth < 0 || availableHeight < 0)
         //     return;
@@ -282,6 +283,9 @@ public class Commander {
 
     public static void compileCommands(
         Context ctx, int root, int width, int height, List<DrawCommand> commandList) {
-        Commander.compileCommands(ctx, root, 0, 0, width, height, commandList);
+        Rect workspace = new Rect(0, 0, new Size(width, height));
+
+        Commander.compileCommands(ctx, root, workspace.x(), workspace.y(), workspace.size().width(),
+            workspace.size().height(), workspace, commandList);
     }
 }

@@ -1,5 +1,6 @@
 package net.gui.primitives;
 
+import java.util.ArrayList;
 import java.util.List;
 import net.gui.Context;
 import net.gui.commands.DrawBoxCommand;
@@ -7,7 +8,8 @@ import net.gui.commands.DrawCommand;
 import net.gui.commands.Size;
 import net.gui.primitives.dimension.Fill;
 
-public final record Box(Integer child, LayoutConstraint constraints) implements Node {
+public final record Box(Integer child, Overflow overflow, LayoutConstraint constraints)
+    implements Node {
     public Size measure(Context ctx, int avalWidth, int avalHeight) {
         Node child = ctx.get(this.child() == null ? -1 : this.child());
 
@@ -28,15 +30,30 @@ public final record Box(Integer child, LayoutConstraint constraints) implements 
         }
     }
 
-    public void draw(
-        Context ctx, int x, int y, int avalWidth, int avalHeight, List<DrawCommand> cmds) {
+    // public void hideOverflow(Context ctx, int absX, int absY, Size size,
+    //     List<DrawCommand> childCmds, List<DrawCommand> cmds) {
+    //     for (int i = 0; i < childCmds.size(); i++) {
+    //         childCmds.get(i).clip(absX, absY, size, cmds);
+    //     }
+    // }
+
+    public void draw(Context ctx, int absX, int absY, int avalWidth, int avalHeight, Rect bounds,
+        List<DrawCommand> cmds) {
         Node child = ctx.get(this.child() == null ? -1 : this.child());
 
         Size size = this.measure(ctx, avalWidth, avalHeight);
 
-        cmds.add(new DrawBoxCommand(x, y, size.width(), size.height()));
+        cmds.add(new DrawBoxCommand(absX, absY, size.width(), size.height()));
+        if (child == null)
+            return;
 
-        if (child != null)
-            child.draw(ctx, x, y, size.width(), size.height(), cmds);
+        List<DrawCommand> childCmds = new ArrayList<>();
+        child.draw(
+            ctx, absX, absY, size.width(), size.height(), new Rect(absX, absY, size), childCmds);
+
+        if (this.overflow == Overflow.Hidden)
+            childCmds.forEach((c) -> c.clip(new Rect(absX, absY, size), cmds));
+        else
+            cmds.addAll(childCmds);
     }
 }

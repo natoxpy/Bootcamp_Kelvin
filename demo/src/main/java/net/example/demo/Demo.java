@@ -16,9 +16,11 @@ import net.gui.primitives.Flex;
 import net.gui.primitives.FlexChild;
 import net.gui.primitives.JustifySelf;
 import net.gui.primitives.LayoutConstraint;
+import net.gui.primitives.Overflow;
 import net.gui.primitives.Text;
 import net.gui.primitives.WrapMode;
 import net.gui.primitives.dimension.Auto;
+import net.gui.primitives.dimension.Dimension;
 import net.gui.primitives.dimension.Fill;
 import net.gui.primitives.dimension.Fixed;
 import net.renderer.text.Renderer;
@@ -42,24 +44,30 @@ public record Demo() {
         render.write(new OutputStreamWriter(System.out));
     }
 
-    public static int insertFlex(Context ctx, Direction dir, FlexChild... childs) {
-        return ctx.insert(new Flex(dir, 5, List.of(childs)));
+    public static int insertFlex(Context ctx, int gap, Direction dir, FlexChild... childs) {
+        return ctx.insert(new Flex(dir, gap, List.of(childs)));
+    }
+
+    public static int insertBox(
+        Context ctx, Integer child, Overflow overflow, Dimension dimx, Dimension dimy) {
+        return ctx.insert(new Box(child, overflow, new LayoutConstraint(dimx, dimy)));
     }
 
     public static void main(String[] args) {
-        Renderer renderer = new Renderer(232, 20);
+        Renderer renderer = new Renderer(150, 20);
         Context ctx = new Context();
 
         int textId = ctx.insert(new Text("Lorem Ipsum", WrapMode.NoWrap));
-        int boxId = ctx.insert(new Box(textId, new LayoutConstraint(new Fill(), new Fill())));
 
-        var h1 = insertFlex(ctx, Direction.Column, new FlexChild(boxId, 0, JustifySelf.End),
-            new FlexChild(boxId, 0, JustifySelf.End));
+        int boxChild = insertBox(ctx, textId, Overflow.Hidden, new Fixed(10), new Fixed(10));
+        int boxParent = insertBox(ctx, boxChild, Overflow.Hidden, new Fixed(30), new Fixed(5));
 
-        var v1 = insertFlex(ctx, Direction.Row, new FlexChild(h1, 0, JustifySelf.End),
-            new FlexChild(h1, 0, JustifySelf.End));
+        int box = boxParent;
 
-        int root = v1;
+        int flex = insertFlex(ctx, 30, Direction.Row, new FlexChild(box, JustifySelf.Start),
+            new FlexChild(box, JustifySelf.Start));
+
+        int root = flex;
 
         Demo.render(ctx, renderer, root, renderer.width(), renderer.height());
 

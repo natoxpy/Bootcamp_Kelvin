@@ -3,6 +3,7 @@ package net.gui.witgets;
 import net.gui.Context;
 import net.gui.primitives.Box;
 import net.gui.primitives.LayoutConstraint;
+import net.gui.primitives.Overflow;
 import net.gui.primitives.Text;
 import net.gui.primitives.WrapMode;
 import net.gui.primitives.dimension.Auto;
@@ -10,7 +11,8 @@ import net.gui.primitives.dimension.Auto;
 public class InputBox {
     public static int create(Context ctx) {
         int text = ctx.insert(new Text("", WrapMode.NoWrap));
-        int box = ctx.insert(new Box(text, new LayoutConstraint(new Auto(), new Auto())));
+        int box = ctx.insert(
+            new Box(text, Overflow.Hidden, new LayoutConstraint(new Auto(), new Auto())));
         InputState state = new InputState("", 0);
 
         ctx.updateState(box, state);
@@ -38,6 +40,6 @@ public class InputBox {
         int text = ctx.insert(new Text(state.buffer(), WrapMode.NoWrap));
         Box current = (Box) ctx.get(id);
 
-        ctx.update(id, new Box(text, current.constraints()));
+        ctx.update(id, new Box(text, current.overflow(), current.constraints()));
     }
 }

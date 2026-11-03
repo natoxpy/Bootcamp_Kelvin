@@ -16,7 +16,7 @@ public final record Text(String content, WrapMode wrap) implements Node {
     }
 
     public void draw(
-        Context ctx, int x, int y, int avalWidth, int avalHeight, List<DrawCommand> cmds) {
+        Context ctx, int x, int y, int avalWidth, int avalHeight, Rect bounds, List<DrawCommand> cmds) {
         cmds.add(new DrawTextCommand(x, y, this.content()));
     }
 }
