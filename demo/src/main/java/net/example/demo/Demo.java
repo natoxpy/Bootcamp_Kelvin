@@ -47,20 +47,30 @@ public record Demo() {
         Context ctx = new Context();
 
         int textId = ctx.insert(new Text("Lorem Ipsum", WrapMode.NoWrap));
-        int box1Id = ctx.insert(new Box(textId, new LayoutConstraint(new Fill(), new Auto())));
-        int box2Id = ctx.insert(new Box(null, new LayoutConstraint(new Auto(), new Auto())));
+		int boxId = ctx.insert(new Box(textId, new LayoutConstraint(new Fixed(5), new Fixed(5))));
 
-        int flex1Id = ctx.insert(new Flex(Direction.Row, 0,
-            List.of(new FlexChild(box1Id, 1, JustifySelf.Start),
-                new FlexChild(box2Id, 1, JustifySelf.Start))));
+        int hl = ctx.insert(
+            new Flex(Direction.Column, 0, List.of(new FlexChild(boxId, 0, JustifySelf.Center))));
 
-        int root = flex1Id;
+        // int vl = ctx.insert(
+        //     new Flex(Direction.Column, 0, List.of(new FlexChild(hl, 0, JustifySelf.Center))));
 
-		System.out.println(ctx.get(flex1Id).measure(ctx, Integer.MAX_VALUE, Integer.MAX_VALUE));
+        // int box1Id = ctx.insert(new Box(textId, new LayoutConstraint(new Auto(), new Fixed(4))));
+        // int box2Id = ctx.insert(new Box(textId, new LayoutConstraint(new Fill(), new Fixed(5))));
+
+        // int flex1Id = ctx.insert(new Flex(Direction.Column, 0,
+        //     List.of(new FlexChild(box1Id, 1, JustifySelf.Center),
+        //         new FlexChild(box2Id, 1, JustifySelf.Start))));
+
+        // int flex2Id = ctx.insert(new Flex(Direction.Row, 0,
+        //     List.of(new FlexChild(flex1Id, 1, JustifySelf.Center),
+        //         new FlexChild(flex1Id, 1, JustifySelf.Start))));
+
+        int root = hl;
 
         Demo.render(ctx, renderer, root, renderer.width(), renderer.height());
 
-		System.out.println();
+        System.out.println();
 
         for (int i = 0; i < renderer.width(); i++) {
             if (i % 5 != 0)
