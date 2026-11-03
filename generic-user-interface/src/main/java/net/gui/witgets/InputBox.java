@@ -16,7 +16,7 @@ public class InputBox {
         InputState state = new InputState("", 0);
 
         ctx.updateState(box, state);
-        return 0;
+        return box;
     }
 
     public static void handleInput(Context ctx, int id, char c) {
