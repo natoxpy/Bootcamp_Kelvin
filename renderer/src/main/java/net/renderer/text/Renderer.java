@@ -36,9 +36,12 @@ public class Renderer {
     }
 
     private void setBufferAt(char c, int x, int y) {
+		if (c == ' ') return;
+
         int n = x + y * this.canvasWidth;
         if (n >= this.buffer.length)
             throw new IndexOutOfBoundsException("Tried to access buffer beyond it's define size");
+
         this.buffer[n] = c;
     }
 
