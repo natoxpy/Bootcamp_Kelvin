@@ -124,8 +124,6 @@ public class Renderer {
                     writer.write('\n');
             }
 
-            writer.flush();
-
         } catch (Exception e) {
             throw new RuntimeException("Writer issue or something.");
         }

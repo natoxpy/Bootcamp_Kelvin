@@ -2,9 +2,12 @@ plugins {
     application
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    implementation(project(":generic-user-interface"))
-    implementation(project(":renderer"))
+    implementation(project(":core"))
 }
 
 application {
