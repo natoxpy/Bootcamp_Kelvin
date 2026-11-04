@@ -84,6 +84,8 @@ public class Rosu {
             this.render(cmds);
             this.focusManager.focusNext();
 
+            this.tickFocused();
+
             int r = this.input();
             if (r == 1)
                 break;
@@ -102,6 +104,25 @@ public class Rosu {
             if (c == 'q')
                 return 1;
 
+            if (c == 0x1B) { // ESC — likely the start of an arrow key / escape sequence
+                int next1 = reader.read(50);
+                if (next1 == '[') {
+                    int next2 = reader.read(50);
+                    switch (next2) {
+                        case 'A': /* Up arrow */
+                            break;
+                        case 'B': /* Down arrow */
+                            break;
+                        case 'C': /* Right Arrow */
+                            break;
+                        case 'D': /* Right Arrow */
+                            break;
+                    }
+                }
+                // else: lone ESC key press, or unrecognized sequence — swallow it either way
+                return 0;
+            }
+
             if (c == '\t')
                 this.focusManager.focusNext();
 
@@ -114,6 +135,13 @@ public class Rosu {
         }
 
         return 0;
+    }
+
+    private void tickFocused() {
+        Renderable f = this.focusManager.getFocus();
+        if (f instanceof Tickable ic) {
+            ic.tick(System.currentTimeMillis());
+        }
     }
 
     private void render(List<DrawCommand> cmds) {
@@ -151,6 +179,10 @@ public class Rosu {
         }
 
         throw new IllegalStateException("unreachable");
+    }
+
+    public Terminal getRawTerminal() {
+        return this.terminal;
     }
 
     public void close() {
