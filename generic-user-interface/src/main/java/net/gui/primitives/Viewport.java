@@ -17,7 +17,7 @@ public record Viewport(int offsetX, int offsetY, Clamp clampX, Clamp clampY, Int
         boolean heightUnbounded = avalHeight == Integer.MAX_VALUE;
 
         if (widthUnbounded || heightUnbounded) {
-            return child.measure(ctx, avalHeight, avalWidth);
+            return child.measure(ctx, avalWidth, avalHeight);
         }
 
         return new Size(avalWidth, avalHeight);

@@ -9,7 +9,6 @@ import net.gui.primitives.Flex;
 import net.gui.primitives.FlexChild;
 import net.gui.primitives.LayoutConstraint;
 import net.gui.primitives.Node;
-import net.gui.primitives.Rect;
 import net.gui.primitives.Text;
 import net.gui.primitives.Viewport;
 import net.gui.primitives.dimension.Auto;

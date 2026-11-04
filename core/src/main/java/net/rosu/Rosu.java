@@ -171,6 +171,11 @@ public class Rosu {
             if (c instanceof Focusable) {
                 this.focusManager.register(c);
             }
+
+            if (c instanceof IdAware ca && existingId != null) {
+                ca.onIdAssigned(ctx, existingId);
+            }
+
             c.attachFocusManager(this.focusManager);
 
             return this.reconcile(ctx, existingId, c.getRenderable());
