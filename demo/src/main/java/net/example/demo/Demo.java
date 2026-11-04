@@ -1,38 +1,38 @@
 package net.example.demo;
 
+import net.gui.primitives.AlignSelf;
+import net.gui.primitives.JustifySelf;
+import net.gui.primitives.dimension.Fixed;
 import net.rosu.Rosu;
+import net.rosu.component.BoxComponent;
 import net.rosu.component.Component;
-import net.rosu.component.Focusable;
+import net.rosu.component.FlexComponent;
+import net.rosu.component.FlexItem;
 import net.rosu.component.Renderable;
 import net.rosu.component.TextComponent;
 
-class Inner extends Component implements Focusable {
-    int count = 0;
+class Center extends Component {
+    private Renderable child;
 
-    public void setCount(int count) {
-        this.count = count;
-        redraw();
+    public Center(Renderable child) {
+        this.child = child;
     }
 
     @Override
     public Renderable render() {
-        return new TextComponent(String.format("Hello, Paimon %s", this.count));
-    }
-
-    @Override
-    public void onKey(char key) {
-		System.out.println(count);
-		this.setCount(count + 1);
+        var child = new FlexItem(this.child, JustifySelf.Center, AlignSelf.Center);
+        return new FlexComponent().addChild(child);
     }
 }
 
 class Window extends Component {
     @Override
     public Renderable render() {
-        return new Inner();
-    }
+        var centeredText = new Center(new TextComponent("Centered Div"));
+        var box = new BoxComponent(new Fixed(20), new Fixed(5)).setChild(centeredText);
 
-    public void onKey(char c) {}
+        return new Center(box);
+    }
 }
 
 public class Demo {
@@ -42,9 +42,8 @@ public class Demo {
         Component window = new Window();
 
         app.setRoot(window);
-        app.setFocus(window);
 
         app.start();
-		app.close();
+        app.close();
     }
 }

@@ -5,7 +5,6 @@ import net.gui.Context;
 import net.gui.commands.DrawCommand;
 import net.gui.commands.Size;
 
-// Center
 public final record Flex(Direction axis, int gap, List<FlexChild> children) implements Node {
     public Size measure(Context ctx, int avalWidth, int avalHeight) {
         var isRow = axis == Direction.Row;
@@ -97,20 +96,35 @@ public final record Flex(Direction axis, int gap, List<FlexChild> children) impl
             int jcx = cx;
             int jcy = cy;
 
-            double leftOver = (isRow ? cw - internalSize.width() : ch - internalSize.height());
+            double mainLeftOver = isRow ? cw - internalSize.width() : ch - internalSize.height();
+            double crossLeftOver = isRow ? ch - internalSize.height() : cw - internalSize.width();
 
             if (flexChild.justify() == JustifySelf.Center) {
-                leftOver /= 2;
-
+                mainLeftOver /= 2;
                 if (isRow)
-                    jcx += leftOver;
+                    jcx += mainLeftOver;
                 else
-                    jcy += leftOver;
+                    jcy += mainLeftOver;
             } else if (flexChild.justify() == JustifySelf.End) {
                 if (isRow)
-                    jcx += leftOver;
+                    jcx += mainLeftOver;
                 else
-                    jcy += leftOver;
+                    jcy += mainLeftOver;
+            }
+
+            // cross-axis — needs its own property on FlexChild (e.g. AlignSelf), analogous to
+            // justify
+            if (flexChild.align() == AlignSelf.Center) {
+                crossLeftOver /= 2;
+                if (isRow)
+                    jcy += crossLeftOver;
+                else
+                    jcx += crossLeftOver;
+            } else if (flexChild.align() == AlignSelf.End) {
+                if (isRow)
+                    jcy += crossLeftOver;
+                else
+                    jcx += crossLeftOver;
             }
 
             childNode.draw(ctx, flexChild.nodeId(), jcx, jcy, cw, ch,

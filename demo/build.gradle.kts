@@ -8,6 +8,7 @@ repositories {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":generic-user-interface"))
 }
 
 application {

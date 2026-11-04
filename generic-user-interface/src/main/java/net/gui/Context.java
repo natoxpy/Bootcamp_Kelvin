@@ -22,7 +22,7 @@ public class Context {
     private int nextId = 0;
     private final Map<Integer, Node> nodes = new HashMap<>();
     private final Map<Integer, ContextState> states = new HashMap<>();
-	public final DrawtimeContext drawtime = new DrawtimeContext();
+    public final DrawtimeContext drawtime = new DrawtimeContext();
 
     public int insert(Node node) {
         int id = this.nextId++;
@@ -36,6 +36,10 @@ public class Context {
 
     public void update(int id, Node node) {
         this.nodes.put(id, node);
+    }
+
+    public void remove(int id) {
+        this.nodes.remove(id);
     }
 
     public ContextState getState(int id) {

@@ -3,6 +3,7 @@ package net.rosu.component;
 import net.gui.Context;
 import net.gui.primitives.Text;
 import net.gui.primitives.WrapMode;
+import net.rosu.Rosu;
 
 public final class TextComponent implements SystemComponent {
     private final String text;
@@ -12,7 +13,7 @@ public final class TextComponent implements SystemComponent {
     }
 
     @Override
-    public int reconcileSelf(Context ctx, Integer existingId) {
+    public int reconcileSelf(Context ctx, Rosu rosu, Integer existingId) {
         if (existingId == null) {
             int id = ctx.insert(new Text(this.text, WrapMode.NoWrap));
             return id;

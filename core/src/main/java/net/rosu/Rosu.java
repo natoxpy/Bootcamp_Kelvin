@@ -61,7 +61,7 @@ public class Rosu {
     }
 
     public void start() {
-        int rootChildId = this.reconsile(this.context, null, this.root);
+        int rootChildId = this.reconcile(this.context, null, this.root);
 
         Box root = new Box(rootChildId, Overflow.Hidden,
             new LayoutConstraint(new Fixed(this.size.width()), new Fixed(this.size.height())));
@@ -76,7 +76,7 @@ public class Rosu {
         this.terminal.puts(Capability.cursor_invisible);
 
         for (;;) {
-            this.reconsile(this.context, rootChildId, this.root);
+            this.reconcile(this.context, rootChildId, this.root);
 
             rootNode.draw(this.context, rootId, 0, 0, this.size.width(), this.size.height(),
                 new Rect(0, 0, this.size), cmds);
@@ -135,16 +135,19 @@ public class Rosu {
         this.terminal.flush();
     }
 
-    private int reconsile(Context ctx, Integer existingId, Renderable r) {
+    public Integer reconcile(Context ctx, Integer existingId, Renderable r) {
+        if (r == null)
+            return null;
+
         if (r instanceof Component c) {
             if (c instanceof Focusable) {
                 this.focusManager.register(c);
             }
             c.attachFocusManager(this.focusManager);
 
-            return this.reconsile(ctx, existingId, c.getRenderable());
+            return this.reconcile(ctx, existingId, c.getRenderable());
         } else if (r instanceof SystemComponent sc) {
-            return sc.reconcileSelf(ctx, existingId);
+            return sc.reconcileSelf(ctx, this, existingId);
         }
 
         throw new IllegalStateException("unreachable");
@@ -156,7 +159,7 @@ public class Rosu {
             this.terminal.flush();
             this.terminal.close();
         } catch (Exception e) {
-			e.printStackTrace();
-		}
+            e.printStackTrace();
+        }
     }
 }
