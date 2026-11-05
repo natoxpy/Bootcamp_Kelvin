@@ -30,6 +30,7 @@ date|time|description|vendor|amount
 2026-10-05|21:28:49|motorcycle parts|Amazon|-82.03
 2026-10-05|22:15:17|dinner delivery|Pizza Hut|-26.99
 2026-10-06|08:27:06|dinner delivery|Uber Eats|-39.70
+2026-10-06|08:27:06|Expensive Stuff|Stuff|-1000.70
 2026-10-06|13:07:35|bank fee|Bank of America|-27.15
 2026-10-06|13:46:26|cloud server hosting|Hetzner|-27.61
 2026-10-06|19:42:37|phone bill|Verizon|-81.79
@@ -73,7 +74,7 @@ date|time|description|vendor|amount
 2026-10-13|08:37:44|cloud server hosting|Hetzner|-34.76
 2026-10-13|10:01:02|haircut|Great Clips|-25.74
 2026-10-13|14:02:45|bank fee|Bank of America|-12.75
-2026-10-13|15:14:23|Contract milestone payment|PayPal|682.06
+2026-10-13|15:14:23|Contract milestone payment|PayPal|62.06
 2026-10-13|17:43:36|internet bill|AT&T Fiber|-75.09
 2026-10-13|18:31:25|groceries|Harris Teeter|-145.66
 2026-10-13|20:22:19|streaming subscription|Netflix|-13.92
@@ -84,11 +85,11 @@ date|time|description|vendor|amount
 2026-10-15|06:48:43|parking|City of Charlotte Parking|-8.65
 2026-10-15|08:40:52|pet supplies|Chewy|-25.83
 2026-10-15|09:24:17|electronics components|Adafruit|-54.90
-2026-10-15|11:51:44|Contract milestone payment|Stripe Payouts|2325.85
-2026-10-15|13:00:04|Invoice 1003 paid|Joe|2806.98
+2026-10-15|11:51:44|Contract milestone payment|Stripe Payouts|225.85
+2026-10-15|13:00:04|Invoice 1003 paid|Joe|1206.98
 2026-10-15|16:53:49|coffee|Not Just Coffee|-6.61
-2026-10-16|08:05:46|Contract milestone payment|Stripe Payouts|3139.00
-2026-10-16|11:19:35|streaming subscription|Netflix|-11.54
+2026-10-16|08:05:46|Contract milestone payment|Stripe Payouts|319.00
+2026-10-16|11:19:35|streaming subscription|Netflix|-101.54
 2026-10-16|11:26:31|coffee|Starbucks|-6.41
 2026-10-16|11:51:51|electronics components|Amazon|-130.03
 2026-10-16|14:49:49|phone bill|T-Mobile|-58.10
@@ -153,9 +154,9 @@ date|time|description|vendor|amount
 2026-10-26|16:17:55|internet bill|Spectrum|-74.99
 2026-10-26|17:14:08|Invoice 1002 paid|Oakwood Dev Studio|707.02
 2026-10-26|17:28:57|streaming subscription|Netflix|-10.06
-2026-10-26|21:04:36|Contract milestone payment|Wise|4296.50
+2026-10-26|21:04:36|Contract milestone payment|Wise|1296.50
 2026-10-27|11:52:12|phone bill|Verizon|-80.65
-2026-10-27|13:17:10|Invoice 1006 paid|Oakwood Dev Studio|1717.93
+2026-10-27|13:17:10|Invoice 1006 paid|Oakwood Dev Studio|1217.93
 2026-10-27|14:02:44|streaming subscription|YouTube Premium|-7.19
 2026-10-27|15:07:25|bank fee|Bank of America|-29.12
 2026-10-27|18:57:49|haircut|Sport Clips|-26.11
@@ -163,7 +164,7 @@ date|time|description|vendor|amount
 2026-10-28|07:01:05|groceries|Whole Foods|-55.82
 2026-10-28|11:08:24|ergonomic keyboard|Amazon|-89.50
 2026-10-28|11:29:00|phone bill|Verizon|-75.31
-2026-10-28|11:44:28|Freelance project deposit|Carter & Co|1497.60
+2026-10-28|11:44:28|Freelance project deposit|Carter & Co|147.60
 2026-10-28|11:46:33|bank fee|Bank of America|-16.27
 2026-10-28|17:46:50|general purchase|Amazon|-55.61
 2026-10-28|22:23:01|software subscription|Linode|-57.12
@@ -183,7 +184,7 @@ date|time|description|vendor|amount
 2026-10-31|18:24:42|dinner delivery|Pizza Hut|-53.70
 2026-10-31|19:12:06|electric bill|Duke Energy|-132.83
 2026-10-31|21:28:21|Reimbursement|BlueRidge Software|127.76
-2026-11-01|10:12:18|Invoice 1005 paid|Meridian IT Group|1278.09
+2026-11-01|10:12:18|Invoice 1005 paid|Meridian IT Group|128.09
 2026-11-01|10:28:34|parking|ParkMobile|-8.46
 2026-11-01|12:14:08|bank fee|Bank of America|-17.77
 2026-11-01|20:05:38|electric bill|Duke Energy|-88.49

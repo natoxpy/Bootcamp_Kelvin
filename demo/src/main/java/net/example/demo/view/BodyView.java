@@ -1,5 +1,6 @@
 package net.example.demo.view;
 
+import net.example.demo.data.Database;
 import net.rosu.component.BoxComponent;
 import net.rosu.component.Component;
 import net.rosu.component.FlexComponent;
@@ -8,14 +9,18 @@ import net.rosu.component.OutlineDesign;
 import net.rosu.component.Renderable;
 
 public class BodyView extends Component {
+	private Database db;
     SidebarView sidebar;
-    Renderable content = new OverviewView();
+    Renderable content;
 
-    public BodyView() {
+    public BodyView(Database db) {
+		this.db = db;
         sidebar = new SidebarView()
                       .onClickOverview(() -> this.setOverviewView())
                       .onClickTransaction(() -> this.setTransactionsView())
                       .onClickModifyRecord(() -> this.setRecordModificationView());
+
+        content = new OverviewView(db);
     }
 
     @Override
@@ -32,7 +37,7 @@ public class BodyView extends Component {
     }
 
     private void setOverviewView() {
-        this.content = new OverviewView();
+        this.content = new OverviewView(this.db);
         this.sidebar.setActive(0);
         this.redraw();
     }
