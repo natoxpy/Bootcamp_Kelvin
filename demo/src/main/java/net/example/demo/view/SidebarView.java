@@ -33,11 +33,21 @@ public class SidebarView extends Component {
 
     private int active = 0;
 
-    public SidebarView(
-        Runnable clickedOverview, Runnable clickedTransaction, Runnable clickedModifyRecord) {
-        this.clickedOverview = clickedOverview;
-        this.clickedTransaction = clickedTransaction;
-        this.clickedModifyRecord = clickedModifyRecord;
+    public SidebarView() {}
+
+    public SidebarView onClickOverview(Runnable c) {
+        this.clickedOverview = c;
+		return this;
+    }
+
+    public SidebarView onClickTransaction(Runnable c) {
+        this.clickedTransaction = c;
+		return this;
+    }
+
+    public SidebarView onClickModifyRecord(Runnable c) {
+        this.clickedModifyRecord = c;
+		return this;
     }
 
     public void setActive(int active) {
@@ -57,7 +67,7 @@ public class SidebarView extends Component {
         pages.addChild(new FlexItem(transactionButton, JustifySelf.Start, AlignSelf.Center, 1));
         pages.addChild(new FlexItem(modifyRecordButton, JustifySelf.Start, AlignSelf.Center, 1));
 
-        flex.addChild(new FlexItem(new BoxComponent(pages).setHeight(new Fixed(4 * 3)),
+        flex.addChild(new FlexItem(new BoxComponent(pages).setHeight(new Fixed(3 * 3)),
             JustifySelf.Start, AlignSelf.Center, 1));
 
         flex.addChild(new FlexItem(closeButton, JustifySelf.End, AlignSelf.Center, 1));
@@ -65,24 +75,30 @@ public class SidebarView extends Component {
         return flex;
     }
 
-	private void resetColors() {
+    private void resetColors() {
         this.overviewButton.setBackgroundAndRedraw(this.active == 0 ? Color.Black : null);
         this.transactionButton.setBackgroundAndRedraw(this.active == 1 ? Color.Black : null);
         this.modifyRecordButton.setBackgroundAndRedraw(this.active == 2 ? Color.Black : null);
-	}
+    }
 
     private void gotoOverview() {
+        if (this.clickedOverview == null)
+            return;
         this.clickedOverview.run();
-		this.resetColors();
+        this.resetColors();
     }
 
     private void gotoTransactions() {
+        if (this.clickedTransaction == null)
+            return;
         this.clickedTransaction.run();
-		this.resetColors();
+        this.resetColors();
     }
 
     private void gotoModifiedRecord() {
+        if (this.clickedModifyRecord == null)
+            return;
         this.clickedModifyRecord.run();
-		this.resetColors();
+        this.resetColors();
     }
 }

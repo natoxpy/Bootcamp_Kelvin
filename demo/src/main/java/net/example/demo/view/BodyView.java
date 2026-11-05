@@ -8,11 +8,15 @@ import net.rosu.component.OutlineDesign;
 import net.rosu.component.Renderable;
 
 public class BodyView extends Component {
+    SidebarView sidebar;
     Renderable content = new OverviewView();
-	int active = 0;
-    SidebarView sidebar = new SidebarView(()
-                                             -> this.setOverviewView(),
-        () -> this.setTransactionsView(), () -> this.setRecordModificationView());
+
+    public BodyView() {
+        sidebar = new SidebarView()
+                      .onClickOverview(() -> this.setOverviewView())
+                      .onClickTransaction(() -> this.setTransactionsView())
+                      .onClickModifyRecord(() -> this.setRecordModificationView());
+    }
 
     @Override
     public Renderable render() {
@@ -29,19 +33,19 @@ public class BodyView extends Component {
 
     private void setOverviewView() {
         this.content = new OverviewView();
-		this.sidebar.setActive(0);
+        this.sidebar.setActive(0);
         this.redraw();
     }
 
     private void setTransactionsView() {
         this.content = new TransactionsView();
-		this.sidebar.setActive(1);
+        this.sidebar.setActive(1);
         this.redraw();
     }
 
     private void setRecordModificationView() {
         this.content = new RecordModificationView();
-		this.sidebar.setActive(2);
+        this.sidebar.setActive(2);
         this.redraw();
     }
 }

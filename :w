@@ -1,5 +1,8 @@
 package net.example.demo.view;
 
+import java.math.BigInteger;
+import net.example.demo.data.Database;
+import net.example.demo.data.Transaction;
 import net.gui.commands.Color;
 import net.gui.primitives.AlignSelf;
 import net.gui.primitives.JustifySelf;
@@ -9,16 +12,29 @@ import net.rosu.component.FlexItem;
 import net.rosu.component.Renderable;
 import net.rosu.component.TextComponent;
 
-public class TopView extends Component {
+public class HeaderView extends Component {
+    private Database db;
+
+    public HeaderView(Database db) {
+        this.db = db;
+    }
+
     @Override
     public Renderable render() {
         var flex = new FlexComponent();
-		var title = new TextComponent("PGFAT32").setColor(Color.White);
-		var netincome = new TextComponent("net money $00,000").setColor(Color.White);
+        var title = new TextComponent("PGFAT32").setColor(Color.White);
+        var netincome = new TextComponent("net money $00,000").setColor(Color.White);
 
         flex.addChild(new FlexItem(title, JustifySelf.Start, AlignSelf.Center, 0));
         flex.addChild(new FlexItem(netincome, JustifySelf.End, AlignSelf.Center, 0));
 
         return flex;
+    }
+
+    private int computeNetMoney() {
+        return this.db.getData()
+            .stream()
+            .map(Transaction::amount)
+            .reduce(BigInteger.ZERO, BigInteger::add);
     }
 }
