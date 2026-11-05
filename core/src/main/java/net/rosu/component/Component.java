@@ -16,9 +16,14 @@ public non-sealed abstract class Component implements Renderable {
         return focusManager != null && focusManager.getFocus() == this;
     }
 
-    protected final void requestFocus() {
+    public void requestFocus() {
         if (focusManager != null)
             focusManager.setFocus(this);
+    }
+
+    public final void defocus() {
+        if (focusManager != null)
+            focusManager.setFocus(null);
     }
 
     protected final void redraw() {

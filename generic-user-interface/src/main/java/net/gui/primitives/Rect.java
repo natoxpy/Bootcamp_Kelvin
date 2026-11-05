@@ -3,7 +3,12 @@ package net.gui.primitives;
 import net.gui.commands.Size;
 
 public record Rect(int x, int y, Size size) {
-    Rect intersect(Rect other) {
+    public boolean intersects(Rect other) {
+        return x <= other.x() + other.size().width() && x + size().width() >= other.x()
+            && y <= other.y() + other.size().height() && y + size().height() >= other.y();
+    }
+
+    public Rect intersect(Rect other) {
         int x1 = Math.max(x, other.x()), y1 = Math.max(y, other.y());
         int x2 = Math.min(x + size().width(), other.x() + other.size().width());
         int y2 = Math.min(y + size().height(), other.y() + other.size().height());

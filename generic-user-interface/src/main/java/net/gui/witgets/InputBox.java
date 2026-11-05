@@ -10,9 +10,9 @@ import net.gui.primitives.dimension.Auto;
 
 public class InputBox {
     public static int create(Context ctx) {
-        int text = ctx.insert(new Text("", WrapMode.NoWrap));
-        int box = ctx.insert(
-            new Box(text, Overflow.Hidden, new LayoutConstraint(new Auto(), new Auto())));
+        int text = ctx.insert(new Text("", WrapMode.NoWrap, null));
+        int box = ctx.insert(new Box(
+            text, Overflow.Hidden, new LayoutConstraint(new Auto(), new Auto()), null, null));
         InputState state = new InputState("", 0);
 
         ctx.updateState(box, state);
@@ -37,9 +37,9 @@ public class InputBox {
     }
 
     private static void reconstruct(Context ctx, int id, InputState state) {
-        int text = ctx.insert(new Text(state.buffer(), WrapMode.NoWrap));
+        int text = ctx.insert(new Text(state.buffer(), WrapMode.NoWrap, null));
         Box current = (Box) ctx.get(id);
 
-        ctx.update(id, new Box(text, current.overflow(), current.constraints()));
+        ctx.update(id, new Box(text, current.overflow(), current.constraints(), null, null));
     }
 }

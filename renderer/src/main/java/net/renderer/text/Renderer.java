@@ -1,9 +1,14 @@
 package net.renderer.text;
 
 import java.io.Writer;
-import java.nio.CharBuffer;
 
 public class Renderer {
+    private static final int CHAR_MASK = 0xFFFF;
+    private static final int FG_SHIFT = 16;
+    private static final int BG_SHIFT = 24;
+    private static final int COLOR_MASK = 0xFF;
+    private static final int NO_COLOR = 0;
+
     private int canvasWidth;
     private int canvasHeight;
     public int[] buffer;
@@ -35,16 +40,49 @@ public class Renderer {
         return index / this.canvasWidth;
     }
 
-    private void setBufferAt(char c, int x, int y) {
-		if (c == ' ') return;
+    private int indexOf(int x, int y) {
+        if (x < 0 || x >= canvasWidth || y < 0 || y >= canvasHeight)
+            return -1;
 
-        int n = x + y * this.canvasWidth;
-        if (n >= this.buffer.length)
-            throw new IndexOutOfBoundsException("Tried to access buffer beyond it's define size");
-
-        this.buffer[n] = c;
+        return x + y * canvasWidth;
     }
 
+    private static int pack(char c, int fg, int bg) {
+        return (c & CHAR_MASK) | ((fg & COLOR_MASK) << FG_SHIFT) | ((bg & COLOR_MASK) << BG_SHIFT);
+    }
+
+    private static char unpackChar(int cell) {
+        return (char) (cell & CHAR_MASK);
+    }
+
+    private static int unpackFg(int cell) {
+        return (cell >>> FG_SHIFT) & COLOR_MASK;
+    }
+
+    private static int unpackBg(int cell) {
+        return (cell >>> BG_SHIFT) & COLOR_MASK;
+    }
+
+    private void setCell(int x, int y, Character c, ANSI fg, ANSI bg) {
+        int n = indexOf(x, y);
+        if (n == -1)
+            return;
+
+        int old = this.buffer[n];
+        char ch = (c != null) ? c : unpackChar(old);
+        int f = (fg != null) ? fg.fg : unpackFg(old);
+        int b = (bg != null) ? bg.bg : unpackBg(old);
+        this.buffer[n] = pack(ch, f, b);
+    }
+
+    private void setBufferAt(char c, int x, int y) {
+        if (c == ' ')
+            return;
+        setCell(x, y, c, null, null);
+    }
+
+    /** @deprecated use {@link #drawBox(int, int, int, int, RectStyle)} */
+    @Deprecated
     public void drawBox(int x, int y, int width, int height, char outline, char fill) {
         if (width < 0 || height < 0)
             throw new RuntimeException("Width or Height Less than Zero.");
@@ -72,66 +110,95 @@ public class Renderer {
         }
     }
 
-    public void drawText(int x, int y, String content) {
-        char[] ch = new char[content.length()];
-        content.getChars(0, content.length(), ch, 0);
+    public void drawBox(int x, int y, int width, int height, RectStyle style) {
+        if (width < 0 || height < 0)
+            throw new RuntimeException("Width or Height Less than Zero.");
 
-        CharBuffer cb = CharBuffer.wrap(ch);
+        OutlineStyle o = style.outline();
+        ANSI outlineColor = style.outlineColor();
+        ANSI bgColor = style.backgroundColor();
 
-        for (int i = 0; i < this.buffer.length; i++) {
-            int xi = this.indexToX(i);
-            int yi = this.indexToY(i);
-            int h = 1;
-            int w = content.length();
+        int left = x - 1;
+        int top = y - 1;
+        int right = x + width;
+        int bottom = y + height;
 
-            boolean withinRectXBound = xi >= x && xi < x + w;
-            boolean withinRectYBound = yi >= y && yi < y + h;
+        // corners
 
-            if (!withinRectXBound || !withinRectYBound)
-                continue;
+        if (o != null) {
+            setCell(left, top, o.topLeft(), outlineColor, bgColor);
+            setCell(right, top, o.topRight(), outlineColor, bgColor);
+            setCell(left, bottom, o.bottomLeft(), outlineColor, bgColor);
+            setCell(right, bottom, o.bottomRight(), outlineColor, bgColor);
 
-            this.setBufferAt(cb.get(), xi, yi);
+            // top/bottom edges
+            for (int xi = x; xi < x + width; xi++) {
+                setCell(xi, top, o.top(), outlineColor, bgColor);
+                setCell(xi, bottom, o.bottom(), outlineColor, bgColor);
+            }
+
+            // left/right edges
+            for (int yi = y; yi < y + height; yi++) {
+                setCell(left, yi, o.Left(), outlineColor, bgColor);
+                setCell(right, yi, o.Right(), outlineColor, bgColor);
+            }
+        }
+
+        // interior: paint background only, leave whatever char is already there
+        for (int yi = y; yi < y + height; yi++) {
+            for (int xi = x; xi < x + width; xi++) {
+                setCell(xi, yi, null, null, bgColor);
+            }
         }
     }
 
-    private String[] getLines() {
-        String[] lines = new String[this.canvasHeight];
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < this.buffer.length; i++) {
-            int xi = this.indexToX(i);
-            int yi = this.indexToY(i);
-
-            sb.append((char) this.buffer[i]);
-
-            if (xi != this.canvasWidth - 1)
-                continue;
-
-            lines[yi] = sb.toString();
-            sb = new StringBuilder();
+    public void drawText(int x, int y, String content) {
+        for (int i = 0; i < content.length(); i++) {
+            setBufferAt(content.charAt(i), x + i, y);
         }
+    }
 
-        return lines;
+    public void drawText(int x, int y, String content, ANSI fg, ANSI bg) {
+        for (int i = 0; i < content.length(); i++) {
+            setCell(x + i, y, content.charAt(i), fg, bg);
+        }
     }
 
     public void write(Writer writer) {
-        String[] lines = this.getLines();
-
         try {
-            for (int i = 0; i < lines.length; i++) {
-                writer.write(lines[i]);
-                if (i < lines.length - 1)
+            int prevFg = -1, prevBg = -1;
+
+            for (int y = 0; y < canvasHeight; y++) {
+                for (int x = 0; x < canvasWidth; x++) {
+                    int cell = this.buffer[x + y * canvasWidth];
+                    char ch = unpackChar(cell);
+                    int fg = unpackFg(cell);
+                    int bg = unpackBg(cell);
+
+                    if (fg != prevFg || bg != prevBg) {
+                        writer.write(ANSI.RESET_SEQ);
+                        if (fg != NO_COLOR)
+                            writer.write("\033[" + fg + "m");
+                        if (bg != NO_COLOR)
+                            writer.write("\033[" + bg + "m");
+                        prevFg = fg;
+                        prevBg = bg;
+                    }
+                    writer.write(ch);
+                }
+                if (y < canvasHeight - 1)
                     writer.write('\n');
             }
-
+            writer.write("\u001B[0m");
         } catch (Exception e) {
             throw new RuntimeException("Writer issue or something.");
         }
     }
 
     public void clear(char c) {
+        int packed = pack(c, 0, 0);
         for (int i = 0; i < buffer.length; i++) {
-            this.buffer[i] = c;
+            this.buffer[i] = packed;
         }
     }
 }

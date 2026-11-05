@@ -14,6 +14,7 @@ public final class FlexComponent implements SystemComponent {
     private List<FlexItem> children = new ArrayList<>();
 
     public FlexComponent() {}
+
     public FlexComponent(Direction axis, int gap) {
         this.axis = axis;
         this.gap = gap;
@@ -27,6 +28,10 @@ public final class FlexComponent implements SystemComponent {
     public FlexComponent setGap(int gap) {
         this.gap = gap;
         return this;
+    }
+ 
+    public List<FlexItem> getChildren() {
+        return this.children;
     }
 
     public FlexComponent addChild(FlexItem child) {
@@ -43,7 +48,7 @@ public final class FlexComponent implements SystemComponent {
 
         for (FlexItem item : this.children) {
             int childId = rosu.reconcile(ctx, null, item.child());
-            newChildren.add(new FlexChild(childId, item.justify(), item.align()));
+            newChildren.add(new FlexChild(childId, item.grow(), item.justify(), item.align()));
         }
 
         for (var child : oldChildren) {

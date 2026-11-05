@@ -3,7 +3,12 @@ package net.gui.commands;
 import java.util.List;
 import net.gui.primitives.Rect;
 
-public record DrawTextCommand(int x, int y, String content) implements DrawCommand {
+public record DrawTextCommand(int x, int y, String content, TextStyle style)
+    implements DrawCommand {
+    public DrawTextCommand(int x, int y, String content) {
+        this(x, y, content, new TextStyle(null, null));
+    }
+
     public void clip(Rect bounds, List<DrawCommand> cmds) {
         int boundsLeft = bounds.x();
         int boundsTop = bounds.y();
@@ -30,10 +35,10 @@ public record DrawTextCommand(int x, int y, String content) implements DrawComma
 
         String visibleContent = content().substring(substrStart, substrEnd);
 
-        cmds.add(new DrawTextCommand(visibleStart, y(), visibleContent));
+        cmds.add(new DrawTextCommand(visibleStart, y(), visibleContent, this.style()));
     }
 
     public void offset(int x, int y, List<DrawCommand> out) {
-        out.add(new DrawTextCommand(this.x() - x, this.y() - y, this.content()));
+        out.add(new DrawTextCommand(this.x() - x, this.y() - y, this.content(), this.style()));
     }
 }

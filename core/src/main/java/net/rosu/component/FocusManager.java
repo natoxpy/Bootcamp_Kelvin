@@ -14,6 +14,7 @@ public class FocusManager {
     public void setFocus(Component c) {
         if (this.focus == c)
             return;
+
         Component prev = this.focus;
         this.focus = c;
 
@@ -34,9 +35,14 @@ public class FocusManager {
             focus = null;
     }
 
+    public boolean has(Component c) {
+        return this.focusable.contains(c);
+    }
+
     public void focusNext() {
         if (focusable.isEmpty())
             return;
+
         int idx = focusable.indexOf(focus);
         Component next = focusable.get((idx + 1) % focusable.size());
         setFocus(next);

@@ -3,13 +3,18 @@ package net.gui.primitives;
 import java.util.ArrayList;
 import java.util.List;
 import net.gui.Context;
+import net.gui.commands.BoxStyle;
 import net.gui.commands.DrawBoxCommand;
 import net.gui.commands.DrawCommand;
 import net.gui.commands.Size;
 import net.gui.primitives.dimension.Fill;
 
-public final record Box(Integer child, Overflow overflow, LayoutConstraint constraints)
-    implements Node {
+public final record Box(Integer child, Overflow overflow, LayoutConstraint constraints,
+    BoxStyle boxstyle, Object data) implements Node {
+    public Box(Integer child, Overflow overflow, LayoutConstraint constraints, BoxStyle boxstyle) {
+        this(child, overflow, constraints, boxstyle, null);
+    }
+
     public Size measure(Context ctx, int avalWidth, int avalHeight) {
         Node child = ctx.get(this.child() == null ? -1 : this.child());
 
@@ -36,7 +41,7 @@ public final record Box(Integer child, Overflow overflow, LayoutConstraint const
 
         Size size = this.measure(ctx, avalWidth, avalHeight);
 
-        cmds.add(new DrawBoxCommand(absX, absY, size.width(), size.height()));
+        cmds.add(new DrawBoxCommand(absX, absY, size.width(), size.height(), boxstyle, this.data));
 
         ctx.drawtime.updateRect(id, new Rect(absX, absY, size));
 
