@@ -105,7 +105,7 @@ public class Rosu {
         char bu[] = new char[255];
         int l;
 
-        l = reader.readBuffered(bu, 20);
+        l = reader.readBuffered(bu, 10);
         if (l == 0)
             return 0;
 
@@ -222,6 +222,8 @@ public class Rosu {
             if (ownId != null && c instanceof IdAware ca) {
                 ca.onIdAssigned(ctx, ownId);
             }
+
+			if (c instanceof Tickable tc) tc.tick(System.currentTimeMillis());
 
             return ownId;
 

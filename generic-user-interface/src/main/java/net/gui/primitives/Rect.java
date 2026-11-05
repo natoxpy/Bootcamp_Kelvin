@@ -4,8 +4,8 @@ import net.gui.commands.Size;
 
 public record Rect(int x, int y, Size size) {
     public boolean intersects(Rect other) {
-        return x <= other.x() + other.size().width() && x + size().width() >= other.x()
-            && y <= other.y() + other.size().height() && y + size().height() >= other.y();
+        return x < other.x() + other.size().width() && x + size().width() > other.x()
+            && y < other.y() + other.size().height() && y + size().height() > other.y();
     }
 
     public Rect intersect(Rect other) {

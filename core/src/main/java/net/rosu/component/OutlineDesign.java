@@ -18,4 +18,13 @@ public record OutlineDesign(char top, char bottom, char Left, char Right, char t
     public static OutlineDesign basicBottomConnect() {
         return new OutlineDesign('─', '│', '┌', '┐', '├', '┤');
     }
+
+    public static OutlineDesign basicLeft() {
+        return new OutlineDesign(' ', ' ', '│', ' ', ' ', ' ', ' ', ' ');
+    }
+
+    public static OutlineDesign basicRight() {
+        return new OutlineDesign(' ', ' ', ' ', '│', ' ', ' ', ' ', ' ');
+    }
 }
+// ┬ ┴
