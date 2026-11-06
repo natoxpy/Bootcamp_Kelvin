@@ -122,7 +122,7 @@ public class TransactionTable extends Component {
             return flex;
 
         final int WINDOW = 9;
-        final int LOOKAHEAD = 2; // keep at least this many pages visible ahead of showingPage
+        final int LOOKAHEAD = 4; // keep at least this many pages visible ahead of showingPage
 
         int windowSize = Math.min(WINDOW, totalPages);
 
