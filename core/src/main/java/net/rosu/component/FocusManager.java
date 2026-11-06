@@ -5,7 +5,25 @@ import java.util.List;
 
 public class FocusManager {
     private final List<Component> focusable = new ArrayList<>();
-    private Component focus;
+    private Component focus = null;
+    private boolean pendingDefocusRequested = false;
+    private Component pendingDefocusTarget = null;
+
+    public void requestDefocus(Component c) {
+        // only honor a defocus if it's targeting whoever currently holds focus
+        if (this.focus == c) {
+            pendingDefocusRequested = true;
+            pendingDefocusTarget = c;
+        }
+    }
+
+    public void flushPendingDefocus() {
+        if (pendingDefocusRequested && this.focus == pendingDefocusTarget) {
+            setFocus(null);
+        }
+        pendingDefocusRequested = false;
+        pendingDefocusTarget = null;
+    }
 
     public Component getFocus() {
         return focus;

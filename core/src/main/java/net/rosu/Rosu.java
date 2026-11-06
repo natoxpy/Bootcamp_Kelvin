@@ -80,20 +80,28 @@ public class Rosu {
 
         this.terminal.puts(Capability.clear_screen);
         this.terminal.puts(Capability.cursor_invisible);
-
         for (;;) {
-            this.reconcile(this.context, rootChildId, this.root);
+            rootChildId = this.reconcile(this.context, rootChildId, this.root);
+            this.context.update(rootId,
+                new Box(rootChildId, Overflow.Hidden,
+                    new LayoutConstraint(
+                        new Fixed(this.size.width()), new Fixed(this.size.height())),
+                    new BoxStyle(null, null), null));
+
+            rootNode = this.context.get(
+                rootId); // re-fetch in case Context.get returns a fresh Node wrapper
 
             rootNode.draw(this.context, rootId, 0, 0, this.size.width(), this.size.height(),
                 new Rect(0, 0, this.size), cmds);
 
             this.renderer.render(cmds);
-
             this.tickFocused();
 
             int r = this.input();
             if (r == 1)
                 break;
+
+            this.focusManager.flushPendingDefocus();
 
             cmds.clear();
         }
@@ -223,7 +231,8 @@ public class Rosu {
                 ca.onIdAssigned(ctx, ownId);
             }
 
-			if (c instanceof Tickable tc) tc.tick(System.currentTimeMillis());
+            if (c instanceof Tickable tc)
+                tc.tick(System.currentTimeMillis());
 
             return ownId;
 

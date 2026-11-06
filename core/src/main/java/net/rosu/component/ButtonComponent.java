@@ -59,10 +59,15 @@ public class ButtonComponent extends Component implements Focusable, IdAware, Cl
         return this;
     }
 
-	public void setBackgroundAndRedraw(Color bg) {
-		this.setBackground(bg);
-		this.redraw();
-	} 
+    public ButtonComponent onClick(Runnable onclick) {
+        this.onClick = onclick;
+        return this;
+    }
+
+    public void setBackgroundAndRedraw(Color bg) {
+        this.setBackground(bg);
+        this.redraw();
+    }
 
     @Override
     public Renderable render() {

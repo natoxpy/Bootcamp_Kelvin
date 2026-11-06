@@ -20,7 +20,7 @@ public class BodyView extends Component {
                       .onClickTransaction(() -> this.setTransactionsView())
                       .onClickModifyRecord(() -> this.setRecordModificationView());
 
-        content = new OverviewView(db);
+		this.setTransactionsView();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class BodyView extends Component {
     }
 
     private void setTransactionsView() {
-        this.content = new TransactionsView();
+        this.content = new TransactionsView(this.db);
         this.sidebar.setActive(1);
         this.redraw();
     }

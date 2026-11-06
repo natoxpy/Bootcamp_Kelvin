@@ -1,20 +1,30 @@
 package net.rosu.component;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 import net.gui.Context;
 import net.gui.commands.Size;
 import net.gui.primitives.Rect;
+import net.gui.primitives.dimension.Auto;
+import net.gui.primitives.dimension.Dimension;
+import net.gui.primitives.dimension.Fill;
 import net.rosu.IdAware;
 import net.rosu.Tickable;
 
 public class InputComponent extends Component implements Focusable, Tickable, IdAware, Clickable {
     private String buffer = "";
     private int cursor = 0;
-    private String regex = "[a-zA-Z0-9\\s]";
+    private String regex = "[a-zA-Z0-9\\s\\-\\.]";
+    private Function<String, Boolean> validator = null;
     private Consumer<String> onInput = null;
     private Context ctx;
     private Integer id;
+    private boolean cursorVisible = true;
+    private long lastBlinkToggle = System.currentTimeMillis();
+    private static final long BLINK_INTERVAL_MS = 500;
+    private Dimension width = new Fill();
+    private String placeholder = "_";
 
     public InputComponent() {}
 
@@ -22,13 +32,28 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
         this.onInput = onInput;
     }
 
+    public InputComponent(Function<String, Boolean> validator) {
+        this.validator = validator;
+    }
+
     public InputComponent(String regexAcceptable) {
         this.regex = regexAcceptable;
     }
 
-    private boolean cursorVisible = true;
-    private long lastBlinkToggle = System.currentTimeMillis();
-    private static final long BLINK_INTERVAL_MS = 500;
+    public InputComponent setWidth(Dimension width) {
+        this.width = width;
+        return this;
+    }
+
+    public InputComponent setValidator(Function<String, Boolean> validator) {
+        this.validator = validator;
+        return this;
+    }
+
+    public InputComponent setPlaceholder(String placeholder) {
+		this.placeholder = placeholder;
+        return this;
+    }
 
     @Override
     public Renderable render() {
@@ -39,7 +64,11 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
         } else {
             display = buffer.substring(0, cursor) + " " + buffer.substring(cursor);
         }
-        return new TextComponent(display);
+
+        if (this.buffer.trim().length() == 0 && !this.isFocused())
+            display = this.placeholder;
+
+        return new BoxComponent(new TextComponent(display)).setHeight(new Auto()).setWidth(width);
     }
 
     @Override
@@ -84,7 +113,13 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
     }
 
     private void insertChar(char c) {
-        buffer = buffer.substring(0, cursor) + c + buffer.substring(cursor);
+        var nbuffer = buffer.substring(0, cursor) + c + buffer.substring(cursor);
+
+        if (this.validator != null && !this.validator.apply(nbuffer))
+            return;
+
+        this.buffer = nbuffer;
+
         cursor++;
         redraw();
     }
@@ -109,12 +144,14 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
         if (r == null)
             return;
 
-        if (r.intersects(new Rect(x, y, new Size(1, 1)))) {
+        if (r.contains(x, y - 1)) {
             this.requestFocus();
+            this.resetBlink();
+            redraw();
         } else {
             this.defocus();
+            this.resetBlink();
+            redraw();
         }
-
-        redraw();
     }
 }

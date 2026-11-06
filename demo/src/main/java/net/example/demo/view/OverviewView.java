@@ -2,7 +2,7 @@ package net.example.demo.view;
 
 import net.example.demo.component.Graph;
 import net.example.demo.data.Database;
-import net.gui.primitives.dimension.Fixed;
+import net.gui.primitives.dimension.Fill;
 import net.rosu.component.BoxComponent;
 import net.rosu.component.Centered;
 import net.rosu.component.Component;
@@ -19,9 +19,7 @@ public class OverviewView extends Component {
     public Renderable render() {
         var graph = new Graph(this.db.getData());
 
-        var box = new BoxComponent(graph)
-                      .setWidth(new Fixed(70))
-                      .setHeight(new Fixed(26));
+        var box = new BoxComponent(graph).setWidth(new Fill()).setHeight(new Fill());
 
         return new Centered(box);
     }
