@@ -46,12 +46,8 @@ public class TransactionTable extends Component {
     }
 
     public void triggerRerender(List<Transaction> transactions) {
-		this.showingPage = 0;
-        this.transactions = transactions.stream()
-                                .sorted(Comparator.comparing(Transaction::date)
-                                        .thenComparing(Transaction::time)
-                                        .reversed())
-                                .toList();
+        this.showingPage = 0;
+        this.transactions = transactions;
 
         this.redraw();
     }

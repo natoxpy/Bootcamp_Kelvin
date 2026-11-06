@@ -4,7 +4,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import net.gui.Context;
-import net.gui.commands.Size;
 import net.gui.primitives.Rect;
 import net.gui.primitives.dimension.Auto;
 import net.gui.primitives.dimension.Dimension;
@@ -15,7 +14,7 @@ import net.rosu.Tickable;
 public class InputComponent extends Component implements Focusable, Tickable, IdAware, Clickable {
     private String buffer = "";
     private int cursor = 0;
-    private String regex = "[a-zA-Z0-9\\s\\-\\.]";
+    private String regex = "[a-zA-Z0-9\\s\\-\\.\\']";
     private Function<String, Boolean> validator = null;
     private Consumer<String> onInput = null;
     private Context ctx;
@@ -42,6 +41,11 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
 
     public InputComponent setWidth(Dimension width) {
         this.width = width;
+        return this;
+    }
+
+    public InputComponent setRegex(String regex) {
+		this.regex = regex;
         return this;
     }
 
