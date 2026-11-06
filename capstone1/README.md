@@ -1,6 +1,6 @@
-# Rosu
+# Capstone 1
 
-**Rosu is a generic UI library designed to provide an abstraction for building user interfaces independently of their underlying rendering implementation.**
+**Capstone one build with Rosu. A generic UI library designed to provide an abstraction for building user interfaces independently of their underlying rendering implementation.**
 
 The project separates UI definitions, core functionality, and rendering, allowing applications to build interfaces without being tightly coupled to a particular rendering backend.
 
