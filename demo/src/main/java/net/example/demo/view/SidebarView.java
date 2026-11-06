@@ -5,6 +5,8 @@ import net.gui.primitives.AlignSelf;
 import net.gui.primitives.Direction;
 import net.gui.primitives.JustifySelf;
 import net.gui.primitives.dimension.Fixed;
+import net.rosu.Rosu;
+import net.rosu.Rosuable;
 import net.rosu.component.BoxComponent;
 import net.rosu.component.ButtonComponent;
 import net.rosu.component.Component;
@@ -12,10 +14,11 @@ import net.rosu.component.FlexComponent;
 import net.rosu.component.FlexItem;
 import net.rosu.component.Renderable;
 
-public class SidebarView extends Component {
+public class SidebarView extends Component implements Rosuable {
     Runnable clickedOverview;
     Runnable clickedTransaction;
     Runnable clickedModifyRecord;
+    Rosu rosu;
     ButtonComponent overviewButton = new ButtonComponent("OVERVIEW", () -> this.gotoOverview())
                                          .setBackground(Color.Black)
                                          .setWidth(new Fixed(19))
@@ -37,17 +40,17 @@ public class SidebarView extends Component {
 
     public SidebarView onClickOverview(Runnable c) {
         this.clickedOverview = c;
-		return this;
+        return this;
     }
 
     public SidebarView onClickTransaction(Runnable c) {
         this.clickedTransaction = c;
-		return this;
+        return this;
     }
 
     public SidebarView onClickModifyRecord(Runnable c) {
         this.clickedModifyRecord = c;
-		return this;
+        return this;
     }
 
     public void setActive(int active) {
@@ -60,8 +63,10 @@ public class SidebarView extends Component {
         var flex = new FlexComponent().setDirection(Direction.Column);
         var pages = new FlexComponent().setDirection(Direction.Column);
 
-        var closeButton =
-            new ButtonComponent("EXIT").setWidth(new Fixed(19)).setBackground(Color.Black);
+        var closeButton = new ButtonComponent("EXIT")
+                              .onClick(() -> { this.rosu.quit(); })
+							  .setClickedBg(Color.Blue)
+                              .setWidth(new Fixed(19));
 
         pages.addChild(new FlexItem(overviewButton, JustifySelf.Start, AlignSelf.Center, 1));
         pages.addChild(new FlexItem(transactionButton, JustifySelf.Start, AlignSelf.Center, 1));
@@ -73,6 +78,11 @@ public class SidebarView extends Component {
         flex.addChild(new FlexItem(closeButton, JustifySelf.End, AlignSelf.Center, 1));
 
         return flex;
+    }
+
+    @Override
+    public void takeRosu(Rosu rosu) {
+        this.rosu = rosu;
     }
 
     private void resetColors() {

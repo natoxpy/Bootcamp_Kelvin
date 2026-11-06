@@ -21,7 +21,7 @@ public class MainWindow extends Component {
     public MainWindow(Database db) {
         this.db = db;
         this.headerView = new HeaderView(this.db);
-		this.bodyView = new BodyView(this.db);
+		this.bodyView = new BodyView(this.db, this.headerView);
     }
 
     public Renderable render() {

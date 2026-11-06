@@ -35,6 +35,7 @@ public class Rosu {
     private Terminal terminal;
     private FocusManager focusManager = new FocusManager();
     private Renderer renderer;
+    private Boolean endProgram = false;
 
     public Rosu() {
         try {
@@ -65,6 +66,10 @@ public class Rosu {
         focusManager.setFocus(focus);
     }
 
+    public void quit() {
+        this.endProgram = true;
+    }
+
     public void start() throws IOException {
         int rootChildId = this.reconcile(this.context, null, this.root);
 
@@ -81,6 +86,8 @@ public class Rosu {
         this.terminal.puts(Capability.clear_screen);
         this.terminal.puts(Capability.cursor_invisible);
         for (;;) {
+			if (this.endProgram) break;
+
             rootChildId = this.reconcile(this.context, rootChildId, this.root);
             this.context.update(rootId,
                 new Box(rootChildId, Overflow.Hidden,
@@ -229,6 +236,10 @@ public class Rosu {
 
             if (ownId != null && c instanceof IdAware ca) {
                 ca.onIdAssigned(ctx, ownId);
+            }
+
+            if (c instanceof Rosuable rosuable) {
+                rosuable.takeRosu(this);
             }
 
             if (c instanceof Tickable tc)

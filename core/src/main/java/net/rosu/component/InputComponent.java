@@ -4,6 +4,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import net.gui.Context;
+import net.gui.commands.BoxStyle;
+import net.gui.commands.Color;
 import net.gui.primitives.Rect;
 import net.gui.primitives.dimension.Auto;
 import net.gui.primitives.dimension.Dimension;

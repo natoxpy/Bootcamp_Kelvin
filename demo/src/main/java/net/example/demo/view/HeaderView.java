@@ -40,11 +40,15 @@ public class HeaderView extends Component {
         return flex;
     }
 
+    public void triggerRedraw() {
+        this.redraw();
+    }
+
     private BigDecimal computeNetMoney() {
         return this.db.getData()
             .stream()
             .map(Transaction::amount)
-			// .filter(amount -> amount.signum() < 0)
+            // .filter(amount -> amount.signum() < 0)
             .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

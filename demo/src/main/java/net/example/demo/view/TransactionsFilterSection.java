@@ -167,7 +167,7 @@ public class TransactionsFilterSection extends Component {
                     this.minMoney = new BigDecimal(i);
                 } catch (NumberFormatException e) {
                     this.minMoney = null;
-					return;
+                    return;
                 }
             }
 

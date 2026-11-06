@@ -20,6 +20,7 @@ public class ButtonComponent extends Component implements Focusable, IdAware, Cl
     private Color fgColor;
     private Dimension width = new Fill();
     private Dimension height = new Fixed(3);
+    private OutlineDesign outlineDesign = null;
     private Color bgClicked;
     private long lastClick = 0;
     private boolean wasActive = false;
@@ -59,6 +60,11 @@ public class ButtonComponent extends Component implements Focusable, IdAware, Cl
         return this;
     }
 
+    public ButtonComponent setOutlineDesign(OutlineDesign od) {
+        this.outlineDesign = od;
+        return this;
+    }
+
     public ButtonComponent onClick(Runnable onclick) {
         this.onClick = onclick;
         return this;
@@ -78,13 +84,14 @@ public class ButtonComponent extends Component implements Focusable, IdAware, Cl
 
         return new BoxComponent(this.width, this.height)
             .setStyle(new BoxStyle(bg))
+            .setOutlineDesign(this.outlineDesign)
             .setChild(
                 new Centered(new TextComponent(text).setColor(this.fgColor).setBackground(bg)));
     }
 
-	public void triggerRerender() {
-		this.redraw();
-	}
+    public void triggerRerender() {
+        this.redraw();
+    }
 
     @Override
     public void onIdAssigned(Context ctx, int id) {
@@ -94,7 +101,8 @@ public class ButtonComponent extends Component implements Focusable, IdAware, Cl
 
     @Override
     public void click(int x, int y) {
-		if (this.ctx == null) return;
+        if (this.ctx == null)
+            return;
 
         Rect r = this.ctx.drawtime.getRect(this.id);
         if (r == null)

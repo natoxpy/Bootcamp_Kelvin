@@ -25,24 +25,37 @@ public class Database {
         this.cachedVersion++;
     }
 
+    public void save() {
+        List<Transaction> data = new ArrayList<>(this.getData());
+        data.addAll(this.memoryData);
+
+        this.write(data);
+        this.memoryData.clear();
+
+        this.forceRecache();
+    }
+
+    public List<Transaction> getData() {
+        if (this.cachedVersion > this.currentCached)
+            return this.recache();
+
+        return this.cachedData;
+    }
+
     public void addTransaction(Transaction t) {
         this.memoryData.add(t);
     }
 
-    public void save() {
-        this.forceRecache();
-        this.write(this.memoryData);
-    }
-
-    public void discard() {
+    public void discardUnwritten() {
         this.memoryData.clear();
     }
 
-    public List<Transaction> getData() {
-        if (this.cachedVersion < this.currentCached)
-            return this.recache();
+    public Transaction discardUnwritten(int index) {
+        return this.memoryData.remove(index);
+    }
 
-        return this.cachedData;
+    public List<Transaction> getUnwritten() {
+        return List.copyOf(this.memoryData);
     }
 
     private List<Transaction> recache() {
@@ -55,30 +68,11 @@ public class Database {
         return this.cachedData;
     }
 
-    private List<Transaction> read() {
-        CsvMapper mapper = new CsvMapper();
-        mapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
-        mapper.findAndRegisterModules();
-
-        CsvSchema schema =
-            mapper.schemaFor(Transaction.class).withHeader().withColumnSeparator('|');
-
-        try {
-            MappingIterator<Transaction> it =
-                mapper.readerFor(Transaction.class).with(schema).readValues(file);
-
-            return it.readAll(new ArrayList<>());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
-            return null;
-        }
-    }
-
     private void write(List<Transaction> transactions) {
         CsvMapper mapper = new CsvMapper();
         mapper.findAndRegisterModules();
+        mapper.disable(
+            com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
         CsvSchema schema =
             mapper.schemaFor(Transaction.class).withHeader().withColumnSeparator('|');
@@ -86,10 +80,30 @@ public class Database {
         try (SequenceWriter writer =
                  mapper.writerFor(Transaction.class).with(schema).writeValues(this.file)) {
             writer.writeAll(transactions);
-
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
+        }
+    }
+
+    private List<Transaction> read() {
+        CsvMapper mapper = new CsvMapper();
+        mapper.enable(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS);
+        mapper.findAndRegisterModules();
+        mapper.disable(
+            com.fasterxml.jackson.databind.SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+        CsvSchema schema =
+            mapper.schemaFor(Transaction.class).withHeader().withColumnSeparator('|');
+
+        try {
+            MappingIterator<Transaction> it =
+                mapper.readerFor(Transaction.class).with(schema).readValues(file);
+            return it.readAll(new ArrayList<>());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+            return null;
         }
     }
 }

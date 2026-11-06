@@ -12,8 +12,9 @@ public class BodyView extends Component {
 	private Database db;
     SidebarView sidebar;
     Renderable content;
+	HeaderView hv;
 
-    public BodyView(Database db) {
+    public BodyView(Database db, HeaderView hv) {
 		this.db = db;
         sidebar = new SidebarView()
                       .onClickOverview(() -> this.setOverviewView())
@@ -21,6 +22,8 @@ public class BodyView extends Component {
                       .onClickModifyRecord(() -> this.setRecordModificationView());
 
 		this.setOverviewView();
+
+		this.hv = hv;
     }
 
     @Override
@@ -49,7 +52,7 @@ public class BodyView extends Component {
     }
 
     private void setRecordModificationView() {
-        this.content = new RecordModificationView();
+        this.content = new RecordModificationView(this.db, this.hv);
         this.sidebar.setActive(2);
         this.redraw();
     }

@@ -1,7 +1,6 @@
 package net.example.demo.component;
 
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -23,7 +22,8 @@ import net.rosu.component.TextComponent;
 public class TransactionTable extends Component {
     private List<Transaction> transactions = List.of();
     private int showingPage = 0;
-    private final int showingPerPage = 20;
+    private final int showingPerPage;
+    private String datetimeMiddle = " - ";
 
     private final ButtonComponent buttonLeftPagination =
         new ButtonComponent("<", () -> this.setShowingIndex(this.showingPage - 1))
@@ -33,7 +33,13 @@ public class TransactionTable extends Component {
         new ButtonComponent(">", () -> this.setShowingIndex(this.showingPage + 1))
             .setClickedBg(Color.Blue);
 
-    public TransactionTable() {}
+    public TransactionTable() {
+        this.showingPerPage = 20;
+    }
+
+    public TransactionTable(int showingPerPage) {
+        this.showingPerPage = showingPerPage;
+    }
 
     @Override
     public Renderable render() {
@@ -52,11 +58,17 @@ public class TransactionTable extends Component {
         this.redraw();
     }
 
+
+	public TransactionTable setDatetimeMiddle(String datetimeMiddle) {
+		this.datetimeMiddle = datetimeMiddle;
+		return this;
+	}
+
     private Renderable transactionItem(Transaction t) {
         var flex = new FlexComponent().setGap(1);
 
-        String datetime = t.date().format(DateTimeFormatter.ofPattern("yyyy/MM/dd")) + " - "
-            + t.time().format(DateTimeFormatter.ofPattern("HH:mm"));
+        String datetime = t.date().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"))
+            + this.datetimeMiddle + t.time().format(DateTimeFormatter.ofPattern("HH:mm"));
 
         String amount = t.amount().signum() >= 0 ? " $" + t.amount() : "-$" + t.amount().abs();
 
@@ -107,7 +119,8 @@ public class TransactionTable extends Component {
                 flex.addChild(new FlexItem(
                     new BoxComponent(this.transactionItem(t)).setOverflow(Overflow.Hidden), 1));
             }
-		else flex.addChild(new FlexItem(new Centered(new TextComponent("No Transactions")), 40));
+        else
+            flex.addChild(new FlexItem(new Centered(new TextComponent("No Transactions")), 20));
 
         return flex;
     }
