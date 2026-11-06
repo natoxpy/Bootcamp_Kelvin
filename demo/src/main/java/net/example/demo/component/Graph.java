@@ -1,10 +1,8 @@
 package net.example.demo.component;
 
 import java.math.BigDecimal;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAdjusters;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -25,7 +23,7 @@ import net.rosu.component.TextComponent;
 
 public class Graph extends Component {
     private List<Transaction> transactions;
-    private static final DateTimeFormatter LEGEND_FMT = DateTimeFormatter.ofPattern("MM/dd");
+    private static final DateTimeFormatter LEGEND_FMT = DateTimeFormatter.ofPattern("MMM yyyy");
 
     public Graph(List<Transaction> transactions) {
         this.transactions = transactions;
@@ -39,17 +37,17 @@ public class Graph extends Component {
         var topSection = new FlexComponent();
         var bottomSection = new FlexComponent();
 
-        var multiWeekReport = this.getMultiWeekReport();
+        var multiMonthReport = this.getMultiMonthReport();
         BigDecimal topHighest =
-            Arrays.stream(multiWeekReport).max(BigDecimal::compareTo).orElse(BigDecimal.ZERO);
+            Arrays.stream(multiMonthReport).max(BigDecimal::compareTo).orElse(BigDecimal.ZERO);
 
         BigDecimal bottomLowest =
-            Arrays.stream(multiWeekReport).min(BigDecimal::compareTo).orElse(BigDecimal.ZERO);
+            Arrays.stream(multiMonthReport).min(BigDecimal::compareTo).orElse(BigDecimal.ZERO);
 
 		BigDecimal totalHeighest = topHighest.max(bottomLowest);
 
-        topSection.addChild(new FlexItem(this.topSection(multiWeekReport, totalHeighest)));
-        bottomSection.addChild(new FlexItem(this.bottomSection(multiWeekReport, totalHeighest)));
+        topSection.addChild(new FlexItem(this.topSection(multiMonthReport, totalHeighest)));
+        bottomSection.addChild(new FlexItem(this.bottomSection(multiMonthReport, totalHeighest)));
 
         body.addChild(new FlexItem(topSection, 12));
         body.addChild(new FlexItem(bottomSection, 12));
@@ -58,10 +56,10 @@ public class Graph extends Component {
         return body;
     }
 
-    public Renderable topSection(BigDecimal[] weeklyNet, BigDecimal heightest) {
+    public Renderable topSection(BigDecimal[] monthlyNet, BigDecimal heightest) {
         var flex = new FlexComponent();
 
-        for (var net : weeklyNet) {
+        for (var net : monthlyNet) {
             float ratio = net.floatValue() / heightest.floatValue();
 
             if (ratio < 0.1)
@@ -85,10 +83,10 @@ public class Graph extends Component {
         return flex;
     }
 
-    public Renderable bottomSection(BigDecimal[] weeklyNet, BigDecimal heightest) {
+    public Renderable bottomSection(BigDecimal[] monthlyNet, BigDecimal heightest) {
         var flex = new FlexComponent();
 
-        for (var net : weeklyNet) {
+        for (var net : monthlyNet) {
             float ratio = net.abs().floatValue() / heightest.floatValue();
 
             if (ratio < 0.1)
@@ -112,15 +110,14 @@ public class Graph extends Component {
         return flex;
     }
 
-    public BigDecimal[] getMultiWeekReport() {
-        LocalDate currentWeekStart =
-            LocalDate.now().with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+    public BigDecimal[] getMultiMonthReport() {
+        LocalDate currentMonthStart = LocalDate.now().withDayOfMonth(1);
 
-        BigDecimal[] weeklyNet =
+        BigDecimal[] monthlyNet =
             IntStream.rangeClosed(0, 4)
                 .mapToObj(i -> {
-                    LocalDate from = currentWeekStart.minusWeeks(4 - i);
-                    LocalDate to = from.plusWeeks(1);
+                    LocalDate from = currentMonthStart.minusMonths(4 - i);
+                    LocalDate to = from.plusMonths(1);
                     return transactions.stream()
                         .filter(tx -> !tx.date().isBefore(from) && tx.date().isBefore(to))
                         .map(Transaction::amount)
@@ -128,24 +125,20 @@ public class Graph extends Component {
                 })
                 .toArray(BigDecimal[] ::new);
 
-        return weeklyNet;
+        return monthlyNet;
     }
 
     public Renderable legend() {
         var flex = new FlexComponent();
 
-        LocalDate currentWeekStart =
-            LocalDate.now().with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+        LocalDate currentMonthStart = LocalDate.now().withDayOfMonth(1);
 
         for (int i = 0; i < 5; i++) {
-            LocalDate weekStart = currentWeekStart.minusWeeks(4 - i);
-            LocalDate weekEnd = weekStart.plusDays(6);
+            LocalDate monthStart = currentMonthStart.minusMonths(4 - i);
 
             var f = new FlexComponent().setDirection(Direction.Column);
 
-            f.addChild(new FlexItem(new TextComponent(weekStart.format(LEGEND_FMT)),
-                JustifySelf.Center, AlignSelf.Center, 0));
-            f.addChild(new FlexItem(new TextComponent(weekEnd.format(LEGEND_FMT)),
+            f.addChild(new FlexItem(new TextComponent(monthStart.format(LEGEND_FMT)),
                 JustifySelf.Center, AlignSelf.Center, 0));
 
             flex.addChild(new FlexItem(f, JustifySelf.Center, AlignSelf.Center, 0));
