@@ -1,202 +1,1001 @@
 date|time|description|vendor|amount
-2026-10-01|07:58:38|internet bill|Spectrum|-78.21
-2026-10-01|09:43:56|pet supplies|Chewy|-25.58
-2026-10-01|20:26:03|parking|ParkMobile|-10.50
-2026-10-01|20:57:18|motorcycle parts|Cycle Gear|-296.54
-2026-10-02|08:41:27|coffee|Not Just Coffee|-6.41
-2026-10-02|14:01:11|electric bill|Duke Energy|-85.82
-2026-10-02|19:03:25|fuel|Exxon|-33.98
-2026-10-03|06:15:12|streaming subscription|Spotify|-11.68
-2026-10-03|07:19:31|ergonomic keyboard|Amazon|-89.50
-2026-10-03|10:43:28|parking|City of Charlotte Parking|-9.89
-2026-10-03|12:18:22|Freelance project deposit|Northline Consulting|361.82
-2026-10-03|15:50:28|dinner delivery|Uber Eats|-51.66
-2026-10-03|17:13:43|Reimbursement|BlueRidge Software|140.72
-2026-10-03|19:01:29|insurance premium|State Farm|-143.74
-2026-10-03|20:58:51|healthcare copay|CVS Pharmacy|-52.60
-2026-10-03|22:19:29|Reimbursement|BlueRidge Software|78.28
-2026-10-04|08:40:27|Freelance project deposit|Acme Web Services|1028.25
-2026-10-04|09:48:13|fuel|BP|-34.59
-2026-10-04|12:17:35|cloud server hosting|Hetzner|-9.25
-2026-10-04|15:44:08|lunch|Chipotle|-16.04
-2026-10-04|20:06:51|cloud server hosting|DigitalOcean|-22.66
-2026-10-04|21:32:58|general purchase|Amazon|-112.01
-2026-10-05|06:29:39|fuel|BP|-45.24
-2026-10-05|08:43:55|Contract milestone payment|Wise|2878.08
-2026-10-05|11:00:26|internet bill|Spectrum|-66.94
-2026-10-05|12:58:36|pet supplies|Chewy|-39.78
-2026-10-05|16:39:20|internet bill|AT&T Fiber|-80.01
-2026-10-05|20:51:55|Invoice 1004 paid|Joe|2993.83
-2026-10-05|21:28:49|motorcycle parts|Amazon|-82.03
-2026-10-05|22:15:17|dinner delivery|Pizza Hut|-26.99
-2026-10-06|08:27:06|dinner delivery|Uber Eats|-39.70
-2026-10-06|08:27:06|Expensive Stuff|Stuff|-1000.70
-2026-10-06|13:07:35|bank fee|Bank of America|-27.15
-2026-10-06|13:46:26|cloud server hosting|Hetzner|-27.61
-2026-10-06|19:42:37|phone bill|Verizon|-81.79
-2026-10-06|21:01:47|monthly rent|Camden Property Mgmt|-1350.00
-2026-10-06|22:23:04|bank fee|Bank of America|-13.67
-2026-10-07|13:12:12|electronics components|Adafruit|-69.07
-2026-10-07|15:53:40|monthly rent|Camden Property Mgmt|-1350.00
-2026-10-07|16:27:20|dinner delivery|Pizza Hut|-20.48
-2026-10-07|17:54:35|insurance premium|Progressive|-163.61
-2026-10-07|18:18:16|healthcare copay|Atrium Health|-40.00
-2026-10-07|21:45:58|electric bill|Duke Energy|-93.87
-2026-10-08|06:47:17|lunch|Panera Bread|-9.22
-2026-10-08|07:22:34|general purchase|Amazon|-10.53
-2026-10-08|10:31:59|phone bill|T-Mobile|-88.39
-2026-10-08|12:27:28|entertainment|Steam|-33.92
-2026-10-08|12:29:44|healthcare copay|Atrium Health|-73.33
-2026-10-09|14:07:56|gym membership|Planet Fitness|-24.99
-2026-10-09|17:56:04|electronics components|SparkFun|-118.05
-2026-10-09|22:37:21|motorcycle parts|RevZilla|-167.27
-2026-10-10|07:53:23|dinner delivery|Uber Eats|-29.41
-2026-10-10|10:34:16|Invoice 1007 paid|Acme Web Services|441.61
-2026-10-10|11:48:39|Reimbursement|BlueRidge Software|85.71
-2026-10-10|12:04:26|tools/hardware|Home Depot|-42.61
-2026-10-10|13:55:43|haircut|Sport Clips|-19.54
-2026-10-10|15:27:00|tools/hardware|Home Depot|-110.33
-2026-10-10|17:19:41|healthcare copay|Atrium Health|-38.22
-2026-10-10|18:04:09|fuel|BP|-40.05
-2026-10-10|20:02:08|monthly rent|Camden Property Mgmt|-1350.00
-2026-10-10|22:27:07|lunch|Chipotle|-11.34
-2026-10-11|14:33:55|ergonomic keyboard|Amazon|-89.50
-2026-10-11|15:06:37|3D printing filament|Amazon|-28.71
-2026-10-11|19:38:04|motorcycle parts|Amazon|-90.40
-2026-10-12|07:15:45|general purchase|Amazon|-53.03
-2026-10-12|10:04:45|internet bill|Spectrum|-61.31
-2026-10-12|10:48:48|parking|ParkMobile|-8.57
-2026-10-12|11:46:28|domain renewal|Namecheap|-24.54
-2026-10-12|12:13:47|parking|ParkMobile|-14.77
-2026-10-12|15:20:06|internet bill|AT&T Fiber|-78.08
-2026-10-12|15:25:35|software subscription|OpenAI|-48.22
-2026-10-13|07:20:59|entertainment|PlayStation Store|-38.40
-2026-10-13|08:37:44|cloud server hosting|Hetzner|-34.76
-2026-10-13|10:01:02|haircut|Great Clips|-25.74
-2026-10-13|14:02:45|bank fee|Bank of America|-12.75
-2026-10-13|15:14:23|Contract milestone payment|PayPal|62.06
-2026-10-13|17:43:36|internet bill|AT&T Fiber|-75.09
-2026-10-13|18:31:25|groceries|Harris Teeter|-145.66
-2026-10-13|20:22:19|streaming subscription|Netflix|-13.92
-2026-10-14|06:03:50|bank fee|Bank of America|-2.40
-2026-10-14|12:52:55|bank fee|Bank of America|-9.70
-2026-10-14|16:13:43|car maintenance|AutoZone|-202.01
-2026-10-14|20:20:21|parking|ParkMobile|-6.03
-2026-10-15|06:48:43|parking|City of Charlotte Parking|-8.65
-2026-10-15|08:40:52|pet supplies|Chewy|-25.83
-2026-10-15|09:24:17|electronics components|Adafruit|-54.90
-2026-10-15|11:51:44|Contract milestone payment|Stripe Payouts|225.85
-2026-10-15|13:00:04|Invoice 1003 paid|Joe|1206.98
-2026-10-15|16:53:49|coffee|Not Just Coffee|-6.61
-2026-10-16|08:05:46|Contract milestone payment|Stripe Payouts|319.00
-2026-10-16|11:19:35|streaming subscription|Netflix|-101.54
-2026-10-16|11:26:31|coffee|Starbucks|-6.41
-2026-10-16|11:51:51|electronics components|Amazon|-130.03
-2026-10-16|14:49:49|phone bill|T-Mobile|-58.10
-2026-10-16|15:14:47|parking|City of Charlotte Parking|-8.32
-2026-10-16|16:01:11|tools/hardware|Harbor Freight|-28.82
-2026-10-16|21:58:37|phone bill|T-Mobile|-65.21
-2026-10-17|11:47:28|groceries|Harris Teeter|-36.66
-2026-10-17|16:39:44|Freelance project deposit|Carter & Co|1317.14
-2026-10-17|21:51:18|lunch|Jersey Mike's|-21.48
-2026-10-18|07:04:42|bank fee|Bank of America|-33.35
-2026-10-18|07:22:32|coffee|Starbucks|-6.32
-2026-10-18|08:38:40|electronics components|SparkFun|-58.09
-2026-10-18|16:24:38|healthcare copay|CVS Pharmacy|-22.44
-2026-10-18|16:54:15|Reimbursement|BlueRidge Software|118.81
-2026-10-18|19:21:59|groceries|Aldi|-137.54
-2026-10-19|08:41:55|Reimbursement|BlueRidge Software|97.54
-2026-10-19|13:17:21|dinner delivery|DoorDash|-26.56
-2026-10-19|15:22:06|3D printing filament|Amazon|-24.05
-2026-10-19|18:26:49|bank fee|Bank of America|-2.31
-2026-10-19|20:04:43|bank fee|Bank of America|-14.88
-2026-10-19|20:14:34|bank fee|Bank of America|-31.64
-2026-10-19|22:42:40|Contract milestone payment|Wise|1741.68
-2026-10-20|06:02:20|monthly rent|Camden Property Mgmt|-1350.00
-2026-10-20|12:49:08|lunch|Chipotle|-14.96
-2026-10-20|15:28:07|gym membership|Planet Fitness|-24.99
-2026-10-20|16:14:21|Invoice 1008 paid|Carter & Co|1827.87
-2026-10-20|19:44:16|gym membership|Planet Fitness|-24.99
-2026-10-20|22:00:42|3D printing filament|Prusa Research|-43.35
-2026-10-21|09:53:45|dinner delivery|Uber Eats|-28.61
-2026-10-21|12:44:15|parking|ParkMobile|-3.52
-2026-10-21|13:16:25|insurance premium|Progressive|-142.50
-2026-10-21|18:44:18|3D printing filament|Amazon|-36.29
-2026-10-21|19:11:12|monthly rent|Camden Property Mgmt|-1350.00
-2026-10-21|20:28:28|bank fee|Bank of America|-23.06
-2026-10-22|09:26:22|tools/hardware|Harbor Freight|-19.61
-2026-10-22|14:09:13|fuel|QuikTrip|-28.87
-2026-10-22|14:56:38|groceries|Whole Foods|-171.95
-2026-10-22|16:42:06|cloud server hosting|Hetzner|-15.09
-2026-10-23|13:40:12|domain renewal|Namecheap|-19.42
-2026-10-23|13:46:42|domain renewal|Google Domains|-12.00
-2026-10-23|14:51:02|gym membership|Planet Fitness|-24.99
-2026-10-23|15:48:24|tools/hardware|Harbor Freight|-122.63
-2026-10-23|16:52:41|motorcycle parts|Amazon|-153.99
-2026-10-23|17:46:52|lunch|Bojangles|-11.58
-2026-10-24|08:27:54|gym membership|Planet Fitness|-24.99
-2026-10-24|09:43:14|ergonomic keyboard|Amazon|-89.50
-2026-10-24|09:45:54|fuel|BP|-35.91
-2026-10-24|12:45:04|phone bill|Verizon|-65.00
-2026-10-24|17:03:25|haircut|Sport Clips|-19.56
-2026-10-24|19:37:47|pet supplies|Petco|-61.68
-2026-10-24|19:56:25|gym membership|Planet Fitness|-24.99
-2026-10-24|21:35:33|ergonomic keyboard|Amazon|-89.50
-2026-10-25|14:59:50|cloud server hosting|AWS|-39.84
-2026-10-25|16:01:31|software subscription|Linode|-48.88
-2026-10-25|16:40:45|ergonomic keyboard|Amazon|-89.50
-2026-10-25|16:52:08|domain renewal|Namecheap|-19.69
-2026-10-25|17:36:18|entertainment|PlayStation Store|-33.75
-2026-10-25|20:58:28|tools/hardware|Lowe's|-96.16
-2026-10-26|06:16:34|domain renewal|Google Domains|-18.77
-2026-10-26|07:29:05|parking|ParkMobile|-13.38
-2026-10-26|11:53:29|ergonomic keyboard|Amazon|-89.50
-2026-10-26|16:17:55|internet bill|Spectrum|-74.99
-2026-10-26|17:14:08|Invoice 1002 paid|Oakwood Dev Studio|707.02
-2026-10-26|17:28:57|streaming subscription|Netflix|-10.06
-2026-10-26|21:04:36|Contract milestone payment|Wise|1296.50
-2026-10-27|11:52:12|phone bill|Verizon|-80.65
-2026-10-27|13:17:10|Invoice 1006 paid|Oakwood Dev Studio|1217.93
-2026-10-27|14:02:44|streaming subscription|YouTube Premium|-7.19
-2026-10-27|15:07:25|bank fee|Bank of America|-29.12
-2026-10-27|18:57:49|haircut|Sport Clips|-26.11
-2026-10-27|21:06:27|entertainment|Steam|-52.44
-2026-10-28|07:01:05|groceries|Whole Foods|-55.82
-2026-10-28|11:08:24|ergonomic keyboard|Amazon|-89.50
-2026-10-28|11:29:00|phone bill|Verizon|-75.31
-2026-10-28|11:44:28|Freelance project deposit|Carter & Co|147.60
-2026-10-28|11:46:33|bank fee|Bank of America|-16.27
-2026-10-28|17:46:50|general purchase|Amazon|-55.61
-2026-10-28|22:23:01|software subscription|Linode|-57.12
-2026-10-29|14:11:37|fuel|QuikTrip|-38.92
-2026-10-29|16:55:40|car maintenance|AutoZone|-149.96
-2026-10-29|19:17:13|Reimbursement|BlueRidge Software|60.41
-2026-10-30|06:46:09|dinner delivery|Uber Eats|-35.37
-2026-10-30|07:43:41|Reimbursement|BlueRidge Software|125.07
-2026-10-30|08:07:53|groceries|Whole Foods|-114.13
-2026-10-30|10:16:08|phone bill|T-Mobile|-90.91
-2026-10-30|14:19:16|electric bill|Duke Energy|-185.29
-2026-10-30|16:10:23|insurance premium|Progressive|-170.08
-2026-10-30|22:35:38|motorcycle parts|Amazon|-248.20
-2026-10-31|07:40:24|groceries|Aldi|-147.22
-2026-10-31|10:48:45|fuel|Shell|-35.24
-2026-10-31|13:29:35|healthcare copay|Atrium Health|-79.80
-2026-10-31|18:24:42|dinner delivery|Pizza Hut|-53.70
-2026-10-31|19:12:06|electric bill|Duke Energy|-132.83
-2026-10-31|21:28:21|Reimbursement|BlueRidge Software|127.76
-2026-11-01|10:12:18|Invoice 1005 paid|Meridian IT Group|128.09
-2026-11-01|10:28:34|parking|ParkMobile|-8.46
-2026-11-01|12:14:08|bank fee|Bank of America|-17.77
-2026-11-01|20:05:38|electric bill|Duke Energy|-88.49
-2026-11-01|20:50:01|cloud server hosting|DigitalOcean|-15.72
-2026-11-01|21:23:59|fuel|QuikTrip|-28.16
-2026-11-01|22:42:19|healthcare copay|Atrium Health|-15.58
-2026-11-02|10:53:27|entertainment|Steam|-63.08
-2026-11-02|19:53:58|domain renewal|Google Domains|-16.75
-2026-11-03|06:38:20|Freelance project deposit|Northline Consulting|511.29
-2026-11-03|19:36:43|fuel|QuikTrip|-49.79
-2026-11-04|13:31:14|gym membership|Planet Fitness|-24.99
-2026-11-04|13:41:09|fuel|Shell|-31.64
-2026-11-04|16:01:07|insurance premium|State Farm|-98.25
-2026-11-04|19:14:28|groceries|Trader Joe's|-133.21
-2026-11-04|22:02:42|dinner delivery|Pizza Hut|-23.71
+2020-01-04|07:16:04|insurance premium|State Farm|-169.49
+2020-01-06|12:44:20|tools/hardware|Home Depot|-149.73
+2020-01-07|21:39:58|electronics components|SparkFun|-86.94
+2020-01-09|20:21:37|bank fee|Bank of America|-31.74
+2020-01-09|20:35:33|car maintenance|O'Reilly Auto Parts|-197.95
+2020-01-15|08:03:25|electronics components|DigiKey|-170.34
+2020-01-23|20:19:52|monthly rent|Camden Property Mgmt|-1176.00
+2020-01-24|08:03:28|haircut|Sport Clips|-28.36
+2020-01-25|12:19:14|insurance premium|State Farm|-165.32
+2020-01-26|18:50:00|Reimbursement|BlueRidge Software|58.01
+2020-01-31|13:22:08|Contract milestone payment|PayPal|493.70
+2020-02-02|18:08:13|car maintenance|Advance Auto Parts|-138.31
+2020-02-03|13:17:53|Invoice 1004 paid|Joe|613.06
+2020-02-04|09:09:26|software subscription|OpenAI|-17.03
+2020-02-04|22:21:48|Invoice 1031 paid|Joe|2190.08
+2020-02-06|22:34:44|groceries|Aldi|-103.34
+2020-02-21|21:07:08|Contract milestone payment|PayPal|2853.16
+2020-02-22|12:25:10|dinner delivery|DoorDash|-34.20
+2020-02-25|21:55:57|groceries|Walmart|-97.33
+2020-03-02|10:09:55|groceries|Trader Joe's|-132.90
+2020-03-06|18:31:08|Part-time paycheck|Direct Deposit|1130.90
+2020-03-07|10:03:55|pet supplies|PetSmart|-45.19
+2020-03-07|18:43:03|domain renewal|Namecheap|-26.43
+2020-03-08|18:51:40|cloud server hosting|DigitalOcean|-25.79
+2020-03-10|17:57:25|lunch|Chipotle|-18.35
+2020-03-13|07:55:04|Contract milestone payment|Wise|1318.77
+2020-03-18|18:18:46|bank fee|Chase|-30.95
+2020-03-19|08:02:33|Contract milestone payment|Stripe Payouts|2372.83
+2020-03-20|07:53:39|motorcycle parts|Cycle Gear|-123.26
+2020-03-20|12:06:20|fuel|Circle K|-74.99
+2020-03-20|12:44:50|software subscription|Linode|-45.18
+2020-03-24|11:08:17|phone bill|AT&T|-47.21
+2020-03-24|16:30:46|groceries|Walmart|-67.52
+2020-03-27|08:39:55|electronics components|Adafruit|-58.54
+2020-03-29|11:07:28|general purchase|Amazon|-84.62
+2020-03-30|06:01:57|fuel|BP|-62.68
+2020-03-31|20:40:40|electronics components|SparkFun|-13.23
+2020-04-02|21:15:13|software subscription|Linode|-5.86
+2020-04-03|12:18:02|entertainment|PlayStation Store|-67.87
+2020-04-04|18:36:04|monthly rent|Apartment Communities|-1325.36
+2020-04-05|13:40:45|Reimbursement|BlueRidge Software|246.63
+2020-04-08|21:45:51|general purchase|Amazon|-53.53
+2020-04-08|23:27:35|cloud server hosting|AWS|-12.06
+2020-04-13|20:26:22|bank fee|Chase|-27.64
+2020-04-18|20:18:41|domain renewal|Google Domains|-9.34
+2020-04-18|20:48:00|3D printing filament|Amazon|-27.10
+2020-04-23|17:48:16|cloud server hosting|DigitalOcean|-43.20
+2020-04-23|21:28:08|pet supplies|PetSmart|-19.86
+2020-04-25|11:40:55|Invoice 1077 paid|Joe|340.08
+2020-04-27|21:16:07|cloud server hosting|AWS|-21.92
+2020-04-28|11:36:56|tools/hardware|Lowe's|-10.38
+2020-05-06|20:56:29|pet supplies|PetSmart|-37.15
+2020-05-10|17:13:25|lunch|Panera Bread|-12.79
+2020-05-14|18:29:49|general purchase|Walmart|-170.47
+2020-05-17|08:30:58|software subscription|GitHub|-5.84
+2020-05-17|09:12:23|Reimbursement|BlueRidge Software|178.39
+2020-05-18|13:34:50|lunch|Jersey Mike's|-21.01
+2020-05-19|20:30:51|Freelance project deposit|Oakwood Dev Studio|186.47
+2020-05-20|13:45:05|Freelance project deposit|Oakwood Dev Studio|818.68
+2020-05-21|15:09:01|phone bill|T-Mobile|-69.13
+2020-05-22|06:49:31|parking|ParkMobile|-3.52
+2020-05-22|20:38:42|Contract milestone payment|Wise|667.29
+2020-05-26|08:14:51|general purchase|Target|-167.70
+2020-05-26|10:04:46|tools/hardware|Ace Hardware|-73.51
+2020-05-27|09:28:05|lunch|Panera Bread|-20.64
+2020-05-27|09:48:35|software subscription|GitHub|-45.53
+2020-06-01|16:41:05|entertainment|PlayStation Store|-37.17
+2020-06-06|08:18:05|groceries|Trader Joe's|-31.48
+2020-06-07|18:03:23|streaming subscription|YouTube Premium|-16.96
+2020-06-09|08:46:51|Part-time paycheck|Direct Deposit|1127.41
+2020-06-09|14:28:51|motorcycle parts|Cycle Gear|-103.73
+2020-06-13|14:41:38|insurance premium|State Farm|-148.74
+2020-06-17|20:17:41|monthly rent|Apartment Communities|-1209.32
+2020-06-23|17:12:55|domain renewal|Cloudflare|-9.54
+2020-06-26|09:06:04|bank fee|Wells Fargo|-15.47
+2020-06-30|20:07:17|tools/hardware|Harbor Freight|-239.31
+2020-06-30|20:59:51|pet supplies|Chewy|-71.04
+2020-07-04|13:03:03|entertainment|Nintendo eShop|-34.91
+2020-07-04|17:07:17|insurance premium|State Farm|-150.87
+2020-07-04|19:27:56|car maintenance|O'Reilly Auto Parts|-125.29
+2020-07-08|20:04:09|groceries|Harris Teeter|-89.45
+2020-07-09|10:58:11|monthly rent|Camden Property Mgmt|-1481.67
+2020-07-09|16:45:53|gym membership|YMCA|-41.73
+2020-07-09|16:47:48|Contract milestone payment|Stripe Payouts|1460.11
+2020-07-16|14:02:14|groceries|Whole Foods|-108.03
+2020-07-22|19:49:46|streaming subscription|Spotify|-16.86
+2020-07-23|15:40:53|Part-time paycheck|Direct Deposit|529.45
+2020-07-26|19:51:14|healthcare copay|Atrium Health|-51.14
+2020-07-29|08:13:07|tools/hardware|Lowe's|-128.87
+2020-07-30|09:50:10|gym membership|Planet Fitness|-21.65
+2020-07-30|23:14:17|software subscription|GitHub|-61.09
+2020-08-01|15:09:30|dinner delivery|Pizza Hut|-24.52
+2020-08-04|10:52:17|parking|ParkMobile|-17.01
+2020-08-05|21:43:45|groceries|Whole Foods|-73.80
+2020-08-06|16:48:42|dinner delivery|Uber Eats|-65.70
+2020-08-09|15:18:19|streaming subscription|Netflix|-9.67
+2020-08-18|14:11:23|Freelance project deposit|Northline Consulting|1621.36
+2020-08-19|11:17:30|electronics components|Amazon|-216.50
+2020-08-19|15:01:32|Freelance project deposit|Acme Web Services|1266.42
+2020-08-21|11:16:22|phone bill|Verizon|-99.98
+2020-08-25|20:12:48|parking|Parking.com|-19.67
+2020-08-27|17:37:49|groceries|Harris Teeter|-102.74
+2020-08-30|07:46:03|internet bill|Spectrum|-96.30
+2020-08-30|11:13:54|parking|Parking.com|-15.25
+2020-08-31|10:08:55|domain renewal|Google Domains|-31.16
+2020-09-01|17:54:16|phone bill|AT&T|-62.60
+2020-09-03|14:30:54|lunch|Chick-fil-A|-14.12
+2020-09-13|14:26:49|monthly rent|Camden Property Mgmt|-1433.85
+2020-09-14|10:00:10|motorcycle parts|Partzilla|-281.13
+2020-09-15|19:56:34|motorcycle parts|RevZilla|-39.20
+2020-09-18|12:17:39|healthcare copay|CVS Pharmacy|-61.29
+2020-09-19|17:34:50|domain renewal|Google Domains|-34.59
+2020-09-22|19:44:03|lunch|Chipotle|-20.28
+2020-09-23|09:35:35|Freelance project deposit|Acme Web Services|734.68
+2020-09-26|22:55:29|tools/hardware|Lowe's|-28.96
+2020-09-27|12:29:11|streaming subscription|Netflix|-18.83
+2020-09-27|15:22:48|general purchase|Best Buy|-167.28
+2020-10-03|14:56:11|monthly rent|Apartment Communities|-1184.23
+2020-10-04|18:18:59|entertainment|PlayStation Store|-8.08
+2020-10-05|19:49:38|haircut|Sport Clips|-16.18
+2020-10-07|07:22:15|internet bill|AT&T Fiber|-56.95
+2020-10-07|08:41:52|3D printing filament|Amazon|-33.20
+2020-10-10|08:20:28|internet bill|Spectrum|-83.36
+2020-10-11|10:46:55|haircut|Great Clips|-33.69
+2020-10-13|06:38:50|lunch|Bojangles|-19.21
+2020-10-14|11:57:31|insurance premium|Progressive|-130.02
+2020-10-15|23:13:51|streaming subscription|Spotify|-8.41
+2020-10-23|11:17:52|Contract milestone payment|Wise|2812.21
+2020-10-23|17:05:35|Contract milestone payment|PayPal|383.26
+2020-10-27|07:39:40|groceries|Walmart|-83.32
+2020-10-29|15:03:06|entertainment|PlayStation Store|-82.39
+2020-10-29|15:03:12|Contract milestone payment|PayPal|1833.73
+2020-11-01|19:29:45|Contract milestone payment|Stripe Payouts|820.01
+2020-11-02|15:01:44|car maintenance|Advance Auto Parts|-302.69
+2020-11-03|09:28:54|3D printing filament|Prusa Research|-34.61
+2020-11-03|17:38:34|lunch|Bojangles|-14.70
+2020-11-06|15:41:35|insurance premium|Progressive|-132.82
+2020-11-07|21:13:29|Part-time paycheck|Direct Deposit|628.33
+2020-11-12|08:43:04|Invoice 1024 paid|Oakwood Dev Studio|2054.62
+2020-11-13|22:00:35|Freelance project deposit|Oakwood Dev Studio|1426.84
+2020-11-17|10:02:37|haircut|Great Clips|-31.16
+2020-11-18|09:32:21|fuel|Shell|-30.50
+2020-11-20|21:37:31|monthly rent|Camden Property Mgmt|-1110.37
+2020-11-23|15:00:59|Invoice 1051 paid|Joe|257.72
+2020-11-24|15:14:59|software subscription|GitHub|-17.17
+2020-11-25|11:23:37|motorcycle parts|Cycle Gear|-136.67
+2020-11-29|15:17:05|fuel|QuikTrip|-55.18
+2020-12-02|06:20:58|domain renewal|Cloudflare|-23.49
+2020-12-02|09:22:21|gym membership|Planet Fitness|-26.35
+2020-12-07|08:03:37|monthly rent|Apartment Communities|-1450.54
+2020-12-07|17:17:56|Invoice 1096 paid|Carter & Co|524.71
+2020-12-10|14:45:15|streaming subscription|Netflix|-8.88
+2020-12-13|12:49:02|insurance premium|State Farm|-202.84
+2020-12-14|17:39:38|coffee|Starbucks|-8.63
+2020-12-23|18:35:13|dinner delivery|Pizza Hut|-68.25
+2020-12-28|13:10:21|Freelance project deposit|Oakwood Dev Studio|420.04
+2020-12-29|11:27:44|parking|City of Charlotte Parking|-5.99
+2021-01-01|07:53:32|Part-time paycheck|Direct Deposit|910.87
+2021-01-02|10:24:50|healthcare copay|Atrium Health|-22.54
+2021-01-02|13:33:35|domain renewal|Google Domains|-31.67
+2021-01-02|18:51:03|fuel|Exxon|-38.49
+2021-01-02|19:42:58|car maintenance|AutoZone|-153.86
+2021-01-09|06:46:29|healthcare copay|Novant Health|-46.52
+2021-01-10|19:00:50|3D printing filament|Amazon|-54.93
+2021-01-11|20:42:55|internet bill|Spectrum|-69.66
+2021-01-12|11:23:20|haircut|Sport Clips|-20.46
+2021-01-15|13:06:14|electronics components|DigiKey|-156.00
+2021-01-16|17:18:38|parking|ParkMobile|-5.16
+2021-01-16|22:02:42|healthcare copay|Atrium Health|-34.27
+2021-01-18|12:13:20|motorcycle parts|Cycle Gear|-105.62
+2021-01-20|20:32:35|entertainment|Nintendo eShop|-82.48
+2021-01-22|23:48:23|Contract milestone payment|Wise|761.32
+2021-01-25|12:12:54|pet supplies|PetSmart|-21.28
+2021-02-03|09:09:06|Reimbursement|BlueRidge Software|252.10
+2021-02-13|06:34:00|haircut|Local Barber|-35.73
+2021-02-16|15:26:11|groceries|Aldi|-76.76
+2021-02-16|16:50:04|Invoice 1088 paid|Joe|1801.28
+2021-02-17|14:24:22|gym membership|YMCA|-37.42
+2021-02-18|10:52:23|insurance premium|State Farm|-206.72
+2021-02-22|17:51:48|fuel|BP|-65.72
+2021-02-23|14:46:27|motorcycle parts|Partzilla|-191.86
+2021-02-27|19:02:21|Invoice 1008 paid|Oakwood Dev Studio|419.29
+2021-02-28|21:17:00|Freelance project deposit|Acme Web Services|1057.88
+2021-03-09|16:38:27|entertainment|PlayStation Store|-16.41
+2021-03-11|16:50:27|Reimbursement|BlueRidge Software|117.43
+2021-03-13|18:37:07|monthly rent|Camden Property Mgmt|-1489.94
+2021-03-15|12:15:05|healthcare copay|Atrium Health|-74.38
+2021-03-15|20:58:19|electric bill|Duke Energy|-108.72
+2021-03-16|20:18:37|electric bill|Duke Energy|-120.44
+2021-03-24|10:04:30|Part-time paycheck|Direct Deposit|578.15
+2021-03-24|13:19:00|coffee|Starbucks|-3.44
+2021-03-27|18:29:02|3D printing filament|Prusa Research|-38.91
+2021-03-28|19:37:43|fuel|Shell|-31.58
+2021-03-30|13:33:09|tools/hardware|Harbor Freight|-135.65
+2021-03-31|15:53:08|Part-time paycheck|Direct Deposit|728.42
+2021-04-03|20:56:21|electric bill|Duke Energy|-119.92
+2021-04-04|22:37:20|lunch|Jersey Mike's|-9.36
+2021-04-13|17:57:25|general purchase|Amazon|-26.75
+2021-04-13|18:17:10|Freelance project deposit|Northline Consulting|1613.15
+2021-04-14|13:24:59|groceries|Aldi|-58.35
+2021-04-18|07:22:22|parking|Parking.com|-20.67
+2021-04-20|20:27:58|streaming subscription|Spotify|-12.25
+2021-04-22|11:37:20|coffee|Starbucks|-8.59
+2021-04-22|15:24:20|tools/hardware|Lowe's|-141.48
+2021-04-25|10:35:13|car maintenance|Advance Auto Parts|-234.77
+2021-04-26|20:49:51|Invoice 1013 paid|Carter & Co|422.71
+2021-05-02|08:13:04|Invoice 1093 paid|Joe|348.27
+2021-05-03|19:25:04|tools/hardware|Home Depot|-102.29
+2021-05-04|08:46:42|dinner delivery|Uber Eats|-18.32
+2021-05-06|11:09:50|pet supplies|Petco|-79.30
+2021-05-08|15:55:32|bank fee|Chase|-17.09
+2021-05-09|13:56:36|Part-time paycheck|Employer Payroll|467.50
+2021-05-09|19:01:37|Part-time paycheck|Direct Deposit|361.75
+2021-05-11|19:54:58|Invoice 1064 paid|Meridian IT Group|1641.37
+2021-05-15|22:36:28|streaming subscription|YouTube Premium|-15.96
+2021-05-17|10:06:08|monthly rent|Apartment Communities|-1254.48
+2021-05-20|18:58:07|tools/hardware|Home Depot|-178.92
+2021-05-23|22:06:24|bank fee|Chase|-29.50
+2021-05-26|07:02:10|healthcare copay|Atrium Health|-91.40
+2021-05-26|10:11:03|motorcycle parts|Cycle Gear|-409.53
+2021-05-28|06:59:23|general purchase|Walmart|-91.44
+2021-05-28|10:29:21|tools/hardware|Ace Hardware|-20.20
+2021-05-29|09:16:34|Freelance project deposit|Carter & Co|1313.19
+2021-05-31|14:31:24|pet supplies|Chewy|-30.13
+2021-06-01|13:39:07|Reimbursement|Northline Consulting|231.70
+2021-06-08|10:06:22|domain renewal|Namecheap|-9.20
+2021-06-11|15:28:54|entertainment|Steam|-72.50
+2021-06-11|16:15:51|car maintenance|Advance Auto Parts|-135.88
+2021-06-11|19:50:09|internet bill|Spectrum|-75.51
+2021-06-17|17:01:07|cloud server hosting|Hetzner|-56.86
+2021-06-19|15:14:33|internet bill|Spectrum|-61.93
+2021-06-20|12:36:56|entertainment|PlayStation Store|-42.94
+2021-06-21|07:12:08|Freelance project deposit|Carter & Co|481.64
+2021-06-28|15:24:31|software subscription|Linode|-59.10
+2021-07-05|11:51:27|healthcare copay|Novant Health|-58.12
+2021-07-05|13:51:58|Contract milestone payment|Stripe Payouts|385.18
+2021-07-11|10:11:44|gym membership|YMCA|-19.89
+2021-07-13|12:10:42|fuel|QuikTrip|-53.76
+2021-07-13|18:32:01|coffee|Not Just Coffee|-15.22
+2021-07-15|17:50:43|Part-time paycheck|Direct Deposit|768.71
+2021-07-15|19:32:13|electronics components|Adafruit|-65.71
+2021-07-18|19:23:46|healthcare copay|Novant Health|-40.58
+2021-07-19|07:24:41|tools/hardware|Harbor Freight|-223.51
+2021-07-24|13:46:04|Invoice 1026 paid|Oakwood Dev Studio|1865.33
+2021-07-25|11:54:24|fuel|Exxon|-31.87
+2021-07-29|12:18:52|parking|City of Charlotte Parking|-11.33
+2021-07-30|07:05:42|pet supplies|Petco|-81.40
+2021-08-01|13:34:57|Part-time paycheck|Direct Deposit|1139.54
+2021-08-03|13:24:22|groceries|Whole Foods|-93.09
+2021-08-04|21:23:35|car maintenance|Advance Auto Parts|-116.41
+2021-08-05|21:25:09|cloud server hosting|Linode|-30.63
+2021-08-08|14:06:42|parking|ParkMobile|-4.08
+2021-08-09|09:22:34|motorcycle parts|RevZilla|-167.68
+2021-08-09|09:45:31|phone bill|AT&T|-81.76
+2021-08-10|11:23:18|Invoice 1048 paid|Oakwood Dev Studio|1655.69
+2021-08-11|17:13:49|lunch|Bojangles|-21.00
+2021-08-13|07:30:43|parking|City of Charlotte Parking|-15.13
+2021-08-13|08:54:47|parking|Parking.com|-13.19
+2021-08-13|15:29:56|Reimbursement|BlueRidge Software|46.34
+2021-08-19|11:48:46|entertainment|Nintendo eShop|-31.71
+2021-08-21|09:27:01|bank fee|Chase|-9.54
+2021-08-21|19:59:31|fuel|BP|-43.02
+2021-08-23|20:04:02|parking|ParkMobile|-5.45
+2021-08-26|09:04:36|software subscription|JetBrains|-58.89
+2021-08-27|20:53:24|Part-time paycheck|Employer Payroll|365.39
+2021-08-30|12:57:27|general purchase|Target|-32.95
+2021-08-31|19:42:40|pet supplies|PetSmart|-20.71
+2021-09-01|18:50:22|healthcare copay|Atrium Health|-89.27
+2021-09-04|14:33:23|car maintenance|Advance Auto Parts|-175.24
+2021-09-07|10:36:11|lunch|Bojangles|-19.67
+2021-09-10|10:55:12|tools/hardware|Lowe's|-131.23
+2021-09-12|14:05:20|Freelance project deposit|Northline Consulting|234.61
+2021-09-15|19:48:17|cloud server hosting|Hetzner|-33.92
+2021-09-17|12:52:58|streaming subscription|Hulu|-11.68
+2021-09-24|08:29:41|bank fee|Wells Fargo|-10.36
+2021-09-30|21:18:31|dinner delivery|Domino's|-43.34
+2021-10-02|20:52:29|electronics components|Amazon|-99.14
+2021-10-08|16:57:22|pet supplies|Chewy|-37.01
+2021-10-13|19:42:29|haircut|Local Barber|-24.98
+2021-10-26|07:37:48|general purchase|Target|-89.89
+2021-10-27|18:58:47|Reimbursement|Northline Consulting|192.25
+2021-10-30|09:46:26|monthly rent|Camden Property Mgmt|-1450.73
+2021-10-30|10:58:45|Reimbursement|Northline Consulting|110.95
+2021-11-01|21:54:16|parking|ParkMobile|-5.28
+2021-11-03|13:04:28|Freelance project deposit|Acme Web Services|1480.55
+2021-11-05|09:49:27|general purchase|Walmart|-12.86
+2021-11-06|22:53:45|phone bill|T-Mobile|-67.36
+2021-11-07|21:07:50|Part-time paycheck|Direct Deposit|561.81
+2021-11-08|23:32:39|Part-time paycheck|Employer Payroll|1059.21
+2021-11-09|22:17:28|gym membership|YMCA|-25.65
+2021-11-10|17:44:33|car maintenance|Advance Auto Parts|-255.89
+2021-11-13|12:05:20|cloud server hosting|DigitalOcean|-40.21
+2021-11-15|10:58:34|lunch|Jersey Mike's|-23.32
+2021-11-16|18:49:50|entertainment|Nintendo eShop|-85.68
+2021-11-17|21:29:43|groceries|Aldi|-89.26
+2021-11-18|12:10:27|groceries|Harris Teeter|-113.98
+2021-11-18|13:08:50|coffee|Coco and the Director|-13.50
+2021-11-19|13:30:06|general purchase|Best Buy|-18.49
+2021-11-21|13:47:01|motorcycle parts|RevZilla|-155.42
+2021-11-24|18:13:26|phone bill|AT&T|-37.77
+2021-11-26|13:19:10|gym membership|YMCA|-39.18
+2021-11-28|09:06:58|phone bill|AT&T|-78.82
+2021-12-08|21:04:59|Invoice 1085 paid|Carter & Co|1162.62
+2021-12-08|22:22:25|dinner delivery|Uber Eats|-35.36
+2021-12-18|12:03:56|tools/hardware|Home Depot|-21.17
+2021-12-21|12:16:47|Contract milestone payment|Stripe Payouts|2917.03
+2021-12-21|14:47:18|fuel|Exxon|-54.05
+2021-12-24|13:01:16|streaming subscription|Hulu|-11.33
+2021-12-28|17:17:12|car maintenance|AutoZone|-131.89
+2022-01-02|11:32:48|coffee|Starbucks|-5.58
+2022-01-02|15:50:30|lunch|Panera Bread|-15.21
+2022-01-04|12:43:33|monthly rent|Apartment Communities|-1547.43
+2022-01-05|22:14:44|Invoice 1080 paid|Joe|2248.63
+2022-01-12|21:18:28|cloud server hosting|Linode|-56.49
+2022-01-13|12:23:17|car maintenance|Advance Auto Parts|-163.78
+2022-01-16|14:44:20|parking|ParkMobile|-15.13
+2022-01-17|19:00:13|lunch|Chipotle|-14.29
+2022-01-25|07:23:47|Contract milestone payment|Wise|1359.82
+2022-01-26|21:38:07|internet bill|AT&T Fiber|-87.49
+2022-02-02|09:05:22|entertainment|Steam|-16.16
+2022-02-04|06:02:23|Freelance project deposit|Carter & Co|166.80
+2022-02-07|10:50:04|healthcare copay|Atrium Health|-25.51
+2022-02-08|15:36:41|software subscription|GitHub|-50.69
+2022-02-09|09:17:17|parking|City of Charlotte Parking|-9.40
+2022-02-15|13:41:52|Contract milestone payment|PayPal|2987.64
+2022-02-17|12:47:22|software subscription|JetBrains|-35.08
+2022-02-23|12:44:59|electric bill|Duke Energy|-147.75
+2022-02-27|12:53:54|Invoice 1055 paid|Oakwood Dev Studio|1473.51
+2022-03-01|20:21:18|tools/hardware|Home Depot|-151.01
+2022-03-02|21:43:46|Freelance project deposit|Northline Consulting|257.93
+2022-03-03|15:49:18|coffee|Starbucks|-5.58
+2022-03-03|23:51:05|electric bill|Duke Energy|-87.16
+2022-03-05|09:52:20|dinner delivery|DoorDash|-40.92
+2022-03-06|14:58:34|internet bill|AT&T Fiber|-87.10
+2022-03-07|14:50:18|streaming subscription|Spotify|-11.95
+2022-03-10|10:46:49|monthly rent|Apartment Communities|-1348.19
+2022-03-11|21:41:37|electric bill|Duke Energy|-85.07
+2022-03-23|15:58:42|pet supplies|Petco|-16.44
+2022-03-24|19:23:10|car maintenance|Advance Auto Parts|-300.72
+2022-04-03|17:50:43|phone bill|Verizon|-88.55
+2022-04-06|20:04:02|Freelance project deposit|Carter & Co|1782.87
+2022-04-07|10:45:48|Freelance project deposit|Oakwood Dev Studio|1071.53
+2022-04-14|11:50:56|entertainment|Nintendo eShop|-15.65
+2022-04-14|20:53:43|groceries|Aldi|-119.47
+2022-04-14|21:54:16|phone bill|AT&T|-99.60
+2022-04-15|15:19:17|domain renewal|Namecheap|-31.08
+2022-04-16|13:56:11|Part-time paycheck|Direct Deposit|415.47
+2022-04-20|23:44:46|Part-time paycheck|Direct Deposit|1051.78
+2022-04-23|12:31:02|healthcare copay|Novant Health|-68.15
+2022-04-24|21:28:26|healthcare copay|CVS Pharmacy|-93.54
+2022-04-27|16:35:28|insurance premium|GEICO|-187.70
+2022-05-01|15:05:10|general purchase|Walmart|-91.44
+2022-05-02|19:43:55|dinner delivery|DoorDash|-46.92
+2022-05-05|20:42:33|coffee|Not Just Coffee|-6.45
+2022-05-09|18:48:00|motorcycle parts|Cycle Gear|-260.66
+2022-05-11|09:12:49|groceries|Trader Joe's|-90.74
+2022-05-12|11:23:46|monthly rent|Camden Property Mgmt|-1529.95
+2022-05-16|22:49:10|bank fee|Chase|-14.12
+2022-05-25|08:22:11|tools/hardware|Ace Hardware|-255.72
+2022-05-26|16:26:50|entertainment|PlayStation Store|-88.93
+2022-05-30|09:08:56|haircut|Sport Clips|-28.09
+2022-06-02|16:20:09|dinner delivery|Uber Eats|-68.57
+2022-06-04|14:06:30|domain renewal|Cloudflare|-26.23
+2022-06-11|10:32:12|Invoice 1064 paid|Oakwood Dev Studio|1148.12
+2022-06-15|12:26:28|cloud server hosting|Linode|-21.34
+2022-06-15|19:45:36|dinner delivery|Uber Eats|-60.34
+2022-06-16|19:23:26|streaming subscription|Spotify|-16.57
+2022-06-19|13:13:48|software subscription|GitHub|-34.12
+2022-06-20|13:55:08|software subscription|GitHub|-29.93
+2022-06-21|14:13:24|healthcare copay|Atrium Health|-97.81
+2022-06-21|19:50:09|cloud server hosting|Hetzner|-18.23
+2022-06-27|09:56:43|electric bill|Duke Energy|-47.55
+2022-06-28|13:25:21|general purchase|Walmart|-102.63
+2022-06-28|17:09:30|fuel|Shell|-38.30
+2022-07-01|16:22:07|lunch|Chick-fil-A|-13.86
+2022-07-01|18:16:16|domain renewal|Google Domains|-32.93
+2022-07-01|21:34:08|motorcycle parts|RevZilla|-207.76
+2022-07-02|11:27:35|insurance premium|State Farm|-108.36
+2022-07-02|14:53:29|bank fee|Chase|-18.03
+2022-07-02|15:01:19|internet bill|Spectrum|-55.34
+2022-07-03|11:49:55|Contract milestone payment|Wise|1608.60
+2022-07-11|20:22:35|tools/hardware|Harbor Freight|-255.31
+2022-07-12|17:43:34|Contract milestone payment|PayPal|1220.91
+2022-07-17|12:19:40|Part-time paycheck|Direct Deposit|692.75
+2022-07-18|17:45:34|3D printing filament|Amazon|-42.63
+2022-07-21|13:21:14|software subscription|Linode|-42.19
+2022-07-22|12:11:40|software subscription|JetBrains|-64.91
+2022-07-29|21:24:25|monthly rent|Camden Property Mgmt|-1251.13
+2022-07-31|17:18:58|Contract milestone payment|PayPal|262.02
+2022-08-03|12:55:21|general purchase|Target|-61.73
+2022-08-07|10:57:03|pet supplies|Petco|-13.10
+2022-08-07|15:12:58|gym membership|YMCA|-43.13
+2022-08-13|19:49:30|Contract milestone payment|Wise|2746.68
+2022-08-17|13:49:16|bank fee|Wells Fargo|-32.51
+2022-08-17|22:07:54|car maintenance|Advance Auto Parts|-304.17
+2022-08-23|22:37:15|motorcycle parts|Cycle Gear|-26.74
+2022-08-25|18:34:40|coffee|Starbucks|-14.64
+2022-08-28|16:39:08|monthly rent|Camden Property Mgmt|-1094.03
+2022-09-01|08:52:57|dinner delivery|DoorDash|-63.70
+2022-09-05|20:49:06|domain renewal|Namecheap|-10.50
+2022-09-09|14:43:15|healthcare copay|CVS Pharmacy|-89.01
+2022-09-09|15:55:08|monthly rent|Apartment Communities|-1518.80
+2022-09-11|16:25:18|motorcycle parts|Partzilla|-217.94
+2022-09-14|09:37:16|dinner delivery|Domino's|-74.93
+2022-09-20|08:10:40|electronics components|SparkFun|-15.56
+2022-09-20|14:02:58|motorcycle parts|Amazon|-257.04
+2022-09-22|13:34:43|parking|Parking.com|-12.06
+2022-09-23|11:41:31|internet bill|Spectrum|-86.73
+2022-09-23|17:18:24|monthly rent|Camden Property Mgmt|-1301.01
+2022-09-24|15:50:03|healthcare copay|Atrium Health|-40.26
+2022-09-27|07:39:32|monthly rent|Camden Property Mgmt|-1433.37
+2022-09-29|22:59:48|Invoice 1049 paid|Carter & Co|1070.69
+2022-10-01|15:15:31|Reimbursement|BlueRidge Software|142.15
+2022-10-06|15:32:56|monthly rent|Apartment Communities|-1092.10
+2022-10-08|14:38:36|cloud server hosting|DigitalOcean|-29.56
+2022-10-10|17:37:56|electric bill|Duke Energy|-186.60
+2022-10-14|12:28:21|groceries|Walmart|-129.48
+2022-10-17|14:58:17|car maintenance|O'Reilly Auto Parts|-315.03
+2022-10-17|21:09:29|entertainment|Nintendo eShop|-68.51
+2022-10-21|19:39:18|entertainment|Steam|-73.94
+2022-10-28|15:43:59|internet bill|AT&T Fiber|-75.04
+2022-10-31|14:02:15|monthly rent|Camden Property Mgmt|-1156.18
+2022-11-01|22:04:38|monthly rent|Camden Property Mgmt|-1178.47
+2022-11-07|21:39:45|3D printing filament|Amazon|-61.38
+2022-11-10|11:21:49|fuel|Circle K|-61.43
+2022-11-11|11:43:48|cloud server hosting|Hetzner|-52.56
+2022-11-12|13:50:08|Invoice 1049 paid|Acme Web Services|1139.76
+2022-11-13|14:57:07|streaming subscription|Hulu|-10.82
+2022-11-13|15:12:13|parking|City of Charlotte Parking|-15.50
+2022-11-13|17:01:43|pet supplies|Petco|-65.85
+2022-11-14|16:44:27|Freelance project deposit|Oakwood Dev Studio|1418.23
+2022-11-17|19:24:10|insurance premium|GEICO|-193.95
+2022-11-23|08:55:24|monthly rent|Camden Property Mgmt|-1053.67
+2022-11-23|20:19:10|Contract milestone payment|Stripe Payouts|747.90
+2022-11-25|17:04:54|parking|ParkMobile|-5.34
+2022-11-26|09:20:48|gym membership|Planet Fitness|-46.73
+2022-11-27|19:28:44|car maintenance|Advance Auto Parts|-150.91
+2022-11-28|21:29:53|dinner delivery|DoorDash|-24.46
+2022-11-29|18:01:07|entertainment|Steam|-89.70
+2022-12-01|18:05:35|internet bill|AT&T Fiber|-92.16
+2022-12-04|19:41:44|streaming subscription|Netflix|-14.95
+2022-12-07|11:48:49|streaming subscription|Spotify|-12.13
+2022-12-08|14:49:14|parking|Parking.com|-20.85
+2022-12-09|20:01:24|Part-time paycheck|Direct Deposit|946.15
+2022-12-15|11:03:35|streaming subscription|Netflix|-16.51
+2022-12-15|15:59:23|fuel|BP|-44.89
+2022-12-18|19:45:57|fuel|Exxon|-19.62
+2022-12-21|14:58:25|gym membership|YMCA|-23.40
+2022-12-21|20:24:53|parking|Parking.com|-6.72
+2022-12-26|14:43:18|motorcycle parts|Cycle Gear|-84.55
+2022-12-28|13:30:24|pet supplies|PetSmart|-21.30
+2022-12-29|20:29:46|insurance premium|Progressive|-190.79
+2022-12-31|13:51:26|Part-time paycheck|Direct Deposit|502.42
+2023-01-02|22:03:05|3D printing filament|Prusa Research|-40.87
+2023-01-03|23:13:43|gym membership|YMCA|-15.40
+2023-01-04|20:01:43|lunch|Chipotle|-8.73
+2023-01-12|07:09:19|groceries|Trader Joe's|-83.34
+2023-01-12|13:46:56|insurance premium|GEICO|-96.33
+2023-01-16|19:49:20|haircut|Sport Clips|-35.95
+2023-01-17|13:06:09|Freelance project deposit|Carter & Co|541.72
+2023-01-17|16:14:24|electronics components|Adafruit|-91.40
+2023-01-17|16:18:54|Contract milestone payment|Wise|2544.15
+2023-01-19|21:25:06|groceries|Trader Joe's|-125.77
+2023-01-21|12:27:15|3D printing filament|Amazon|-31.40
+2023-01-25|12:46:44|insurance premium|State Farm|-79.16
+2023-01-26|12:25:21|Invoice 1053 paid|Meridian IT Group|1839.17
+2023-01-29|10:23:28|Reimbursement|Northline Consulting|222.73
+2023-02-01|19:50:04|domain renewal|Cloudflare|-13.50
+2023-02-02|22:55:33|internet bill|AT&T Fiber|-83.06
+2023-02-04|11:37:06|bank fee|Wells Fargo|-9.46
+2023-02-05|15:36:01|3D printing filament|Amazon|-18.05
+2023-02-07|10:54:50|gym membership|Planet Fitness|-33.39
+2023-02-07|19:27:05|Contract milestone payment|Wise|1366.00
+2023-02-08|11:27:35|Contract milestone payment|PayPal|2182.50
+2023-02-08|16:28:25|parking|City of Charlotte Parking|-13.45
+2023-02-10|12:51:02|monthly rent|Apartment Communities|-1124.22
+2023-02-13|11:13:49|coffee|Dunkin'|-12.78
+2023-02-13|14:59:00|Freelance project deposit|Oakwood Dev Studio|1210.03
+2023-02-16|17:53:03|Invoice 1021 paid|Joe|1986.10
+2023-02-16|19:02:06|gym membership|YMCA|-20.57
+2023-02-17|18:38:17|insurance premium|State Farm|-201.90
+2023-02-18|15:06:35|groceries|Aldi|-55.87
+2023-02-21|15:37:01|dinner delivery|Pizza Hut|-66.47
+2023-02-23|11:13:20|electric bill|Duke Energy|-61.97
+2023-02-26|22:55:06|dinner delivery|DoorDash|-59.89
+2023-03-03|07:30:44|lunch|Chipotle|-19.18
+2023-03-04|07:44:54|Invoice 1092 paid|Carter & Co|672.02
+2023-03-04|15:47:10|Reimbursement|BlueRidge Software|131.97
+2023-03-08|21:20:22|pet supplies|Petco|-28.79
+2023-03-15|23:05:56|pet supplies|Petco|-73.35
+2023-03-23|07:44:42|electric bill|Duke Energy|-52.72
+2023-03-24|17:43:49|electronics components|SparkFun|-134.23
+2023-03-26|09:15:34|general purchase|Amazon|-95.53
+2023-03-29|17:40:20|electronics components|Amazon|-43.71
+2023-03-30|21:23:43|Freelance project deposit|Oakwood Dev Studio|1126.54
+2023-04-01|12:20:34|car maintenance|Advance Auto Parts|-298.74
+2023-04-01|14:17:58|gym membership|Planet Fitness|-33.97
+2023-04-01|16:04:34|Invoice 1059 paid|Meridian IT Group|1612.89
+2023-04-01|20:54:13|3D printing filament|Micro Center|-30.92
+2023-04-05|11:31:27|Reimbursement|BlueRidge Software|102.78
+2023-04-08|09:05:33|electric bill|Duke Energy|-168.76
+2023-04-08|09:20:14|tools/hardware|Ace Hardware|-65.40
+2023-04-09|19:50:56|lunch|Chipotle|-13.42
+2023-04-15|21:17:20|3D printing filament|Amazon|-25.79
+2023-04-17|11:17:05|internet bill|AT&T Fiber|-95.40
+2023-04-18|18:52:36|car maintenance|O'Reilly Auto Parts|-244.71
+2023-04-21|09:53:08|dinner delivery|Pizza Hut|-46.15
+2023-04-22|10:31:48|software subscription|Linode|-13.04
+2023-04-29|14:05:26|fuel|Circle K|-43.92
+2023-05-04|16:35:23|parking|ParkMobile|-9.88
+2023-05-07|06:05:43|internet bill|AT&T Fiber|-88.59
+2023-05-08|07:40:01|Reimbursement|Northline Consulting|157.38
+2023-05-10|09:11:33|general purchase|Target|-176.15
+2023-05-10|18:42:25|electronics components|DigiKey|-152.00
+2023-05-14|16:24:31|electronics components|Amazon|-85.28
+2023-05-16|22:21:17|haircut|Great Clips|-27.81
+2023-05-17|16:31:58|fuel|QuikTrip|-46.79
+2023-05-22|12:17:53|dinner delivery|Uber Eats|-33.46
+2023-05-23|15:08:02|parking|Parking.com|-9.67
+2023-05-24|09:36:56|Reimbursement|BlueRidge Software|89.94
+2023-05-26|11:52:24|general purchase|Walmart|-117.34
+2023-05-31|10:02:24|dinner delivery|DoorDash|-39.33
+2023-06-03|07:33:18|3D printing filament|Amazon|-59.74
+2023-06-06|06:54:48|software subscription|OpenAI|-33.12
+2023-06-07|07:44:03|parking|City of Charlotte Parking|-3.87
+2023-06-08|09:49:40|bank fee|Bank of America|-25.67
+2023-06-13|17:03:12|dinner delivery|DoorDash|-54.06
+2023-06-17|14:30:44|pet supplies|Chewy|-59.87
+2023-06-18|21:35:46|car maintenance|Advance Auto Parts|-230.74
+2023-06-19|08:41:50|gym membership|Planet Fitness|-16.40
+2023-06-19|09:26:13|motorcycle parts|Amazon|-375.32
+2023-06-19|21:31:08|haircut|Sport Clips|-29.59
+2023-06-23|17:31:52|domain renewal|Cloudflare|-23.93
+2023-06-24|20:04:17|Contract milestone payment|Stripe Payouts|1499.14
+2023-06-26|15:47:42|groceries|Aldi|-179.62
+2023-06-26|16:48:55|pet supplies|Petco|-24.35
+2023-06-26|17:45:04|insurance premium|State Farm|-198.45
+2023-06-26|21:43:33|general purchase|Target|-170.02
+2023-07-02|15:07:52|insurance premium|Progressive|-81.34
+2023-07-04|10:01:19|tools/hardware|Home Depot|-130.31
+2023-07-07|16:50:07|3D printing filament|Prusa Research|-34.27
+2023-07-11|15:09:57|pet supplies|Petco|-56.37
+2023-07-12|18:24:46|tools/hardware|Home Depot|-99.07
+2023-07-13|13:14:31|phone bill|T-Mobile|-101.42
+2023-07-17|18:58:17|gym membership|YMCA|-42.41
+2023-07-21|16:38:09|haircut|Local Barber|-17.94
+2023-07-24|18:48:55|insurance premium|Progressive|-160.72
+2023-07-26|20:12:45|software subscription|JetBrains|-57.82
+2023-08-05|18:04:43|gym membership|Planet Fitness|-18.65
+2023-08-06|08:06:58|lunch|Jersey Mike's|-12.85
+2023-08-12|14:14:36|gym membership|Planet Fitness|-50.41
+2023-08-13|16:51:49|Part-time paycheck|Employer Payroll|426.60
+2023-08-16|15:15:39|cloud server hosting|AWS|-63.81
+2023-08-18|13:34:25|haircut|Sport Clips|-24.99
+2023-08-19|21:37:56|cloud server hosting|AWS|-15.80
+2023-08-21|06:30:41|Freelance project deposit|Acme Web Services|1516.09
+2023-08-23|15:26:11|3D printing filament|Prusa Research|-34.69
+2023-08-24|06:18:28|motorcycle parts|Cycle Gear|-181.29
+2023-08-24|13:42:30|bank fee|Wells Fargo|-2.74
+2023-08-24|16:56:50|Freelance project deposit|Northline Consulting|627.02
+2023-08-27|19:30:49|coffee|Dunkin'|-12.93
+2023-08-29|23:31:33|internet bill|AT&T Fiber|-64.63
+2023-08-30|14:02:09|car maintenance|Advance Auto Parts|-312.76
+2023-09-03|18:51:36|parking|ParkMobile|-13.02
+2023-09-05|20:48:31|3D printing filament|Micro Center|-55.13
+2023-09-06|09:45:13|software subscription|Linode|-60.44
+2023-09-08|07:43:04|entertainment|Nintendo eShop|-13.79
+2023-09-09|07:58:32|electronics components|Amazon|-37.56
+2023-09-10|20:38:22|lunch|Panera Bread|-18.10
+2023-09-14|15:48:17|gym membership|YMCA|-18.54
+2023-09-16|07:39:11|Freelance project deposit|Northline Consulting|859.41
+2023-09-16|14:04:32|tools/hardware|Lowe's|-26.54
+2023-09-18|10:15:18|domain renewal|Google Domains|-18.68
+2023-09-19|11:40:56|Invoice 1092 paid|Meridian IT Group|1068.46
+2023-09-20|09:53:30|Freelance project deposit|Oakwood Dev Studio|1017.95
+2023-09-25|09:08:04|Part-time paycheck|Direct Deposit|384.33
+2023-09-25|19:02:48|tools/hardware|Home Depot|-177.30
+2023-10-01|07:48:19|pet supplies|PetSmart|-83.44
+2023-10-04|18:00:22|3D printing filament|Amazon|-50.98
+2023-10-07|18:25:18|electronics components|Adafruit|-213.06
+2023-10-10|15:47:45|phone bill|AT&T|-58.03
+2023-10-14|15:44:38|electric bill|Duke Energy|-170.10
+2023-10-15|15:11:33|Part-time paycheck|Direct Deposit|477.14
+2023-10-30|10:34:46|software subscription|JetBrains|-50.57
+2023-11-05|08:15:20|dinner delivery|Uber Eats|-58.43
+2023-11-05|18:08:33|Reimbursement|BlueRidge Software|209.23
+2023-11-05|18:52:59|streaming subscription|YouTube Premium|-18.26
+2023-11-06|11:47:31|motorcycle parts|RevZilla|-353.65
+2023-11-06|12:16:31|software subscription|Linode|-29.87
+2023-11-07|17:08:20|motorcycle parts|RevZilla|-277.08
+2023-11-08|10:40:38|tools/hardware|Harbor Freight|-94.86
+2023-11-10|17:26:25|pet supplies|Petco|-65.42
+2023-11-13|09:42:43|Part-time paycheck|Employer Payroll|707.01
+2023-11-16|14:34:06|dinner delivery|Pizza Hut|-26.12
+2023-11-17|21:48:40|coffee|Coco and the Director|-14.85
+2023-11-18|08:41:06|tools/hardware|Lowe's|-164.63
+2023-11-28|17:11:44|phone bill|AT&T|-45.73
+2023-12-05|20:16:28|pet supplies|Petco|-50.45
+2023-12-14|11:15:01|entertainment|Steam|-5.77
+2023-12-15|14:36:43|Part-time paycheck|Employer Payroll|1173.17
+2023-12-18|12:06:09|coffee|Not Just Coffee|-3.56
+2023-12-19|13:51:44|internet bill|Spectrum|-84.75
+2023-12-23|14:19:16|software subscription|JetBrains|-32.77
+2023-12-27|16:04:53|coffee|Coco and the Director|-10.86
+2023-12-28|08:21:25|domain renewal|Cloudflare|-9.89
+2024-01-03|17:29:15|phone bill|T-Mobile|-111.95
+2024-01-04|10:47:38|haircut|Sport Clips|-17.35
+2024-01-07|12:35:04|motorcycle parts|Partzilla|-412.61
+2024-01-08|20:34:57|Contract milestone payment|Wise|1670.55
+2024-01-11|16:38:58|motorcycle parts|Cycle Gear|-256.50
+2024-01-18|08:10:51|general purchase|Amazon|-68.01
+2024-01-19|21:18:09|general purchase|Walmart|-146.69
+2024-01-19|23:48:51|lunch|Jersey Mike's|-21.86
+2024-01-26|14:44:45|parking|ParkMobile|-20.03
+2024-01-26|19:19:37|streaming subscription|Hulu|-12.48
+2024-01-31|19:20:38|monthly rent|Camden Property Mgmt|-1261.85
+2024-02-05|23:33:19|gym membership|Planet Fitness|-16.58
+2024-02-06|20:06:26|3D printing filament|Prusa Research|-53.35
+2024-02-10|12:18:17|dinner delivery|Pizza Hut|-37.23
+2024-02-10|18:11:10|Reimbursement|Northline Consulting|159.23
+2024-02-13|20:07:34|motorcycle parts|Partzilla|-310.98
+2024-02-15|16:34:56|electronics components|Adafruit|-131.95
+2024-02-22|10:08:40|lunch|Panera Bread|-28.00
+2024-02-23|09:13:49|parking|ParkMobile|-4.93
+2024-02-23|14:46:38|lunch|Panera Bread|-26.87
+2024-02-25|16:13:22|bank fee|Bank of America|-7.21
+2024-03-04|10:08:47|monthly rent|Camden Property Mgmt|-1393.84
+2024-03-12|09:22:38|haircut|Great Clips|-25.18
+2024-03-14|16:01:36|streaming subscription|Hulu|-14.29
+2024-03-19|12:13:24|dinner delivery|Pizza Hut|-53.87
+2024-03-21|13:43:22|gym membership|YMCA|-23.61
+2024-03-23|19:14:35|Freelance project deposit|Carter & Co|637.83
+2024-03-25|20:45:43|entertainment|Steam|-79.60
+2024-03-26|11:20:00|software subscription|JetBrains|-5.05
+2024-03-27|10:35:16|Contract milestone payment|Stripe Payouts|2733.13
+2024-03-29|17:20:07|pet supplies|Petco|-38.39
+2024-04-01|09:55:44|electronics components|DigiKey|-95.77
+2024-04-01|12:03:51|insurance premium|GEICO|-179.04
+2024-04-07|21:36:07|fuel|Circle K|-66.47
+2024-04-14|19:57:23|Contract milestone payment|Wise|1306.94
+2024-04-15|16:58:41|bank fee|Wells Fargo|-4.84
+2024-04-16|08:37:02|general purchase|Walmart|-53.32
+2024-04-20|10:16:48|groceries|Whole Foods|-142.55
+2024-04-21|11:02:54|motorcycle parts|Cycle Gear|-75.82
+2024-04-21|14:15:12|Reimbursement|BlueRidge Software|46.79
+2024-04-24|21:51:27|car maintenance|Advance Auto Parts|-319.04
+2024-04-26|13:19:39|groceries|Harris Teeter|-106.57
+2024-04-28|19:44:51|Reimbursement|BlueRidge Software|231.48
+2024-05-03|20:53:23|electric bill|Duke Energy|-149.24
+2024-05-08|07:58:14|coffee|Not Just Coffee|-9.93
+2024-05-12|18:59:22|Invoice 1023 paid|Oakwood Dev Studio|1481.59
+2024-05-15|12:53:58|Contract milestone payment|Stripe Payouts|3055.53
+2024-05-17|08:39:26|bank fee|Wells Fargo|-29.84
+2024-05-18|19:55:47|domain renewal|Google Domains|-18.83
+2024-05-19|14:49:46|car maintenance|Advance Auto Parts|-289.66
+2024-05-20|06:10:44|domain renewal|Google Domains|-20.26
+2024-05-21|15:36:09|cloud server hosting|Linode|-31.79
+2024-05-23|22:11:50|parking|Parking.com|-20.09
+2024-05-29|12:59:28|cloud server hosting|Hetzner|-31.81
+2024-05-31|20:45:23|motorcycle parts|Amazon|-292.10
+2024-06-01|11:18:51|gym membership|Planet Fitness|-24.16
+2024-06-02|06:16:49|tools/hardware|Harbor Freight|-115.35
+2024-06-07|11:44:14|Contract milestone payment|Wise|2779.01
+2024-06-12|10:45:58|pet supplies|Petco|-33.50
+2024-06-15|12:51:48|Invoice 1056 paid|Acme Web Services|1962.24
+2024-06-22|11:42:00|3D printing filament|Prusa Research|-26.09
+2024-06-27|23:04:50|motorcycle parts|Cycle Gear|-167.42
+2024-06-29|13:50:01|electronics components|Amazon|-21.59
+2024-06-30|11:57:01|gym membership|YMCA|-34.65
+2024-07-01|15:42:12|dinner delivery|DoorDash|-47.07
+2024-07-01|17:22:16|haircut|Great Clips|-23.56
+2024-07-08|10:07:08|general purchase|Best Buy|-114.65
+2024-07-08|18:20:39|entertainment|Steam|-50.06
+2024-07-09|16:16:05|internet bill|Spectrum|-87.18
+2024-07-11|18:56:34|Reimbursement|Northline Consulting|168.12
+2024-07-11|19:55:51|electric bill|Duke Energy|-165.00
+2024-07-12|09:03:31|fuel|Circle K|-25.95
+2024-07-13|09:49:50|coffee|Not Just Coffee|-11.89
+2024-07-13|10:40:09|electric bill|Duke Energy|-186.32
+2024-07-18|17:38:16|coffee|Dunkin'|-4.20
+2024-07-20|07:23:26|pet supplies|Petco|-77.71
+2024-07-21|16:00:40|Part-time paycheck|Direct Deposit|1154.44
+2024-07-21|19:04:11|healthcare copay|Novant Health|-35.65
+2024-07-26|17:20:25|groceries|Walmart|-130.33
+2024-07-28|10:51:17|entertainment|Steam|-42.69
+2024-08-04|13:03:16|dinner delivery|Domino's|-71.81
+2024-08-05|13:48:08|phone bill|T-Mobile|-86.73
+2024-08-07|14:59:26|electric bill|Duke Energy|-200.91
+2024-08-07|15:14:13|tools/hardware|Harbor Freight|-157.98
+2024-08-09|14:52:08|car maintenance|O'Reilly Auto Parts|-81.19
+2024-08-12|15:39:58|software subscription|GitHub|-16.19
+2024-08-14|11:30:40|Contract milestone payment|Stripe Payouts|2621.93
+2024-08-14|12:39:39|Part-time paycheck|Direct Deposit|409.90
+2024-08-18|11:58:39|groceries|Trader Joe's|-136.17
+2024-08-18|13:06:58|Contract milestone payment|Wise|2666.00
+2024-08-30|07:03:54|car maintenance|O'Reilly Auto Parts|-150.40
+2024-08-30|09:59:31|pet supplies|PetSmart|-22.64
+2024-09-02|21:24:47|tools/hardware|Harbor Freight|-90.73
+2024-09-06|14:44:43|bank fee|Wells Fargo|-31.15
+2024-09-07|09:03:20|streaming subscription|Netflix|-15.79
+2024-09-07|15:20:24|lunch|Bojangles|-26.18
+2024-09-08|07:02:09|gym membership|YMCA|-16.01
+2024-09-09|17:14:32|internet bill|Spectrum|-76.98
+2024-09-12|06:56:29|haircut|Sport Clips|-37.68
+2024-09-13|08:25:59|dinner delivery|Domino's|-65.14
+2024-09-16|19:35:35|Invoice 1026 paid|Joe|1727.71
+2024-09-18|21:33:30|pet supplies|Chewy|-18.64
+2024-09-19|10:18:40|general purchase|Amazon|-35.25
+2024-09-20|19:40:37|insurance premium|Progressive|-166.57
+2024-09-25|15:48:51|software subscription|OpenAI|-19.84
+2024-10-01|07:27:28|entertainment|PlayStation Store|-87.03
+2024-10-03|13:41:20|streaming subscription|Hulu|-7.22
+2024-10-03|17:41:41|Reimbursement|BlueRidge Software|160.48
+2024-10-04|16:47:02|Reimbursement|Northline Consulting|248.43
+2024-10-07|11:09:32|lunch|Jersey Mike's|-8.07
+2024-10-07|16:00:03|Freelance project deposit|Northline Consulting|1420.86
+2024-10-14|17:08:21|fuel|QuikTrip|-19.78
+2024-10-15|12:45:45|phone bill|Verizon|-65.99
+2024-10-15|18:48:06|Freelance project deposit|Acme Web Services|527.86
+2024-10-20|09:37:19|fuel|Circle K|-20.16
+2024-10-22|20:05:37|motorcycle parts|RevZilla|-362.99
+2024-10-30|10:02:19|Part-time paycheck|Employer Payroll|967.54
+2024-10-31|08:20:01|motorcycle parts|Partzilla|-125.51
+2024-10-31|09:24:02|domain renewal|Namecheap|-30.77
+2024-11-02|07:59:44|gym membership|YMCA|-41.34
+2024-11-04|11:05:10|electric bill|Duke Energy|-147.56
+2024-11-06|11:34:49|general purchase|Walmart|-111.81
+2024-11-08|18:35:39|streaming subscription|Netflix|-18.07
+2024-11-10|14:58:27|groceries|Walmart|-118.90
+2024-11-13|18:37:40|general purchase|Walmart|-168.44
+2024-11-16|18:30:27|insurance premium|GEICO|-127.55
+2024-11-16|20:10:45|general purchase|Amazon|-34.14
+2024-11-21|12:56:28|motorcycle parts|RevZilla|-293.64
+2024-11-23|09:01:21|Part-time paycheck|Direct Deposit|987.73
+2024-11-26|07:51:38|dinner delivery|Domino's|-67.93
+2024-12-01|21:48:37|pet supplies|Chewy|-15.22
+2024-12-02|08:16:08|phone bill|AT&T|-92.95
+2024-12-07|19:46:29|coffee|Starbucks|-14.61
+2024-12-11|10:58:41|lunch|Chick-fil-A|-16.54
+2024-12-14|10:19:49|fuel|Shell|-33.72
+2024-12-21|15:56:24|Part-time paycheck|Employer Payroll|954.14
+2024-12-25|15:02:41|electric bill|Duke Energy|-141.24
+2025-01-02|12:13:18|insurance premium|State Farm|-112.13
+2025-01-04|16:22:25|phone bill|Verizon|-72.22
+2025-01-05|19:34:29|groceries|Aldi|-111.78
+2025-01-05|20:52:27|coffee|Not Just Coffee|-8.90
+2025-01-06|22:32:56|electronics components|SparkFun|-132.90
+2025-01-10|08:53:04|Reimbursement|BlueRidge Software|102.42
+2025-01-15|22:19:12|lunch|Bojangles|-14.64
+2025-01-21|07:46:31|Part-time paycheck|Employer Payroll|671.84
+2025-01-21|19:27:44|Freelance project deposit|Carter & Co|397.84
+2025-01-23|12:14:55|tools/hardware|Lowe's|-86.81
+2025-01-29|12:01:24|groceries|Walmart|-167.69
+2025-01-31|12:03:21|3D printing filament|Prusa Research|-42.51
+2025-02-01|17:58:39|bank fee|Wells Fargo|-9.30
+2025-02-02|07:07:54|gym membership|Planet Fitness|-24.11
+2025-02-11|21:32:12|general purchase|Best Buy|-118.49
+2025-02-21|19:16:05|streaming subscription|Netflix|-15.65
+2025-02-22|22:18:42|phone bill|Verizon|-106.54
+2025-02-23|16:47:56|parking|ParkMobile|-6.07
+2025-02-24|10:28:53|groceries|Walmart|-180.08
+2025-02-26|20:35:24|Freelance project deposit|Acme Web Services|1729.06
+2025-02-28|14:48:09|parking|City of Charlotte Parking|-10.10
+2025-03-01|09:41:40|haircut|Sport Clips|-33.58
+2025-03-03|08:58:56|car maintenance|AutoZone|-255.38
+2025-03-11|14:30:33|Freelance project deposit|Northline Consulting|787.81
+2025-03-14|09:02:25|bank fee|Bank of America|-26.35
+2025-03-15|10:06:23|haircut|Sport Clips|-20.50
+2025-03-20|09:24:27|fuel|Circle K|-25.81
+2025-03-20|23:22:16|3D printing filament|Micro Center|-45.44
+2025-03-21|13:14:26|dinner delivery|Domino's|-30.33
+2025-03-22|18:37:51|insurance premium|Progressive|-167.59
+2025-03-23|19:52:21|tools/hardware|Ace Hardware|-20.98
+2025-03-26|18:21:04|software subscription|OpenAI|-31.91
+2025-03-29|08:25:46|groceries|Walmart|-50.56
+2025-03-31|12:59:41|pet supplies|Petco|-46.69
+2025-04-07|11:05:03|healthcare copay|Atrium Health|-69.74
+2025-04-09|19:45:23|motorcycle parts|Cycle Gear|-29.08
+2025-04-10|13:56:29|domain renewal|Google Domains|-33.17
+2025-04-12|13:25:24|insurance premium|State Farm|-156.17
+2025-04-13|17:41:48|phone bill|Verizon|-100.36
+2025-04-15|23:48:16|motorcycle parts|Partzilla|-283.45
+2025-04-19|07:58:02|monthly rent|Camden Property Mgmt|-1217.61
+2025-04-19|21:00:02|coffee|Not Just Coffee|-5.54
+2025-04-20|07:54:43|entertainment|PlayStation Store|-64.01
+2025-04-21|09:38:52|Part-time paycheck|Employer Payroll|1056.77
+2025-04-21|14:39:22|dinner delivery|DoorDash|-21.53
+2025-04-22|20:59:15|cloud server hosting|DigitalOcean|-17.32
+2025-04-24|14:53:32|electric bill|Duke Energy|-208.89
+2025-04-24|18:11:09|pet supplies|Chewy|-79.28
+2025-04-25|16:39:22|monthly rent|Apartment Communities|-1321.38
+2025-04-28|06:40:18|motorcycle parts|Amazon|-177.66
+2025-04-28|14:19:19|dinner delivery|Pizza Hut|-24.14
+2025-04-28|22:05:40|domain renewal|Google Domains|-28.13
+2025-05-04|17:11:39|gym membership|Planet Fitness|-20.70
+2025-05-06|10:37:06|domain renewal|Namecheap|-10.15
+2025-05-07|06:14:58|general purchase|Walmart|-62.76
+2025-05-11|12:24:06|healthcare copay|Novant Health|-38.88
+2025-05-26|15:52:10|electric bill|Duke Energy|-70.02
+2025-05-30|14:16:12|Freelance project deposit|Carter & Co|1562.11
+2025-06-02|07:57:23|parking|City of Charlotte Parking|-18.37
+2025-06-04|08:07:48|Invoice 1080 paid|Joe|2035.25
+2025-06-05|09:13:07|domain renewal|Cloudflare|-32.89
+2025-06-06|09:09:06|monthly rent|Camden Property Mgmt|-1328.03
+2025-06-07|16:31:49|internet bill|AT&T Fiber|-61.59
+2025-06-08|15:09:26|cloud server hosting|Hetzner|-36.68
+2025-06-09|12:11:46|insurance premium|Progressive|-168.10
+2025-06-10|16:40:32|dinner delivery|Pizza Hut|-56.15
+2025-06-11|08:11:17|groceries|Whole Foods|-114.65
+2025-06-11|19:12:35|Invoice 1092 paid|Oakwood Dev Studio|1858.15
+2025-06-17|14:53:03|motorcycle parts|RevZilla|-372.42
+2025-06-22|16:50:50|motorcycle parts|RevZilla|-395.08
+2025-06-22|17:48:23|tools/hardware|Harbor Freight|-36.73
+2025-06-24|15:14:26|healthcare copay|CVS Pharmacy|-40.86
+2025-06-25|10:50:35|fuel|Circle K|-55.11
+2025-06-28|12:19:29|tools/hardware|Ace Hardware|-229.32
+2025-06-30|08:55:27|gym membership|YMCA|-33.49
+2025-06-30|22:16:40|cloud server hosting|Hetzner|-6.94
+2025-07-06|10:33:42|internet bill|Spectrum|-72.56
+2025-07-07|06:22:39|Contract milestone payment|Wise|2796.60
+2025-07-14|10:01:35|domain renewal|Cloudflare|-31.55
+2025-07-18|18:23:59|entertainment|Steam|-38.42
+2025-07-18|18:26:52|healthcare copay|Atrium Health|-102.35
+2025-07-23|11:44:30|car maintenance|AutoZone|-23.98
+2025-07-23|17:13:32|electronics components|Adafruit|-121.34
+2025-07-24|15:24:40|bank fee|Chase|-33.57
+2025-07-24|22:06:19|electronics components|Amazon|-60.73
+2025-07-25|12:57:59|electric bill|Duke Energy|-160.74
+2025-07-26|17:40:31|parking|ParkMobile|-17.30
+2025-07-30|12:50:43|Contract milestone payment|Wise|153.78
+2025-08-10|09:15:27|Contract milestone payment|Stripe Payouts|495.12
+2025-08-10|20:02:39|general purchase|Walmart|-136.85
+2025-08-16|15:17:25|electric bill|Duke Energy|-191.59
+2025-08-17|14:34:14|pet supplies|Chewy|-59.10
+2025-08-18|19:12:53|pet supplies|Petco|-46.33
+2025-08-25|08:25:18|fuel|Shell|-43.39
+2025-08-26|07:09:42|streaming subscription|YouTube Premium|-15.26
+2025-08-28|20:34:08|pet supplies|Petco|-48.15
+2025-09-02|08:23:17|car maintenance|O'Reilly Auto Parts|-164.37
+2025-09-05|08:20:23|gym membership|Planet Fitness|-29.56
+2025-09-06|20:00:30|Contract milestone payment|Stripe Payouts|1774.34
+2025-09-07|18:54:25|Freelance project deposit|Carter & Co|957.88
+2025-09-10|20:51:33|internet bill|Spectrum|-101.60
+2025-09-13|13:57:54|lunch|Jersey Mike's|-20.09
+2025-09-15|19:27:05|general purchase|Target|-60.41
+2025-09-20|16:23:21|Contract milestone payment|PayPal|1696.48
+2025-09-21|19:30:56|electronics components|SparkFun|-54.60
+2025-09-30|06:47:32|healthcare copay|Atrium Health|-82.12
+2025-09-30|17:53:17|cloud server hosting|Hetzner|-18.03
+2025-10-03|22:11:51|tools/hardware|Harbor Freight|-150.66
+2025-10-05|06:46:59|domain renewal|Namecheap|-14.37
+2025-10-07|23:05:59|dinner delivery|Uber Eats|-39.81
+2025-10-08|22:16:27|phone bill|Verizon|-42.31
+2025-10-09|20:50:07|Invoice 1073 paid|Joe|609.40
+2025-10-09|21:03:02|parking|City of Charlotte Parking|-19.97
+2025-10-12|09:43:10|tools/hardware|Ace Hardware|-211.06
+2025-10-12|15:07:58|Contract milestone payment|Wise|2774.78
+2025-10-18|18:47:05|coffee|Not Just Coffee|-6.18
+2025-10-20|20:53:05|internet bill|Spectrum|-91.46
+2025-10-22|06:43:47|internet bill|Spectrum|-59.98
+2025-10-24|13:26:44|Reimbursement|Northline Consulting|71.08
+2025-10-24|18:24:47|3D printing filament|Amazon|-50.83
+2025-10-26|08:24:44|entertainment|PlayStation Store|-71.66
+2025-10-31|10:39:33|healthcare copay|CVS Pharmacy|-40.39
+2025-11-01|14:48:29|3D printing filament|Amazon|-42.31
+2025-11-02|16:26:11|Contract milestone payment|PayPal|2915.83
+2025-11-03|13:48:12|groceries|Aldi|-75.21
+2025-11-03|13:54:03|streaming subscription|YouTube Premium|-11.73
+2025-11-07|12:52:44|Reimbursement|Northline Consulting|126.42
+2025-11-12|15:27:12|coffee|Dunkin'|-12.58
+2025-11-12|22:29:34|cloud server hosting|DigitalOcean|-41.84
+2025-11-14|19:37:48|streaming subscription|Spotify|-16.77
+2025-11-22|12:56:27|pet supplies|Petco|-19.47
+2025-11-24|09:52:37|Freelance project deposit|Acme Web Services|1674.41
+2025-11-24|12:16:06|Part-time paycheck|Direct Deposit|1056.68
+2025-11-27|10:59:25|healthcare copay|CVS Pharmacy|-66.09
+2025-11-28|13:12:39|Contract milestone payment|Stripe Payouts|1609.50
+2025-11-30|15:19:09|groceries|Trader Joe's|-60.35
+2025-12-04|11:51:32|domain renewal|Cloudflare|-22.77
+2025-12-07|08:30:07|lunch|Panera Bread|-13.16
+2025-12-10|17:01:49|domain renewal|Cloudflare|-10.08
+2025-12-10|19:57:47|Freelance project deposit|Northline Consulting|320.71
+2025-12-11|18:34:53|Freelance project deposit|Carter & Co|801.68
+2025-12-14|17:02:49|pet supplies|Petco|-44.86
+2025-12-22|21:07:45|pet supplies|PetSmart|-63.85
+2025-12-23|22:41:36|phone bill|T-Mobile|-66.74
+2025-12-27|14:01:17|general purchase|Amazon|-132.13
+2025-12-30|10:14:43|Contract milestone payment|Stripe Payouts|1125.91
+2025-12-30|11:48:57|fuel|QuikTrip|-47.08
+2026-01-03|17:24:15|domain renewal|Namecheap|-9.45
+2026-01-03|21:41:39|gym membership|YMCA|-20.67
+2026-01-04|16:46:57|Freelance project deposit|Oakwood Dev Studio|586.84
+2026-01-06|11:19:07|electric bill|Duke Energy|-194.11
+2026-01-06|20:42:28|pet supplies|Chewy|-59.39
+2026-01-08|07:16:15|parking|Parking.com|-5.45
+2026-01-09|18:55:39|Part-time paycheck|Employer Payroll|939.53
+2026-01-12|08:23:00|software subscription|OpenAI|-33.41
+2026-01-13|16:18:07|Reimbursement|Northline Consulting|240.57
+2026-01-13|21:28:39|tools/hardware|Lowe's|-167.91
+2026-01-14|11:49:56|domain renewal|Cloudflare|-18.16
+2026-01-17|19:05:33|motorcycle parts|RevZilla|-376.53
+2026-01-31|11:21:59|monthly rent|Camden Property Mgmt|-1254.32
+2026-02-03|22:22:24|internet bill|AT&T Fiber|-102.12
+2026-02-13|08:23:45|electric bill|Duke Energy|-109.23
+2026-02-16|17:11:37|electric bill|Duke Energy|-197.38
+2026-02-22|07:17:44|3D printing filament|Amazon|-52.85
+2026-02-22|08:13:35|3D printing filament|Amazon|-25.94
+2026-02-23|18:58:52|phone bill|AT&T|-89.57
+2026-02-25|10:48:13|dinner delivery|DoorDash|-64.94
+2026-02-25|22:52:35|dinner delivery|Pizza Hut|-51.02
+2026-02-27|15:46:13|software subscription|GitHub|-25.78
+2026-03-03|16:04:09|software subscription|Linode|-58.36
+2026-03-04|18:56:43|internet bill|AT&T Fiber|-78.82
+2026-03-06|16:40:22|pet supplies|Chewy|-41.50
+2026-03-09|11:32:44|fuel|BP|-74.60
+2026-03-12|08:33:30|entertainment|Steam|-45.37
+2026-03-23|19:03:00|Contract milestone payment|PayPal|873.79
+2026-03-25|13:39:36|fuel|Exxon|-74.39
+2026-03-26|13:13:08|fuel|Shell|-48.73
+2026-03-27|09:51:09|parking|City of Charlotte Parking|-6.65
+2026-03-27|17:12:23|healthcare copay|Novant Health|-17.98
+2026-03-31|14:25:38|Reimbursement|BlueRidge Software|104.11
+2026-03-31|18:43:17|car maintenance|O'Reilly Auto Parts|-105.56
+2026-04-02|14:10:58|lunch|Jersey Mike's|-21.39
+2026-04-07|15:20:16|healthcare copay|Novant Health|-87.42
+2026-04-07|20:33:51|coffee|Coco and the Director|-10.04
+2026-04-08|18:38:50|3D printing filament|Amazon|-36.87
+2026-04-10|07:11:01|electric bill|Duke Energy|-119.61
+2026-04-13|22:28:24|software subscription|JetBrains|-41.67
+2026-04-15|15:05:25|cloud server hosting|AWS|-33.49
+2026-04-17|12:20:35|dinner delivery|Domino's|-70.97
+2026-04-21|14:24:38|motorcycle parts|Cycle Gear|-398.39
+2026-04-23|20:04:24|Contract milestone payment|Stripe Payouts|2128.10
+2026-04-23|23:19:13|general purchase|Amazon|-73.75
+2026-04-28|12:16:39|Invoice 1027 paid|Oakwood Dev Studio|650.46
+2026-05-02|17:32:29|haircut|Sport Clips|-21.60
+2026-05-07|11:31:38|haircut|Local Barber|-25.61
+2026-05-10|15:42:27|entertainment|PlayStation Store|-31.42
+2026-05-11|15:11:54|healthcare copay|Atrium Health|-89.19
+2026-05-13|08:47:23|pet supplies|Petco|-31.42
+2026-05-16|23:09:43|dinner delivery|Uber Eats|-55.28
+2026-05-21|06:36:47|domain renewal|Google Domains|-28.82
+2026-05-21|12:20:20|electric bill|Duke Energy|-182.73
+2026-05-21|14:06:23|groceries|Trader Joe's|-159.36
+2026-05-27|10:34:03|3D printing filament|Amazon|-54.58
+2026-05-27|11:35:13|parking|City of Charlotte Parking|-5.01
+2026-05-31|17:32:15|software subscription|JetBrains|-51.09
+2026-05-31|17:56:10|Freelance project deposit|Carter & Co|941.93
+2026-06-03|19:27:06|cloud server hosting|Hetzner|-45.34
+2026-06-05|18:05:33|Invoice 1080 paid|Acme Web Services|1070.27
+2026-06-12|16:44:01|Freelance project deposit|Northline Consulting|389.41
+2026-06-14|22:11:47|Invoice 1080 paid|Meridian IT Group|2228.08
+2026-06-20|20:05:40|car maintenance|Advance Auto Parts|-272.42
+2026-07-02|22:56:25|pet supplies|Petco|-35.46
+2026-07-05|18:29:44|gym membership|YMCA|-31.95
+2026-07-07|16:57:04|coffee|Not Just Coffee|-14.06
+2026-07-11|15:08:10|haircut|Great Clips|-34.80
+2026-07-16|07:40:45|electric bill|Duke Energy|-177.28
+2026-07-18|15:32:12|monthly rent|Camden Property Mgmt|-1214.85
+2026-07-24|12:50:14|Freelance project deposit|Oakwood Dev Studio|777.76
+2026-07-24|14:00:02|general purchase|Walmart|-160.33
+2026-07-30|19:37:08|monthly rent|Camden Property Mgmt|-1269.15
+2026-08-02|10:08:23|internet bill|AT&T Fiber|-90.85
+2026-08-06|12:51:01|healthcare copay|CVS Pharmacy|-41.77
+2026-08-08|10:49:55|Freelance project deposit|Northline Consulting|453.28
+2026-08-10|09:59:58|gym membership|YMCA|-15.59
+2026-08-11|15:00:54|general purchase|Best Buy|-144.73
+2026-08-14|23:58:20|tools/hardware|Lowe's|-63.77
+2026-08-17|16:59:49|fuel|Shell|-43.14
+2026-08-19|15:42:04|software subscription|OpenAI|-33.96
+2026-08-20|12:01:36|tools/hardware|Home Depot|-205.07
+2026-08-22|23:54:04|tools/hardware|Harbor Freight|-109.21
+2026-08-24|15:40:36|lunch|Bojangles|-27.51
+2026-08-25|08:33:26|domain renewal|Namecheap|-9.84
+2026-08-26|17:56:59|tools/hardware|Home Depot|-62.38
+2026-08-27|14:38:14|groceries|Harris Teeter|-188.52
+2026-08-29|13:11:21|Freelance project deposit|Oakwood Dev Studio|550.69
+2026-09-03|12:03:39|electronics components|DigiKey|-22.83
+2026-09-05|20:24:36|internet bill|AT&T Fiber|-99.52
+2026-09-06|15:43:45|lunch|Chipotle|-14.76
+2026-09-08|13:19:54|haircut|Sport Clips|-29.98
+2026-09-15|14:46:19|tools/hardware|Lowe's|-57.41
+2026-09-16|22:14:06|streaming subscription|Spotify|-18.10
+2026-09-17|18:12:44|lunch|Chipotle|-25.45
+2026-09-20|14:38:18|phone bill|T-Mobile|-87.56
+2026-09-23|08:49:25|Part-time paycheck|Employer Payroll|477.27
+2026-09-23|16:48:31|phone bill|Verizon|-94.81
+2026-10-04|10:50:53|Contract milestone payment|Wise|3003.88
+2026-10-04|16:50:11|Freelance project deposit|Carter & Co|309.97
+2026-10-05|18:41:39|car maintenance|AutoZone|-321.10
+2026-10-05|22:10:44|fuel|BP|-25.10
+2026-10-07|17:34:25|bank fee|Wells Fargo|-3.01
+2026-10-08|21:55:19|software subscription|OpenAI|-12.96
+2026-10-15|18:51:25|healthcare copay|Novant Health|-13.79
+2026-10-21|18:37:47|dinner delivery|Pizza Hut|-35.07
+2026-10-22|20:10:24|internet bill|AT&T Fiber|-93.82
+2026-10-25|19:20:21|healthcare copay|Atrium Health|-53.89
+2026-10-28|22:37:28|fuel|Circle K|-20.28
+2026-10-31|23:32:30|healthcare copay|CVS Pharmacy|-107.39
+2026-11-04|07:36:36|Contract milestone payment|Wise|1648.18

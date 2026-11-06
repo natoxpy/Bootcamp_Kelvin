@@ -82,6 +82,10 @@ public class ButtonComponent extends Component implements Focusable, IdAware, Cl
                 new Centered(new TextComponent(text).setColor(this.fgColor).setBackground(bg)));
     }
 
+	public void triggerRerender() {
+		this.redraw();
+	}
+
     @Override
     public void onIdAssigned(Context ctx, int id) {
         this.ctx = ctx;
@@ -90,6 +94,8 @@ public class ButtonComponent extends Component implements Focusable, IdAware, Cl
 
     @Override
     public void click(int x, int y) {
+		if (this.ctx == null) return;
+
         Rect r = this.ctx.drawtime.getRect(this.id);
         if (r == null)
             return;

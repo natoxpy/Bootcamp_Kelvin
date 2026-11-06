@@ -1,6 +1,12 @@
 package net.example.demo.view;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Comparator;
+import java.util.function.Consumer;
 import net.example.demo.component.InputDatetimeComponent;
+import net.example.demo.component.InputDatetimeComponent.PartialDateTime;
 import net.example.demo.component.TransactionTable;
 import net.example.demo.data.Database;
 import net.gui.commands.BoxStyle;
@@ -18,6 +24,8 @@ import net.rosu.component.TextComponent;
 public class TransactionsFilterSection extends Component {
     private Database db;
     private TransactionTable tt;
+    private PartialDateTime ptFrom = new PartialDateTime(null, null, null, null, null);
+    private PartialDateTime ptTo = new PartialDateTime(null, null, null, null, null);
 
     public TransactionsFilterSection(Database db, TransactionTable tt) {
         this.db = db;
@@ -32,19 +40,17 @@ public class TransactionsFilterSection extends Component {
         vendorAndAmountFilter.addChild(new FlexItem(this.filterByVendor(), 0));
         vendorAndAmountFilter.addChild(new FlexItem(this.filterByAmount(), 0));
 
-        flex.addChild(new FlexItem(this.filterByDate(), 1));
-        flex.addChild(new FlexItem(vendorAndAmountFilter, 1));
+        flex.addChild(new FlexItem(this.filterByDate(), 2));
+        flex.addChild(new FlexItem(vendorAndAmountFilter, 3));
 
-		this.performFiltrationOperation();
+        this.performFiltrationOperation();
 
         return flex;
     }
 
-    private Renderable inputDatatimeField(String txt) {
+    private Renderable inputDatatimeField(String txt, Consumer<PartialDateTime> event) {
         var flex = new FlexComponent();
-        var input = new InputDatetimeComponent().onPartialDt((p) -> {
-
-        });
+        var input = new InputDatetimeComponent().onPartialDt(event);
 
         flex.addChild(
             new FlexItem(new TextComponent(txt + " "), JustifySelf.End, AlignSelf.Start, 1));
@@ -66,9 +72,17 @@ public class TransactionsFilterSection extends Component {
 
     private Renderable filterByDate() {
         var flex = new FlexComponent().setDirection(Direction.Column);
+        var fromInput = this.inputDatatimeField("From", (pt) -> {
+            this.ptFrom = pt;
+            this.performFiltrationOperation();
+        });
+        var toInput = this.inputDatatimeField("To", (pt) -> {
+            this.ptTo = pt;
+            this.performFiltrationOperation();
+        });
 
-        flex.addChild(new FlexItem(this.inputDatatimeField("From"), 1));
-        flex.addChild(new FlexItem(this.inputDatatimeField("To"), 1));
+        flex.addChild(new FlexItem(fromInput, 1));
+        flex.addChild(new FlexItem(toInput, 1));
 
         return new BoxComponent(flex).setStyle(new BoxStyle(null));
     }
@@ -91,7 +105,26 @@ public class TransactionsFilterSection extends Component {
         return new BoxComponent(flex).setStyle(new BoxStyle(null));
     }
 
+    private boolean inRange(
+        LocalDate date, LocalTime time, PartialDateTime from, PartialDateTime to) {
+        if (ptFrom.hasDatePart() && date.isBefore(from.toEarliestDate()))
+            return false;
+        if (ptTo.hasDatePart() && date.isAfter(to.toLatestDate()))
+            return false;
+        if (ptFrom.hasTimePart() && time.isBefore(from.toEarliestTime()))
+            return false;
+        if (ptTo.hasTimePart() && time.isAfter(to.toLatestTime()))
+            return false;
+        return true;
+    }
+
     private void performFiltrationOperation() {
-		this.tt.triggerRerender(this.db.getData());
+        var filtered = this.db.getData()
+                           .stream()
+                           .filter(t -> inRange(t.date(), t.time(), ptFrom, ptTo))
+                           .sorted(Comparator.comparing(t -> LocalDateTime.of(t.date(), t.time())))
+                           .toList();
+
+        this.tt.triggerRerender(filtered);
     }
 }

@@ -1,7 +1,9 @@
 package net.example.demo.component;
 
 import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.Year;
 import java.time.YearMonth;
 import java.util.List;
@@ -43,22 +45,46 @@ public class InputDatetimeComponent
 
     public static record PartialDateTime(
         Integer year, Integer month, Integer day, Integer hour, Integer minute) {
-        public LocalDateTime toEarliestBound() {
-            int y = year != null ? year : Year.MIN_VALUE;
-            int mo = month != null ? month : 1;
-            int d = day != null ? day : 1;
-            int h = hour != null ? hour : 0;
-            int mi = minute != null ? minute : 0;
-            return LocalDateTime.of(y, mo, d, h, mi);
+        public boolean hasDatePart() {
+            return year != null || month != null || day != null;
         }
 
-        public LocalDateTime toLatestBound() {
-            int y = year != null ? year : Year.MAX_VALUE;
+        public boolean hasTimePart() {
+            return hour != null || minute != null;
+        }
+
+        public LocalDate toEarliestDate() {
+            int y = year != null ? year : LocalDate.MIN.getYear();
+            int mo = month != null ? month : 1;
+            int d = day != null ? day : 1;
+            return LocalDate.of(y, mo, d);
+        }
+
+        public LocalDate toLatestDate() {
+            int y = year != null ? year : LocalDate.MAX.getYear();
             int mo = month != null ? month : 12;
             int d = day != null ? day : YearMonth.of(y, mo).lengthOfMonth();
+            return LocalDate.of(y, mo, d);
+        }
+
+        public LocalTime toEarliestTime() {
+            int h = hour != null ? hour : 0;
+            int mi = minute != null ? minute : 0;
+            return LocalTime.of(h, mi);
+        }
+
+        public LocalTime toLatestTime() {
             int h = hour != null ? hour : 23;
             int mi = minute != null ? minute : 59;
-            return LocalDateTime.of(y, mo, d, h, mi);
+            return LocalTime.of(h, mi);
+        }
+
+        public boolean matches(LocalDate date, LocalTime time) {
+            if (hasDatePart() && (date.isBefore(toEarliestDate()) || date.isAfter(toLatestDate())))
+                return false;
+            if (hasTimePart() && (time.isBefore(toEarliestTime()) || time.isAfter(toLatestTime())))
+                return false;
+            return true;
         }
     }
 
@@ -318,28 +344,28 @@ public class InputDatetimeComponent
             return Optional.empty();
 
         try {
-            int month = Integer.parseInt(segments.get(0).buffer);
-            int day = Integer.parseInt(segments.get(1).buffer);
-            int year = Integer.parseInt(segments.get(2).buffer);
+            int year = Integer.parseInt(segments.get(0).buffer);
+            int month = Integer.parseInt(segments.get(1).buffer);
+            int day = Integer.parseInt(segments.get(2).buffer);
             int hour = Integer.parseInt(segments.get(3).buffer);
             int minute = Integer.parseInt(segments.get(4).buffer);
             return Optional.of(LocalDateTime.of(year, month, day, hour, minute));
         } catch (DateTimeException | NumberFormatException e) {
-            return Optional.empty(); // shape was right, calendar value wasn't (e.g. Feb 30)
+            return Optional.empty();
         }
     }
 
     public PartialDateTime getPartialDt() {
-        return new PartialDateTime(parseSegment(segments.get(2)), // year
-            parseSegment(segments.get(0)), // month
-            parseSegment(segments.get(1)), // day
+        return new PartialDateTime(parseSegment(segments.get(0)), // year
+            parseSegment(segments.get(1)), // month
+            parseSegment(segments.get(2)), // day
             parseSegment(segments.get(3)), // hour
             parseSegment(segments.get(4)) // minute
         );
     }
 
     private Integer parseSegment(Segment seg) {
-        if (seg.buffer.isEmpty())
+        if (seg.buffer.isEmpty() || !seg.isFull())
             return null;
         try {
             return Integer.parseInt(seg.buffer);

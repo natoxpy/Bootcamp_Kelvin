@@ -22,7 +22,6 @@ public class TransactionsView extends Component {
         var flex = new FlexComponent().setDirection(Direction.Column);
 		var tf = new TransactionsFilterSection(this.db, this.tt);
 
-
         flex.addChild(new FlexItem(tf, 1));
         flex.addChild(new FlexItem(tt, 8));
 

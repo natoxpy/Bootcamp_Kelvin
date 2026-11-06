@@ -25,11 +25,11 @@ public class TransactionTable extends Component {
     private int showingPage = 0;
     private final int showingPerPage = 20;
 
-    private final Renderable buttonLeftPagination =
+    private final ButtonComponent buttonLeftPagination =
         new ButtonComponent("<", () -> this.setShowingIndex(this.showingPage - 1))
             .setClickedBg(Color.Blue);
 
-    private final Renderable buttonRightPagination =
+    private final ButtonComponent buttonRightPagination =
         new ButtonComponent(">", () -> this.setShowingIndex(this.showingPage + 1))
             .setClickedBg(Color.Blue);
 
@@ -46,18 +46,20 @@ public class TransactionTable extends Component {
     }
 
     public void triggerRerender(List<Transaction> transactions) {
+		this.showingPage = 0;
         this.transactions = transactions.stream()
                                 .sorted(Comparator.comparing(Transaction::date)
                                         .thenComparing(Transaction::time)
                                         .reversed())
                                 .toList();
+
         this.redraw();
     }
 
     private Renderable transactionItem(Transaction t) {
         var flex = new FlexComponent().setGap(1);
 
-        String datetime = t.date().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) + " - "
+        String datetime = t.date().format(DateTimeFormatter.ofPattern("yyyy/MM/dd")) + " - "
             + t.time().format(DateTimeFormatter.ofPattern("HH:mm"));
 
         String amount = t.amount().signum() >= 0 ? " $" + t.amount() : "-$" + t.amount().abs();
