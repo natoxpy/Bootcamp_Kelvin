@@ -15,7 +15,7 @@ Rosu is organized into several Gradle modules:
 | `renderer/` | UI rendering implementation. |
 | `demo/` | Example projects built using Rosu. |
 
-## Demos
+## Demo has the Capstone 1 Work
 
 The `demo/` directory contains the actual projects built with Rosu.
 
