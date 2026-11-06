@@ -91,21 +91,23 @@ public class TransactionTable extends Component {
 
         flex.addChild(new FlexItem(this.tableTitle(), 2));
 
-        for (int i = 0; i < this.showingPerPage; i++) {
-            var ri = i + showingPerPage * showingPage; // relative i
+        if (transactions.size() > 0)
+            for (int i = 0; i < this.showingPerPage; i++) {
+                var ri = i + showingPerPage * showingPage; // relative i
 
-            if (ri >= transactions.size()) {
-                // Due to system constraints empty boxes must be added to preserve proper growth
-                // from actual content boxes
-                flex.addChild(new FlexItem(new BoxComponent(), 1));
-                continue;
+                if (ri >= transactions.size()) {
+                    // Due to system constraints empty boxes must be added to preserve proper growth
+                    // from actual content boxes
+                    flex.addChild(new FlexItem(new BoxComponent(), 1));
+                    continue;
+                }
+
+                var t = transactions.get(ri);
+
+                flex.addChild(new FlexItem(
+                    new BoxComponent(this.transactionItem(t)).setOverflow(Overflow.Hidden), 1));
             }
-
-            var t = transactions.get(ri);
-
-            flex.addChild(new FlexItem(
-                new BoxComponent(this.transactionItem(t)).setOverflow(Overflow.Hidden), 1));
-        }
+		else flex.addChild(new FlexItem(new Centered(new TextComponent("No Transactions")), 40));
 
         return flex;
     }

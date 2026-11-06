@@ -20,7 +20,7 @@ public class BodyView extends Component {
                       .onClickTransaction(() -> this.setTransactionsView())
                       .onClickModifyRecord(() -> this.setRecordModificationView());
 
-		this.setTransactionsView();
+		this.setOverviewView();
     }
 
     @Override
