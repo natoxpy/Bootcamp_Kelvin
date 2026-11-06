@@ -45,7 +45,7 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
     }
 
     public InputComponent setRegex(String regex) {
-		this.regex = regex;
+        this.regex = regex;
         return this;
     }
 
@@ -55,7 +55,7 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
     }
 
     public InputComponent setPlaceholder(String placeholder) {
-		this.placeholder = placeholder;
+        this.placeholder = placeholder;
         return this;
     }
 
@@ -87,15 +87,10 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
 
         if (key == '\b' || key == 127) {
             backspace();
-            if (this.onInput != null)
-                this.onInput.accept(this.buffer);
         }
 
         if (Pattern.matches(this.regex, String.valueOf(key))) {
             insertChar(key);
-
-            if (this.onInput != null)
-                this.onInput.accept(this.buffer);
         }
     }
 
@@ -124,6 +119,9 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
 
         this.buffer = nbuffer;
 
+        if (this.onInput != null)
+            this.onInput.accept(this.buffer);
+
         cursor++;
         redraw();
     }
@@ -131,7 +129,12 @@ public class InputComponent extends Component implements Focusable, Tickable, Id
     private void backspace() {
         if (cursor == 0)
             return;
+
         buffer = buffer.substring(0, cursor - 1) + buffer.substring(cursor);
+
+        if (this.onInput != null)
+            this.onInput.accept(this.buffer);
+
         cursor--;
         redraw();
     }

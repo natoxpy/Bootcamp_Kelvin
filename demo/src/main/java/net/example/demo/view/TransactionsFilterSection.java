@@ -165,11 +165,13 @@ public class TransactionsFilterSection extends Component {
             } else {
                 try {
                     this.minMoney = new BigDecimal(i);
-                    performFiltrationOperation();
                 } catch (NumberFormatException e) {
                     this.minMoney = null;
+					return;
                 }
             }
+
+            performFiltrationOperation();
         });
 
         flex.addChild(new FlexItem(vendorInput, 3));
@@ -190,11 +192,13 @@ public class TransactionsFilterSection extends Component {
             } else {
                 try {
                     this.maxMoney = new BigDecimal(i);
-                    performFiltrationOperation();
                 } catch (NumberFormatException e) {
                     this.maxMoney = null;
+                    return;
                 }
             }
+
+            performFiltrationOperation();
         });
 
         flex.addChild(new FlexItem(descriptionInput, 3));
