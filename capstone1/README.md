@@ -13,7 +13,7 @@ Rosu is organized into several Gradle modules:
 | `core/` | Core library functionality. |
 | `generic-user-interface/` | Generic UI abstractions and interface definitions. |
 | `renderer/` | UI rendering implementation. |
-| `demo/` | Example projects built using Rosu. |
+| `demo/` | The Capstone |
 
 ## Demo has the Capstone 1 Work
 
