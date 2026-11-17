@@ -1,6 +1,7 @@
 package net.tarou.dealership;
 
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,9 +13,9 @@ import java.util.Scanner;
  * to the matching {@code process…Request()} method, which in turn asks {@link Dealership} to
  * search, add or remove.
  *
- * Phase 3 state: {@link #display()}, {@link #init()}, {@link #displayMenu()},
- * {@link #displayVehicles(List)} and {@link #processGetAllVehiclesRequest()} are real. The other
- * handlers exist but only say they are unfinished — Phase 5 gives them their logic.
+ * Every option that changes the inventory finishes by calling
+ * {@link DealershipFileManager#saveDealership(Dealership)}, so the file on disk always matches
+ * what is on the lot.
  */
 public class UserInterface {
     private static final int PRICE_RANGE = 1;
@@ -102,13 +103,13 @@ public class UserInterface {
      * handled instead of throwing.
      */
     private int readCommand() {
-        if (!keyboard.hasNextLine()) {
+        String entry = readLine();
+
+        if (entry == null) {
             System.out.println();
             System.out.println("No more input, ending the session.");
             return QUIT;
         }
-
-        String entry = keyboard.nextLine().trim();
 
         try {
             return Integer.parseInt(entry);
@@ -192,79 +193,339 @@ public class UserInterface {
         System.out.println(vehicles.size() + " vehicle(s).");
     }
 
-    /**
-     * Lists the whole lot. Implemented now, in Phase 3, because it is the quickest proof that the
-     * inventory file really loaded.
-     */
+    /** Lists the whole lot. */
     private void processGetAllVehiclesRequest() {
         displayVehicles(dealership.getAllVehicles());
     }
 
     /**
-     * TODO Phase 5: ask for a minimum and maximum price, then list
-     * {@code dealership.getVehiclesInPriceRange(min, max)}.
+     * Lists vehicles priced strictly between two amounts, e.g. {@code 2000} and {@code 15000}
+     * leaves out anything priced exactly 2000 or exactly 15000.
      */
     private void processGetVehiclesInPriceRangeRequest() {
-        notImplementedYet("search by price range");
+        BigDecimal lowest = readPrice("Lowest price to include (for example 2000): ");
+        if (lowest == null) {
+            return;
+        }
+
+        BigDecimal highest = readPrice("Highest price to include (for example 15000): ");
+        if (highest == null) {
+            return;
+        }
+
+        if (lowest.compareTo(highest) >= 0) {
+            System.out.println(
+                    "Swapping them: looking for prices between " + lowest + " and " + highest + " is empty.");
+            BigDecimal swap = lowest;
+            lowest = highest;
+            highest = swap;
+        }
+
+        System.out.println();
+        System.out.println("Vehicles priced between " + lowest + " and " + highest + ":");
+        displayVehicles(dealership.getVehiclesInPriceRange(lowest, highest));
     }
 
-    /**
-     * TODO Phase 5: ask for a make and a model, then list
-     * {@code dealership.getVehiclesByMakeModel(make, model)}.
-     */
+    /** Lists vehicles matching both a make and a model, such as {@code Ford} and {@code Ranger}. */
     private void processGetVehiclesByMakeModelRequest() {
-        notImplementedYet("search by make and model");
+        String make = readLine("Make (for example Ford): ");
+        if (make == null) {
+            return;
+        }
+
+        String model = readLine("Model (for example Ranger): ");
+        if (model == null) {
+            return;
+        }
+
+        if (make.isEmpty() || model.isEmpty()) {
+            System.out.println("Make and model are both needed. Search cancelled.");
+            return;
+        }
+
+        System.out.println();
+        System.out.println("Vehicles matching " + make + " " + model + ":");
+        displayVehicles(dealership.getVehiclesByMakeModel(make, model));
     }
 
-    /**
-     * TODO Phase 5: ask for a first and last model year, then list
-     * {@code dealership.getVehiclesByYear(min, max)}.
-     */
+    /** Lists vehicles whose model year falls strictly between two years. */
     private void processGetVehiclesByYearRequest() {
-        notImplementedYet("search by year range");
+        Integer oldest = readInteger("First model year to search from (for example 2000): ");
+        if (oldest == null) {
+            return;
+        }
+
+        Integer newest = readInteger("Last model year to search to (for example 2015): ");
+        if (newest == null) {
+            return;
+        }
+
+        int lowestYear = oldest;
+        int highestYear = newest;
+
+        if (lowestYear >= highestYear) {
+            int swap = lowestYear;
+            lowestYear = highestYear;
+            highestYear = swap;
+            System.out.println("Using " + lowestYear + " to " + highestYear + ".");
+        }
+
+        System.out.println();
+        System.out.println("Vehicles modelled between " + lowestYear + " and " + highestYear + ":");
+        displayVehicles(dealership.getVehiclesByYear(lowestYear, highestYear));
     }
 
-    /**
-     * TODO Phase 5: ask for a color, then list {@code dealership.getVehiclesByColor(color)}.
-     */
+    /** Lists vehicles of one color, such as {@code Red}. */
     private void processGetVehiclesByColorRequest() {
-        notImplementedYet("search by color");
+        String color = readLine("Color (for example Red): ");
+        if (color == null) {
+            return;
+        }
+
+        if (color.isEmpty()) {
+            System.out.println("A color is needed. Search cancelled.");
+            return;
+        }
+
+        System.out.println();
+        System.out.println("Vehicles colored " + color + ":");
+        displayVehicles(dealership.getVehiclesByColor(color));
     }
 
-    /**
-     * TODO Phase 5: ask for a minimum and maximum odometer reading, then list
-     * {@code dealership.getVehiclesInMileageRange(min, max)}.
-     */
+    /** Lists vehicles whose odometer reading falls strictly between two mileages. */
     private void processGetVehiclesInMileageRangeRequest() {
-        notImplementedYet("search by mileage range");
+        Integer fewestMiles = readInteger("Lowest mileage to search from (for example 10000): ");
+        if (fewestMiles == null) {
+            return;
+        }
+
+        Integer mostMiles = readInteger("Highest mileage to search to (for example 150000): ");
+        if (mostMiles == null) {
+            return;
+        }
+
+        int lowestMileage = fewestMiles;
+        int highestMileage = mostMiles;
+
+        if (lowestMileage >= highestMileage) {
+            int swap = lowestMileage;
+            lowestMileage = highestMileage;
+            highestMileage = swap;
+            System.out.println("Using " + lowestMileage + " to " + highestMileage + " miles.");
+        }
+
+        System.out.println();
+        System.out.println("Vehicles between " + lowestMileage + " and " + highestMileage + " miles:");
+        displayVehicles(dealership.getVehiclesInMileageRange(lowestMileage, highestMileage));
     }
 
-    /**
-     * TODO Phase 5: ask for a type, convert it with {@link VehicleType#fromString(String)}, then
-     * list {@code dealership.getVehiclesByType(type)}.
-     */
+    /** Lists vehicles of one {@link VehicleType}. Accepts {@code car}, {@code truck}, {@code SUV}, {@code van}. */
     private void processGetVehiclesByTypeRequest() {
-        notImplementedYet("search by type");
+        VehicleType type = readVehicleType("Vehicle type (car, truck, SUV or van): ");
+        if (type == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.println("Vehicles of type " + type.name() + ":");
+        displayVehicles(dealership.getVehiclesByType(type));
     }
 
     /**
-     * TODO Phase 5: ask for each field, build a {@link Vehicle}, add it, then call
-     * {@code fileManager.saveDealership(dealership)}.
+     * Asks for every field of a new vehicle, puts it on the lot and saves the inventory file.
+     * A blank VIN, a VIN already on the lot, or a cancelled prompt all leave the inventory
+     * untouched.
      */
     private void processAddVehicleRequest() {
-        notImplementedYet("adding a vehicle");
+        System.out.println();
+        System.out.println("Add a vehicle. Leave the VIN empty to cancel.");
+
+        String vin = readLine("VIN: ");
+        if (vin == null || vin.isEmpty()) {
+            System.out.println("A VIN is needed. Vehicle not added.");
+            return;
+        }
+
+        if (dealership.findVehicleByVin(vin) != null) {
+            System.out.println("A vehicle with VIN " + vin + " is already on the lot. Vehicle not added.");
+            return;
+        }
+
+        Integer year = readInteger("Model year (for example 2015): ");
+        if (year == null) {
+            System.out.println("Vehicle not added.");
+            return;
+        }
+
+        String make = readLine("Make (for example Ford): ");
+        String model = readLine("Model (for example Ranger): ");
+        if (make == null || model == null || make.isEmpty() || model.isEmpty()) {
+            System.out.println("Make and model are both needed. Vehicle not added.");
+            return;
+        }
+
+        VehicleType type = readVehicleType("Type (car, truck, SUV or van): ");
+        if (type == null) {
+            System.out.println("Vehicle not added.");
+            return;
+        }
+
+        String color = readLine("Color (for example Red): ");
+        if (color == null || color.isEmpty()) {
+            System.out.println("A color is needed. Vehicle not added.");
+            return;
+        }
+
+        Integer odometer = readInteger("Odometer reading in miles (for example 87500): ");
+        if (odometer == null) {
+            System.out.println("Vehicle not added.");
+            return;
+        }
+
+        BigDecimal price = readPrice("Price (for example 12345.99): ");
+        if (price == null) {
+            System.out.println("Vehicle not added.");
+            return;
+        }
+
+        Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
+        dealership.addVehicle(vehicle);
+
+        System.out.println();
+        System.out.println("Added: " + vehicle);
+        saveInventory();
     }
 
     /**
-     * TODO Phase 5: ask for a VIN, find that vehicle in the inventory, remove it, then call
-     * {@code fileManager.saveDealership(dealership)}.
+     * Takes a vehicle off the lot using its VIN: find it, show it, ask for confirmation, remove
+     * it, then save the inventory file.
      */
     private void processRemoveVehicleRequest() {
-        notImplementedYet("removing a vehicle");
+        System.out.println();
+        displayVehicles(dealership.getAllVehicles());
+
+        String vin = readLine("VIN of the vehicle to remove (empty to cancel): ");
+        if (vin == null || vin.isEmpty()) {
+            System.out.println("Nothing removed.");
+            return;
+        }
+
+        Vehicle found = dealership.findVehicleByVin(vin);
+        if (found == null) {
+            System.out.println("No vehicle on the lot has VIN " + vin + ". Nothing removed.");
+            return;
+        }
+
+        System.out.println("About to remove: " + found);
+
+        String confirmation = readLine("Remove it? (y to confirm, anything else keeps it): ");
+        if (confirmation == null || !confirmation.equalsIgnoreCase("y")) {
+            System.out.println("Kept " + found.getVin() + ". Nothing removed.");
+            return;
+        }
+
+        dealership.removeVehicle(found);
+
+        System.out.println("Removed " + found.getVin() + ".");
+        saveInventory();
     }
 
-    /** Keeps the menu honest while a handler is still a stub. */
-    private void notImplementedYet(String what) {
-        System.out.println(what + " is not wired up yet - it lands in Phase 5.");
+    /** Writes the current inventory back to disk, reporting a failure instead of throwing. */
+    private void saveInventory() {
+        try {
+            fileManager.saveDealership(dealership);
+            System.out.println("Saved " + dealership.getAllVehicles().size()
+                    + " vehicle(s) to " + fileManager.getInventoryFile().toAbsolutePath());
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not save to "
+                    + fileManager.getInventoryFile().toAbsolutePath() + ": " + e.getMessage());
+            System.out.println("The change is in memory only, so it is lost when you quit.");
+        }
+    }
+
+    /**
+     * Reads one line of text, trimmed.
+     *
+     * @return the text, or {@code null} when the input stream has closed
+     */
+    private String readLine() {
+        return keyboard.hasNextLine() ? keyboard.nextLine().trim() : null;
+    }
+
+    /** Reads one line of text with a prompt. */
+    private String readLine(String prompt) {
+        System.out.print(prompt);
+
+        String entry = readLine();
+
+        if (entry == null) {
+            System.out.println();
+            System.out.println("No more input.");
+        }
+
+        return entry;
+    }
+
+    /**
+     * Reads a whole number.
+     *
+     * @return the number, or {@code null} when the entry was not a number or input ran out
+     */
+    private Integer readInteger(String prompt) {
+        String entry = readLine(prompt);
+
+        if (entry == null) {
+            return null;
+        }
+
+        try {
+            return Integer.valueOf(entry);
+        } catch (NumberFormatException e) {
+            System.out.println("\"" + entry + "\" is not a whole number.");
+            return null;
+        }
+    }
+
+    /**
+     * Reads a price.
+     *
+     * @return the price, or {@code null} when the entry was not a number or input ran out
+     */
+    private BigDecimal readPrice(String prompt) {
+        String entry = readLine(prompt);
+
+        if (entry == null) {
+            return null;
+        }
+
+        try {
+            return new BigDecimal(entry);
+        } catch (NumberFormatException e) {
+            System.out.println("\"" + entry + "\" is not a price.");
+            return null;
+        }
+    }
+
+    /**
+     * Reads a vehicle type, asking again until the answer is one of the four the dealership uses.
+     *
+     * @return the type, or {@code null} when the user cancels or input runs out
+     */
+    private VehicleType readVehicleType(String prompt) {
+        while (true) {
+            String entry = readLine(prompt);
+
+            if (entry == null || entry.isEmpty()) {
+                return null;
+            }
+
+            VehicleType type = VehicleType.fromString(entry);
+
+            if (type != null) {
+                return type;
+            }
+
+            System.out.println("\"" + entry + "\" is not a type this dealership uses.");
+        }
     }
 }

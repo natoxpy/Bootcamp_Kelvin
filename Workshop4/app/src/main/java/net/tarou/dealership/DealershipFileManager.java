@@ -1,13 +1,14 @@
 package net.tarou.dealership;
 
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.Scanner;
 
 /**
  * The persistence layer: turns the pipe-delimited inventory file into a loaded {@link Dealership}
- * object, and (from Phase 5 onwards) writes a {@link Dealership} back out again.
+ * object, and writes a {@link Dealership} back over that file after every add or remove.
  *
  * File layout, exactly as the workshop specifies:
  *
@@ -82,13 +83,27 @@ public class DealershipFileManager {
 
     /**
      * Overwrites the inventory file with the dealership's current name, address, phone and
-     * inventory list.
+     * inventory list, in the same layout {@link #getDealership()} reads back.
      *
-     * TODO Phase 5: write the header line and one record line per vehicle. Until then the file is
-     * never modified, so add and remove only change what is in memory.
+     * The header line is written first, then one record line per vehicle, in inventory order.
+     * {@link Vehicle#toString()} is the record format, so what is written here is what is read
+     * there. {@code inventory.csv.bak} keeps the starter file this session began from.
+     *
+     * @throws FileNotFoundException when the inventory file cannot be opened for writing
      */
     public void saveDealership(Dealership dealership) throws FileNotFoundException {
-        // Intentionally empty until Phase 5.
+        try (PrintStream writer = new PrintStream(inventoryFile.toFile())) {
+            writer.println(
+                    dealership.getName()
+                            + "|"
+                            + dealership.getAddress()
+                            + "|"
+                            + dealership.getPhone());
+
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+                writer.println(vehicle);
+            }
+        }
     }
 
     /** Fills in the dealership fields from the first line of the file. */

@@ -7,12 +7,11 @@ import java.util.List;
 /**
  * The dealership: its contact details plus the list of vehicles on the lot.
  *
- * The workshop builds this class in stages. Phase 1 gives it an inventory it can grow and list;
- * the searches stay stubbed until Phase 5, and {@link #removeVehicle(Vehicle)} is filled in at
- * the same time.
+ * All searches and mutations are held in memory here; saving to disk is
+ * {@link DealershipFileManager}'s job, and {@link UserInterface} calls it after every change.
  *
- * Range searches are exclusive on both ends, matching the {@code min < value < max} semantics of
- * the filters sketched in the older {@code net.tarou.db.Dealership}.
+ * Range searches are exclusive on both ends: a vehicle must be strictly greater than the minimum
+ * and strictly less than the maximum.
  */
 public class Dealership {
     private String name;
@@ -76,65 +75,136 @@ public class Dealership {
     }
 
     /**
-     * Takes a vehicle off the lot.
+     * Takes a vehicle off the lot. {@link Vehicle#equals(Object)} compares VINs, so a
+     * {@link Vehicle} that only carries the VIN the sales manager typed is enough to find the one
+     * to remove.
      *
-     * TODO Phase 5: remove {@code vehicle} from {@link #inventory}.
+     * @return {@code true} when a vehicle was found and removed
      */
-    public void removeVehicle(Vehicle vehicle) {
-        // Intentionally empty until Phase 5.
+    public boolean removeVehicle(Vehicle vehicle) {
+        return inventory.remove(vehicle);
     }
 
     /**
-     * Vehicles priced strictly between {@code min} and {@code max}.
-     *
-     * TODO Phase 5: implement the search.
+     * Finds the vehicle with this VIN, or {@code null} if the lot has no such vehicle. Lets the
+     * user confirm which vehicle a removal refers to before it is taken off the lot.
+     */
+    public Vehicle findVehicleByVin(String vin) {
+        if (vin == null) {
+            return null;
+        }
+
+        Vehicle probe = new Vehicle();
+        probe.setVin(vin);
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.equals(probe)) {
+                return vehicle;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Vehicles priced strictly between {@code min} and {@code max}. A vehicle priced exactly
+     * {@code min} or exactly {@code max} is not included. {@code compareTo} is used rather than
+     * {@code equals} of the scaled values, so {@code 995.0} and {@code 995.00} compare the same.
      */
     public List<Vehicle> getVehiclesInPriceRange(BigDecimal min, BigDecimal max) {
-        return null;
+        List<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            BigDecimal price = vehicle.getPrice();
+
+            if (price != null && price.compareTo(min) > 0 && price.compareTo(max) < 0) {
+                matches.add(vehicle);
+            }
+        }
+
+        return matches;
     }
 
     /**
-     * Vehicles whose make and model both match, ignoring case.
-     *
-     * TODO Phase 5: implement the search.
+     * Vehicles whose make and model both match, ignoring case and surrounding spaces.
      */
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null;
+        List<Vehicle> matches = new ArrayList<>();
+        String wantedMake = make.trim();
+        String wantedModel = model.trim();
+
+        for (Vehicle vehicle : inventory) {
+            if (wantedMake.equalsIgnoreCase(vehicle.getMake())
+                    && wantedModel.equalsIgnoreCase(vehicle.getModel())) {
+                matches.add(vehicle);
+            }
+        }
+
+        return matches;
     }
 
     /**
      * Vehicles with a model year strictly between {@code min} and {@code max}.
-     *
-     * TODO Phase 5: implement the search.
      */
     public List<Vehicle> getVehiclesByYear(int min, int max) {
-        return null;
+        List<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            int year = vehicle.getYear();
+
+            if (year > min && year < max) {
+                matches.add(vehicle);
+            }
+        }
+
+        return matches;
     }
 
     /**
-     * Vehicles matching {@code color}, ignoring case.
-     *
-     * TODO Phase 5: implement the search.
+     * Vehicles matching {@code color}, ignoring case and surrounding spaces.
      */
     public List<Vehicle> getVehiclesByColor(String color) {
-        return null;
+        List<Vehicle> matches = new ArrayList<>();
+        String wantedColor = color.trim();
+
+        for (Vehicle vehicle : inventory) {
+            if (wantedColor.equalsIgnoreCase(vehicle.getColor())) {
+                matches.add(vehicle);
+            }
+        }
+
+        return matches;
     }
 
     /**
      * Vehicles with an odometer reading strictly between {@code min} and {@code max} miles.
-     *
-     * TODO Phase 5: implement the search.
      */
     public List<Vehicle> getVehiclesInMileageRange(int min, int max) {
-        return null;
+        List<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            int odometer = vehicle.getOdometer();
+
+            if (odometer > min && odometer < max) {
+                matches.add(vehicle);
+            }
+        }
+
+        return matches;
     }
 
     /**
      * Vehicles of one {@link VehicleType}.
-     *
-     * TODO Phase 5: implement the search.
      */
     public List<Vehicle> getVehiclesByType(VehicleType type) {
-        return null;
+        List<Vehicle> matches = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getType() == type) {
+                matches.add(vehicle);
+            }
+        }
+
+        return matches;
     }
 }
