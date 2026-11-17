@@ -1,88 +1,153 @@
-# Workshop4
+# Workshop 4w — Object-Oriented Car Dealership
 
-A desktop application (JavaFX + WebView) that combines a Java 17 backend with a Vue 3 + TypeScript frontend. The Vue app is built with Vite, bundled into the Java build, and displayed inside a JavaFX `WebView`. Data is stored in SQLite via JDBI.
+A Java console application for a used-car sales manager: it loads a dealership and its vehicle
+inventory from a pipe-delimited text file, lets the user search, add and remove vehicles through a
+text menu, and writes the inventory file back out after every change.
 
-## Project Structure
-
-```
-.
-├── app/                  # Java application (Gradle subproject)
-│   ├── data/app.db       # SQLite database (created/used at runtime)
-│   └── src/main/java/net/tarou/
-│       ├── Main.java     # JavaFX entry point, hosts the WebView
-│       ├── api/Api.java  # Object exposed to JavaScript as `window.api`
-│       └── db/           # JDBI DAOs, records, and Database wrapper
-├── frontend/             # Vue 3 + Vite + TypeScript + Tailwind frontend
-├── gradle/               # Version catalog and Gradle wrapper
-├── build.gradle.kts / settings.gradle.kts
-└── gradlew / gradlew.bat
-```
+Built for the *Workshop 4w* brief (`workshop-4w-car-dealership.pdf`), in five phases: domain
+classes, persistence layer, user interface layer, entry point, then the search / add / remove
+logic.
 
 ## Requirements
 
-- **JDK 17** (the Java toolchain is set to 17; Gradle's foojay resolver can download one automatically if missing)
-- **Node.js** `^22.18.0` or `>=24.12.0` (per `frontend/package.json` `engines`)
-- **npm** (ships with Node)
-- **Gradle** is optional; the wrapper (`./gradlew`) downloads Gradle 9.8.2 automatically
-- **Linux:** JavaFX WebView requires GTK/WebKit system libraries (e.g. `libgtk-3-0`, `libwebkit2gtk-4.1-0` on Debian/Ubuntu)
-- **Windows:** no extra system libraries are needed; use `gradlew.bat` instead of `./gradlew`
+- JDK 17 or newer
+- No other install: Gradle comes with the wrapper (`./gradlew`, `gradlew.bat`)
 
-## Getting Started
-
-### 1. Install and build the frontend
-
-From `frontend/`:
+## Run it
 
 ```bash
-cd frontend
-npm install
-npm run build
+./gradlew --console=plain -q :app:run
 ```
 
-### 2. Run the application
+`--console=plain -q` keeps Gradle's progress bar out of the way so the menu is the only thing in
+the terminal.
 
-From the project root:
+Or build a launcher once and run the app without Gradle:
 
 ```bash
-cd ..
-gradle run          # or: ./gradlew :app:run
+./gradlew :app:installDist
+cd app
+./build/install/app/bin/app          # Windows: build\install\app\bin\app.bat
 ```
 
-`gradle run` copies the frontend build output (`frontend/dist`) into the Java build under `web/`, then launches the JavaFX app. On Windows use `gradlew.bat :app:run`.
+Run it from the `app` directory (both commands above already do): the inventory file is opened as
+`data/inventory.csv` relative to the working directory, which resolves to `app/data/inventory.csv`.
 
-### 4. Build a runnable JAR
+First thing the app prints:
+
+```
+Loaded D & B Used Cars (10 vehicle(s)) from /…/app/data/inventory.csv
+```
+
+If the file is missing the app says so and starts with an empty lot instead of crashing.
+
+## Run the tests
 
 ```bash
-./gradlew :app:build
+./gradlew :app:test
 ```
 
-The output is written to `app/build/libs/app.jar`.
+30 tests covering the searches, add/remove, the range boundaries, and reading and writing the
+inventory file. Reports land in `app/build/reports/tests/test/index.html`.
 
-## Other Useful Commands
+## Menu
 
-Run these from `frontend/`:
-
-| Command | Purpose |
+| Choice | What it does |
 | --- | --- |
-| `npm run build` | Type-check and build production assets |
-| `npm run test:unit` | Run Vitest unit tests |
-| `npm run lint` | Run oxlint and ESLint (with auto-fix) |
-| `npm run format` | Format `src/` with Prettier |
+| 1 | Find vehicles within a price range |
+| 2 | Find vehicles by make / model |
+| 3 | Find vehicles by year range |
+| 4 | Find vehicles by color |
+| 5 | Find vehicles by mileage range |
+| 6 | Find vehicles by type (car, truck, SUV, van) |
+| 7 | List ALL vehicles |
+| 8 | Add a vehicle |
+| 9 | Remove a vehicle (by VIN) |
+| 99 | Quit |
 
-From the project root:
+```
+Choose an option: 1
+Lowest price to include (for example 2000): 2000
+Highest price to include (for example 15000): 15000
 
-```bash
-./gradlew test      # JUnit 5 tests
+Vehicles priced between 2000 and 15000:
+
+VIN      YEAR  MAKE         MODEL            TYPE   COLOR      ODOMETER        PRICE
+44901    2012  Honda        Civic            CAR    Gray         103221      6995.00
+55210    2008  Chevrolet    Silverado        TRUCK  Black        142980     11500.00
+71345    2004  Honda        Odyssey          VAN    White        188300      8750.00
+77002    1999  Ford         Taurus           CAR    Green        201450      2400.00
+90456    2011  Ford         F-150            TRUCK  Red          129000     14200.00
+95512    2015  Chrysler     Town & Country   VAN    Gray          97650     12300.00
+
+6 vehicle(s).
 ```
 
-## Work in Progress
+## Inventory file
 
-This project is under active development. The following items are known to be incomplete:
+`app/data/inventory.csv`, pipe-delimited. The first line is the dealership, every line after it is
+one vehicle. `app/data/inventory.csv.bak` is the untouched starter copy, in case a hand edit goes
+wrong.
 
-- **Backend API is a stub.** `Api.java` only stores a `Database` reference and exposes no methods yet.
-- **Frontend calls a missing method.** `frontend/src/views/HomeView.vue` calls `window.api.greet('Tanya')`, but no `greet` method exists in `Api.java`, so this call will fail at runtime.
-- **Database layer is partially implemented.** `Database.java` has its query method commented out, and `DealershipDao.createTable()` is not invoked from `Main.java`. The `Dealership` record only maps `name` (`address` and `phone` are `null`), and the vehicle table definition is commented out.
-- **Frontend is still the Vue starter template.** Components such as `HelloWorld`, `TheWelcome`, and the `AboutView` page have not been replaced with application UI.
-- **Window title is `TSS`** while the Gradle project name is `tanya`; the naming should be aligned.
-- **Duplicate/unused data files.** `app/data/app.db`, `app/src/main/resources/sqlite.db`, and `app/database` exist; it is not yet clear which one is the source of truth.
-- **Unit tests:** `frontend/src/components/__tests__/HelloWorld.spec.ts` is template code and no Java tests exist yet.
+```
+D & B Used Cars|111 Old Benbrook Rd|817-555-5555
+10112|1993|Ford|Explorer|SUV|Red|525123|995.00
+37846|2001|Ford|Ranger|truck|Yellow|172544|1995.00
+```
+
+```
+name|address|phone
+vin|year|make|model|type|color|odometer|price
+```
+
+Blank lines are ignored. Bad data is reported with its line number and the column that caused it:
+
+```
+Line 4 of /…/app/data/inventory.csv has vehicle type "spaceship", which is not car, truck, SUV or van: …
+```
+
+Options 8 and 9 rewrite the file, so what is on disk always matches what the lot holds.
+
+## Classes
+
+| Class | Responsibility |
+| --- | --- |
+| `Program` | `main()`: create the `UserInterface` and call `display()` |
+| `UserInterface` | menu, prompts, listings; owns the `Dealership`; dispatches each menu choice; saves after every add or remove |
+| `Dealership` | name, address, phone, the vehicle list, and the search / add / remove methods |
+| `DealershipFileManager` | reads the inventory file into a `Dealership`, writes a `Dealership` back over it |
+| `Vehicle` | one vehicle; `toString()` is the record line, `equals()` compares VINs |
+| `VehicleType` | the four categories the lot stocks: `CAR`, `TRUCK`, `SUV`, `VAN` |
+
+Package `net.tarou.dealership`, in the Maven layout Gradle expects:
+
+```
+app/
+├── build.gradle.kts
+├── data/inventory.csv          # the lot, plus inventory.csv.bak
+└── src
+    ├── main/java/net/tarou/dealership/
+    │   ├── Program.java
+    │   ├── UserInterface.java
+    │   ├── Dealership.java
+    │   ├── DealershipFileManager.java
+    │   ├── Vehicle.java
+    │   └── VehicleType.java
+    └── test/java/net/tarou/dealership/
+        ├── DealershipTest.java
+        └── DealershipFileManagerTest.java
+```
+
+## Search behaviour worth knowing
+
+- **Ranges are exclusive at both ends.** A vehicle priced exactly `2000` is not in the range
+  `2000`–`15000`. Same for model years and mileage. Prices are compared with
+  `BigDecimal.compareTo`, so `2000` and `2000.00` are the same price.
+- **Text searches ignore case and stray spaces.** `ford`/`RANGER` matches `Ford` `Ranger`, and
+  ` RED ` matches `Red`.
+- **A vehicle is its VIN.** `Vehicle.equals()` compares VINs only, so removing a vehicle needs
+  nothing but the VIN the sales manager typed.
+- **Type input is forgiving.** `suv`, `SUV`, `pickup`, `minivan`, `auto` and `sport utility` all
+  map onto the four categories; anything else is rejected and, when adding, asked for again.
+- **Bad input never crashes the app.** A non-numeric menu choice, price or mileage prints a
+  message and returns to the menu; reversed range bounds are swapped out loud.
