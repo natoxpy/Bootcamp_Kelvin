@@ -10,10 +10,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-/**
- * Searching, adding and removing vehicles on an in-memory dealership. Range searches are
- * exclusive at both ends, which is what these tests pin down.
- */
 class DealershipTest {
     private static final BigDecimal PRICE_995 = new BigDecimal("995.00");
     private static final BigDecimal PRICE_2000 = new BigDecimal("2000.00");

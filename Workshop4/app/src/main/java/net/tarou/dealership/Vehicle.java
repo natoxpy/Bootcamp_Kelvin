@@ -3,14 +3,11 @@ package net.tarou.dealership;
 import java.math.BigDecimal;
 
 /**
- * One vehicle in the dealership's inventory.
- *
- * Every field corresponds to one column of the pipe-delimited inventory file:
+ * One vehicle on the lot. Each field is one column of the inventory file:
  *
  * <pre>vin|year|make|model|type|color|odometer|price</pre>
  *
- * A vehicle is identified by its VIN, so {@link #equals(Object)} compares VINs only. That lets
- * the remove flow delete a vehicle using just the VIN the sales manager typed in.
+ * A vehicle is identified by its VIN, so {@link #equals(Object)} compares VINs only.
  */
 public class Vehicle {
     private String vin;
@@ -22,7 +19,6 @@ public class Vehicle {
     private int odometer;
     private BigDecimal price;
 
-    /** Empty vehicle, handy when building one up field by field while adding to inventory. */
     public Vehicle() {
         this("", 0, "", "", VehicleType.CAR, "", 0, BigDecimal.ZERO);
     }
@@ -110,7 +106,6 @@ public class Vehicle {
         this.price = price;
     }
 
-    /** Two vehicles are the same vehicle when their VINs match, ignoring case. */
     @Override
     public boolean equals(Object other) {
         if (this == other) {
@@ -127,10 +122,7 @@ public class Vehicle {
         return vin == null ? 0 : vin.toUpperCase().hashCode();
     }
 
-    /**
-     * The record line stored in inventory.csv. {@link DealershipFileManager} writes exactly this
-     * text, so the column order here is the file format.
-     */
+    /** The record line as it is written to the inventory file. */
     @Override
     public String toString() {
         return String.join(

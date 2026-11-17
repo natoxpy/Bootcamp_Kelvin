@@ -1,25 +1,13 @@
 package net.tarou.dealership;
 
-/**
- * The vehicle categories the dealership stocks.
- *
- * The workshop menu searches by four categories (car, truck, SUV, van), so the enum stays
- * small and the inventory file always stores one of these canonical names. Anything the user
- * types is funnelled through {@link #fromString(String)} so "suv", "SUV" and "S u v" all work.
- */
+/** The categories this dealership stocks. */
 public enum VehicleType {
     CAR,
     TRUCK,
     SUV,
     VAN;
 
-    /**
-     * Converts free-form user input (or a column read from the inventory file) into a
-     * {@code VehicleType}.
-     *
-     * @param value text such as "car", "Pickup", "minivan" or "SUV"
-     * @return the matching type, or {@code null} when the text matches no category
-     */
+    /** Maps loose spellings and synonyms ("suv", "pickup", "minivan") to a category, or null when nothing matches. */
     public static VehicleType fromString(String value) {
         if (value == null) {
             return null;

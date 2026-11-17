@@ -6,16 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Everything the sales manager sees and types: the menu, the prompts, and the vehicle listings.
- *
- * This class owns the dealership object (the workshop deliberately keeps {@code Program} from
- * building one, so a later version can host several dealerships) and dispatches the menu number
- * to the matching {@code process…Request()} method, which in turn asks {@link Dealership} to
- * search, add or remove.
- *
- * Every option that changes the inventory finishes by calling
- * {@link DealershipFileManager#saveDealership(Dealership)}, so the file on disk always matches
- * what is on the lot.
+ * The menu, prompts and listings the sales manager works through, and the dealership they operate
+ * on. Saves the inventory file after every add or remove.
  */
 public class UserInterface {
     private static final int PRICE_RANGE = 1;
@@ -33,9 +25,6 @@ public class UserInterface {
     private final DealershipFileManager fileManager = new DealershipFileManager();
     private final Scanner keyboard = new Scanner(System.in);
 
-    /**
-     * Loads the dealership, then shows the menu over and over until the user picks 99.
-     */
     public void display() {
         init();
 
@@ -56,10 +45,6 @@ public class UserInterface {
         System.out.println("Goodbye.");
     }
 
-    /**
-     * Creates the file manager and assigns the dealership it loads. A missing inventory file is
-     * reported and the session carries on with an empty lot, rather than crashing on start-up.
-     */
     private void init() {
         try {
             dealership = fileManager.getDealership();
@@ -81,7 +66,6 @@ public class UserInterface {
         }
     }
 
-    /** Prints the workshop menu. */
     private void displayMenu() {
         System.out.println();
         System.out.println("=== " + (dealership.getName().isBlank() ? "Dealership" : dealership.getName()) + " ===");
@@ -98,10 +82,6 @@ public class UserInterface {
         System.out.print("Choose an option: ");
     }
 
-    /**
-     * Reads one menu number. Anything that is not a number, and a closed input stream, both get
-     * handled instead of throwing.
-     */
     private int readCommand() {
         String entry = readLine();
 
@@ -118,7 +98,6 @@ public class UserInterface {
         }
     }
 
-    /** Sends a menu number to the handler that belongs to it. */
     private void processUserRequest(int command) {
         switch (command) {
             case PRICE_RANGE:
@@ -157,9 +136,6 @@ public class UserInterface {
         }
     }
 
-    /**
-     * Prints a list of vehicles in columns. Every search and list option reuses this one helper.
-     */
     private void displayVehicles(List<Vehicle> vehicles) {
         if (vehicles == null) {
             System.out.println("No vehicles to show.");
@@ -193,15 +169,10 @@ public class UserInterface {
         System.out.println(vehicles.size() + " vehicle(s).");
     }
 
-    /** Lists the whole lot. */
     private void processGetAllVehiclesRequest() {
         displayVehicles(dealership.getAllVehicles());
     }
 
-    /**
-     * Lists vehicles priced strictly between two amounts, e.g. {@code 2000} and {@code 15000}
-     * leaves out anything priced exactly 2000 or exactly 15000.
-     */
     private void processGetVehiclesInPriceRangeRequest() {
         BigDecimal lowest = readPrice("Lowest price to include (for example 2000): ");
         if (lowest == null) {
@@ -226,7 +197,6 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesInPriceRange(lowest, highest));
     }
 
-    /** Lists vehicles matching both a make and a model, such as {@code Ford} and {@code Ranger}. */
     private void processGetVehiclesByMakeModelRequest() {
         String make = readLine("Make (for example Ford): ");
         if (make == null) {
@@ -248,7 +218,6 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesByMakeModel(make, model));
     }
 
-    /** Lists vehicles whose model year falls strictly between two years. */
     private void processGetVehiclesByYearRequest() {
         Integer oldest = readInteger("First model year to search from (for example 2000): ");
         if (oldest == null) {
@@ -275,7 +244,6 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesByYear(lowestYear, highestYear));
     }
 
-    /** Lists vehicles of one color, such as {@code Red}. */
     private void processGetVehiclesByColorRequest() {
         String color = readLine("Color (for example Red): ");
         if (color == null) {
@@ -292,7 +260,6 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesByColor(color));
     }
 
-    /** Lists vehicles whose odometer reading falls strictly between two mileages. */
     private void processGetVehiclesInMileageRangeRequest() {
         Integer fewestMiles = readInteger("Lowest mileage to search from (for example 10000): ");
         if (fewestMiles == null) {
@@ -319,7 +286,6 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesInMileageRange(lowestMileage, highestMileage));
     }
 
-    /** Lists vehicles of one {@link VehicleType}. Accepts {@code car}, {@code truck}, {@code SUV}, {@code van}. */
     private void processGetVehiclesByTypeRequest() {
         VehicleType type = readVehicleType("Vehicle type (car, truck, SUV or van): ");
         if (type == null) {
@@ -331,11 +297,6 @@ public class UserInterface {
         displayVehicles(dealership.getVehiclesByType(type));
     }
 
-    /**
-     * Asks for every field of a new vehicle, puts it on the lot and saves the inventory file.
-     * A blank VIN, a VIN already on the lot, or a cancelled prompt all leave the inventory
-     * untouched.
-     */
     private void processAddVehicleRequest() {
         System.out.println();
         System.out.println("Add a vehicle. Leave the VIN empty to cancel.");
@@ -396,10 +357,6 @@ public class UserInterface {
         saveInventory();
     }
 
-    /**
-     * Takes a vehicle off the lot using its VIN: find it, show it, ask for confirmation, remove
-     * it, then save the inventory file.
-     */
     private void processRemoveVehicleRequest() {
         System.out.println();
         displayVehicles(dealership.getAllVehicles());
@@ -430,7 +387,6 @@ public class UserInterface {
         saveInventory();
     }
 
-    /** Writes the current inventory back to disk, reporting a failure instead of throwing. */
     private void saveInventory() {
         try {
             fileManager.saveDealership(dealership);
@@ -443,16 +399,10 @@ public class UserInterface {
         }
     }
 
-    /**
-     * Reads one line of text, trimmed.
-     *
-     * @return the text, or {@code null} when the input stream has closed
-     */
     private String readLine() {
         return keyboard.hasNextLine() ? keyboard.nextLine().trim() : null;
     }
 
-    /** Reads one line of text with a prompt. */
     private String readLine(String prompt) {
         System.out.print(prompt);
 
@@ -466,11 +416,6 @@ public class UserInterface {
         return entry;
     }
 
-    /**
-     * Reads a whole number.
-     *
-     * @return the number, or {@code null} when the entry was not a number or input ran out
-     */
     private Integer readInteger(String prompt) {
         String entry = readLine(prompt);
 
@@ -486,11 +431,6 @@ public class UserInterface {
         }
     }
 
-    /**
-     * Reads a price.
-     *
-     * @return the price, or {@code null} when the entry was not a number or input ran out
-     */
     private BigDecimal readPrice(String prompt) {
         String entry = readLine(prompt);
 
@@ -506,11 +446,6 @@ public class UserInterface {
         }
     }
 
-    /**
-     * Reads a vehicle type, asking again until the answer is one of the four the dealership uses.
-     *
-     * @return the type, or {@code null} when the user cancels or input runs out
-     */
     private VehicleType readVehicleType(String prompt) {
         while (true) {
             String entry = readLine(prompt);

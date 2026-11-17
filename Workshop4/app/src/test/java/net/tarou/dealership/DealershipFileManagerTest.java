@@ -13,10 +13,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-/**
- * Reading the pipe-delimited inventory file. The round-trip (save then load) is added in Phase 5,
- * when {@code saveDealership()} gets its body.
- */
 class DealershipFileManagerTest {
     @TempDir
     Path tempDir;
