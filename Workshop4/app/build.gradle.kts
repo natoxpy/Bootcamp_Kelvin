@@ -44,7 +44,13 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "net.tarou.Main"
+    mainClass = "net.tarou.dealership.Program"
+}
+
+// The dealership app is an interactive console program, and Gradle does not connect the terminal
+// to a JavaExec task unless you ask for it.
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
 
 tasks.named<Test>("test") {
