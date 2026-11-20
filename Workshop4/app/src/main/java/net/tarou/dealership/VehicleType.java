@@ -1,6 +1,5 @@
 package net.tarou.dealership;
 
-/** The categories this dealership stocks. */
 public enum VehicleType {
     CAR,
     TRUCK,

@@ -2,12 +2,15 @@ package net.tarou.dealership;
 
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
 /**
  * The menu, prompts and listings the sales manager works through, and the dealership they operate
- * on. Saves the inventory file after every add or remove.
+ * on. Saves the inventory file after every add, remove or sale/lease, and appends every recorded
+ * contract to the contracts file.
  */
 public class UserInterface {
     private static final int PRICE_RANGE = 1;
@@ -19,10 +22,13 @@ public class UserInterface {
     private static final int ALL_VEHICLES = 7;
     private static final int ADD_VEHICLE = 8;
     private static final int REMOVE_VEHICLE = 9;
+    private static final int SELL_OR_LEASE = 10;
+    private static final int ADMIN = 11;
     private static final int QUIT = 99;
 
     private Dealership dealership;
     private final DealershipFileManager fileManager = new DealershipFileManager();
+    private final ContractDataManager contractManager = new ContractDataManager();
     private final Scanner keyboard = new Scanner(System.in);
 
     public void display() {
@@ -78,6 +84,8 @@ public class UserInterface {
         System.out.println("7 - List ALL vehicles");
         System.out.println("8 - Add a vehicle");
         System.out.println("9 - Remove a vehicle");
+        System.out.println("10 - Sell / lease a vehicle");
+        System.out.println("11 - Admin (password required)");
         System.out.println("99 - Quit");
         System.out.print("Choose an option: ");
     }
@@ -127,11 +135,17 @@ public class UserInterface {
             case REMOVE_VEHICLE:
                 processRemoveVehicleRequest();
                 break;
+            case SELL_OR_LEASE:
+                processSellOrLeaseRequest();
+                break;
+            case ADMIN:
+                processAdminRequest();
+                break;
             case QUIT:
                 System.out.println("Goodbye.");
                 break;
             default:
-                System.out.println("That is not a menu option. Pick a number from 1 to 9, or 99 to quit.");
+                System.out.println("That is not a menu option. Pick a number from 1 to 11, or 99 to quit.");
                 break;
         }
     }
@@ -385,6 +399,184 @@ public class UserInterface {
 
         System.out.println("Removed " + found.getVin() + ".");
         saveInventory();
+    }
+
+    private void processSellOrLeaseRequest() {
+        System.out.println();
+        displayVehicles(dealership.getAllVehicles());
+
+        String vin = readLine("VIN of the vehicle to sell or lease (empty to cancel): ");
+        if (vin == null || vin.isEmpty()) {
+            System.out.println("No contract created.");
+            return;
+        }
+
+        Vehicle vehicle = dealership.findVehicleByVin(vin);
+        if (vehicle == null) {
+            System.out.println("No vehicle on the lot has VIN " + vin + ". No contract created.");
+            return;
+        }
+
+        System.out.println("Contracting for: " + vehicle);
+
+        String customerName = readLine("Customer name: ");
+        if (customerName == null || customerName.isEmpty()) {
+            System.out.println("A customer name is needed. No contract created.");
+            return;
+        }
+
+        String customerEmail = readLine("Customer email: ");
+        if (customerEmail == null || customerEmail.isEmpty()) {
+            System.out.println("A customer email is needed. No contract created.");
+            return;
+        }
+
+        String date = readLine("Contract date (yyyyMMdd, empty for today): ");
+        if (date == null) {
+            return;
+        }
+
+        if (date.isEmpty()) {
+            date = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+        }
+
+        String kind = readLine("Is this a SALE or a LEASE? (s or l): ");
+        if (kind == null || (!kind.equalsIgnoreCase("s") && !kind.equalsIgnoreCase("l"))) {
+            System.out.println("Answer s for a sale or l for a lease. No contract created.");
+            return;
+        }
+
+        int currentYear = LocalDate.now().getYear();
+        Contract contract;
+
+        if (kind.equalsIgnoreCase("l")) {
+            if (!LeaseContract.canLease(vehicle, currentYear)) {
+                System.out.println(
+                        "A " + vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel()
+                                + " is more than 3 years old, and only newer vehicles can be leased. No contract created.");
+                return;
+            }
+
+            contract = new LeaseContract(date, customerName, customerEmail, vehicle);
+        } else {
+            String finance = readLine("Finance the purchase? (y for a loan, anything else pays in full): ");
+            if (finance == null) {
+                return;
+            }
+
+            SalesContract sale = new SalesContract(
+                    date, customerName, customerEmail, vehicle, finance.equalsIgnoreCase("y"));
+            chooseAddOns(sale);
+            contract = sale;
+        }
+
+        displayContractSummary(contract, currentYear);
+
+        String confirmation = readLine("Record this contract? (y to confirm, anything else cancels): ");
+        if (confirmation == null || !confirmation.equalsIgnoreCase("y")) {
+            System.out.println("Contract cancelled.");
+            return;
+        }
+
+        try {
+            contractManager.saveContract(contract);
+            System.out.println("Contract saved to " + contractManager.getContractsFile().toAbsolutePath());
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not save to "
+                    + contractManager.getContractsFile().toAbsolutePath() + ": " + e.getMessage());
+            System.out.println("The contract was not recorded, so the vehicle stays on the lot.");
+            return;
+        }
+
+        dealership.removeVehicle(vehicle);
+        System.out.println(vehicle.getVin() + " left the lot.");
+        saveInventory();
+    }
+
+    private void chooseAddOns(SalesContract sale) {
+        List<AddOn> catalog = AddOn.catalog();
+
+        System.out.println();
+        System.out.println("Optional add-ons for this sale:");
+
+        for (int i = 0; i < catalog.size(); i++) {
+            AddOn addOn = catalog.get(i);
+            System.out.println("  " + (i + 1) + " - " + addOn.getName() + "  " + addOn.getPrice().toPlainString());
+        }
+
+        String entry = readLine("Add-on numbers separated by commas (empty for none): ");
+        if (entry == null || entry.isEmpty()) {
+            return;
+        }
+
+        for (String part : entry.split(",")) {
+            if (part.isBlank()) {
+                continue;
+            }
+
+            try {
+                int choice = Integer.parseInt(part.trim());
+
+                if (choice < 1 || choice > catalog.size()) {
+                    System.out.println("\"" + part.trim() + "\" is not an add-on number.");
+                } else {
+                    sale.addAddOn(catalog.get(choice - 1));
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("\"" + part.trim() + "\" is not an add-on number.");
+            }
+        }
+    }
+
+    private void displayContractSummary(Contract contract, int currentYear) {
+        Vehicle vehicle = contract.getVehicle();
+
+        System.out.println();
+        System.out.println("Contract for " + contract.getCustomerName()
+                + " on " + vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel()
+                + " (" + vehicle.getVin() + "), dated " + contract.getDate() + ":");
+
+        if (contract instanceof SalesContract sale) {
+            System.out.println("  Vehicle price:      " + vehicle.getPrice().toPlainString());
+
+            if (!sale.getAddOns().isEmpty()) {
+                for (AddOn addOn : sale.getAddOns()) {
+                    System.out.println("  Add-on:             " + addOn.getName()
+                            + "  " + addOn.getPrice().toPlainString());
+                }
+            }
+
+            System.out.println("  Sales tax (5%):     " + sale.getSalesTax().toPlainString());
+            System.out.println("  Recording fee:      " + sale.getRecordingFee().toPlainString());
+            System.out.println("  Processing fee:     " + sale.getProcessingFee().toPlainString());
+            System.out.println("  Total price:        " + sale.getTotalPrice().toPlainString());
+
+            if (sale.isFinanced()) {
+                boolean bigLoan = vehicle.getPrice().compareTo(SalesContract.PROCESSING_TIER) >= 0;
+                System.out.println("  Financed at " + (bigLoan ? "4.25% for 48 months" : "5.25% for 24 months"));
+                System.out.println("  Monthly payment:    " + sale.getMonthlyPayment().toPlainString());
+            } else {
+                System.out.println("  Paid in full, no monthly payment.");
+            }
+        } else {
+            LeaseContract lease = (LeaseContract) contract;
+            System.out.println("  Vehicle price:      " + vehicle.getPrice().toPlainString());
+            System.out.println("  Expected ending value: " + lease.getExpectedEndingValue().toPlainString());
+            System.out.println("  Lease fee (7%):     " + lease.getLeaseFee().toPlainString());
+            System.out.println("  Total price:        " + lease.getTotalPrice().toPlainString());
+            System.out.println("  Leased at 4.0% for 36 months");
+            System.out.println("  Monthly payment:    " + lease.getMonthlyPayment().toPlainString());
+        }
+    }
+
+    private void processAdminRequest() {
+        String password = readLine("Admin password: ");
+        if (password == null || !AdminUserInterface.acceptsPassword(password)) {
+            System.out.println("Wrong password.");
+            return;
+        }
+
+        new AdminUserInterface(contractManager, keyboard).display();
     }
 
     private void saveInventory() {
